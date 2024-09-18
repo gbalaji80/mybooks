@@ -1,0 +1,1007 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Understanding Hibernate proxy objects and avoiding potential pitfalls</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/9190841805623492737/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Sep 18, 2012</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="9190841805623492737"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Understanding Hibernate proxy objects and avoiding potential pitfalls
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><table>
+<tbody>
+<tr>
+<td width="25%"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-3764234023451771";
+/* LHS - vertical bar */
+google_ad_slot = "9570018680";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_channel ="9570018680";
+google_page_url = "http://java-success.blogspot.com.au/2012/06/core-java-coding-questions-frequently.html";
+//--&gt;
+</script>
+<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript">
+</script>
+</td>
+<td>
+<br />
+<b>Q.</b> How does hibernate support lazy loading?<br />
+<b>A.</b> Hibernate uses a proxy object to support lazy loading. Basically as soon as you reference a child or lookup object via the accessor/getter methods, if the linked entity is not in the session cache (i.e. the first-level cache), then the proxy code will go off to the database and load the linked object. It uses javassist (or&nbsp;CGLIB&nbsp;) to effectively and dynamically generate sub-classed implementations of your objects.<br />
+<br />
+Let's look at an example. An employee&nbsp;hierarchy&nbsp;table can be represented in a database table as shown below<br />
+<br />
+<pre class="brush: csharp">public class Employee {
+
+   private Long id;
+   private String name;
+   private String title;
+   private Employee superior;
+   private Set&lt;Employee&gt; subordinates;
+
+   //getters and setters are omitted
+
+}
+
+
+</pre>
+In the above example, if you use lazy loading then the "superior" and "subordinates" will be proxied (i.e. not the actual object, but the stub object that knows how to load the actual object) when the main "Employee" object is loaded. So, if you need to get the "subordinates" or  "superior" object, you invoke the getter method on the employee like <i>employee.getSuperior( )</i> and the actual object will be loaded.<br />
+<br />
+</td></tr>
+</tbody></table>
+<b>Q.</b> What are some of the pitfalls of using a proxy object?<br />
+<b>A</b>. The typical pitfall is in how you implement your <i><b>equals( )</b> </i>method that gets invoked when comparing objects.<br />
+<br />
+<b>Pitfall 1</b>: As explained before, <b>the proxy objects are dynamically created by sub-classing your object</b> at runtime. The subclass will have all the methods of the parent, but the fields (e.g. name, etc) in the proxy object will remain null, and when any of the methods are accessed via getter/setter method, the proxy loads up the real object from the database.<br />
+<br />
+A typical<i> equals( )</i> method implementation will look like<br />
+<br />
+<pre class="brush: csharp">  @Override
+  public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    if (obj == this) {
+      return true;
+    }
+    if (!(obj instanceof Employee)) {         //Line X: compare object type
+      return false;
+    }
+    return name.equals((Employee)obj).name);  //Line Y: compare names
+  }
+ 
+</pre>
+As discussed before, the supplied object is a proxy object and the supplied name will be null. This can be fixed by using the getter method in <b>Line Y </b>instead of using the field directly. Using the getter method will tell the proxy object to load the actual object as shown below.
+
+<br />
+<br />
+<pre class="brush: csharp">  @Override
+  public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    if (obj == this) {
+      return true;
+    }
+    if (!(obj instanceof Employee)) {
+      return false;
+    }
+    return name.equals((Employee)obj).getName());  //Line Y: compare names
+  }
+ 
+</pre>
+<b>Pitfall 2</b>: We saw earlier that the&nbsp;<b>the proxy objects are dynamically created by&nbsp;sub-classing&nbsp;your object. </b>In<b>&nbsp;</b>a simple scenario where you only have the "<i>Employee</i>" object the <b>typecasting </b>in Line Y and "<b>instanceof</b>" operator in Line X will work. But, what will happen if you have a type&nbsp;hierarchy&nbsp;for The class <i>Employee </i>as shown below<br />
+<br />
+<pre class="brush: csharp">   public class PermanentEmployee extends Employee {
+       .......
+   }
+   
+   public class CasualEmployee extends Employee {
+       .......
+   }
+   
+</pre>
+<br />
+When you have a type&nbsp;hierarchy&nbsp;as shown above, the<b> type casts</b> and <b>instanceof </b>operators will not work with the proxy objects. <br />
+<br />
+A proxy class is a subclass of a field type that is required. Hibernate creartes a dynamic subclass by looking at the type of field. This means that if the field type is not the actual implementation (e.g. CasualEmployee) type, but an interface or superclass (e.g. Employee), the type of the proxy will be different than the type of the actual object. So, as shown in the diagram below, If the field type is the superclass (e.g. Employee) of the actual implementation (i.e. CasualEmployee), the proxy type (i.e. proxy) and the implementation-type (e.g. CasualEmployee) will be siblings in the type hierarchy, both extending the superclass. This means the proxy object will not be an instance of the implementing type (i.e. CasualEmployee), and the application code depending on this check will fail.
+<br/>
+<br/>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-XiNqzVtpJ4c/Uec0fvwjzlI/AAAAAAAABuY/QJkBBZ3ZvqA/s1600/hibernate-proxy.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-XiNqzVtpJ4c/Uec0fvwjzlI/AAAAAAAABuY/QJkBBZ3ZvqA/s640/hibernate-proxy.jpg" /></a></div>
+<br/>
+<br/>
+To prevent this issue, you have two approaches.
+<br/>
+<br/>
+<b>Approach 1</b>: Switch off proxying on the top level class by setting lazy=”false”, which will turn proxying off for the hierachy.<br />
+<br />
+<b>Approach 2</b>:&nbsp;Use the "Gang of Four" (i.e. GoF) <b>visitor design pattern</b> that allows you to adapt a single object or manipulate a collection of polymorphic objects without all the messy typecasts and instanceof operations.<br />
+<br />
+<br />
+<b>Pitfall 3:</b>&nbsp;As per the above example, if you have an “Employee” class, that contains a “name” property, when you invoke do “employee.getName()”, the proxies will get the "name" from Hibernate caches (either 1st or 2nd levels) or the database when requested. But if this call happens in the presentation layer like in the Struts action class, you will get the org.hibernate.LazyInitializationException because the <b>Hibernate Session is closed and this lazy attribute does not have the session attached</b>, hence &nbsp;can’t load their lazy references.<br />
+<br />
+The solution is to de-proxy the employee class as shown below:<br />
+<br />
+<b>Step 1: </b>Write a generic utility class to <b>de-proxy </b>a given object<br />
+<br />
+<pre class="brush: csharp">public class HibernateUtil {
+
+    public static &lt;T&gt; T unproxy(T entity) {
+        if (entity == null) {
+            return null;
+        }
+ 
+        if (entity instanceof HibernateProxy) {
+            Hibernate.initialize(entity);
+            entity = (T) ((HibernateProxy) entity).getHibernateLazyInitializer().getImplementation();
+        }
+
+        return entity;
+    }
+}
+</pre>
+<br />
+<br />
+<b>Step 2</b>: Use the above utility class<br />
+<br />
+<br />
+<pre class="brush: csharp">public Employee getSuperior() {
+    superior = HibernateUtils.unproxy(employee);
+    return superior;
+}
+</pre>
+<br />
+<br />
+These types of issues are hard to debug, and being aware of these pitfalls can save you lots of time in debugging and fixing the issues.<div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Hibernate">Hibernate</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2012/09/understanding-hibernate-proxy-objects.html" title="permanent link"> 9/18/2012 02:50:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=9190841805623492737" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=9190841805623492737&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>13 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c6473116100445687839"><a name="c6473116100445687839"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>superior = HibernateUtils.unproxy(book);<br /><br />What &#39;book&#39; refers here?</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html?showComment=1349932828983#c6473116100445687839" title="comment permalink">4:20 PM, October 11, 2012</a>
+	  <span class="item-control blog-admin pid-1442760174"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=6473116100445687839" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c2213862530459523972"><a name="c2213862530459523972"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>It is the Hibernate entity. It should be employee, not book. Thanks for pointing that out.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html?showComment=1349933448022#c2213862530459523972" title="comment permalink">4:30 PM, October 11, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2213862530459523972" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c5972209759459227295"><a name="c5972209759459227295"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Naidu</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>can you provide Exception hirachy and Collection hirachy with examples</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html?showComment=1355415199232#c5972209759459227295" title="comment permalink">3:13 AM, December 14, 2012</a>
+	  <span class="item-control blog-admin pid-1739449891"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=5972209759459227295" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c5374291431391587333"><a name="c5374291431391587333"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>This is highly impressive and extremely useful. Thanks a ton. Can I know, the currency of this article?</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html?showComment=1357396552980#c5374291431391587333" title="comment permalink">1:35 AM, January 06, 2013</a>
+	  <span class="item-control blog-admin pid-842296747"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=5374291431391587333" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c2513589705609087029"><a name="c2513589705609087029"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>I followed all of this article until the statement &quot;When you have a type hierarchy as shown above, the type casts and instanceof operators will not work with the proxy objects.&quot; Can you explain why a dynamically created subclass would fail the instanceof check? Can you explain the reasons a dynamically created subclass of Employee passes instanceof Employee but a dynamic subclass of a subclass would not?</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html?showComment=1374055856959#c2513589705609087029" title="comment permalink">8:10 PM, July 17, 2013</a>
+	  <span class="item-control blog-admin pid-816781804"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2513589705609087029" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c7784482594140626076"><a name="c7784482594140626076"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>I have added updated it with more details.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html?showComment=1374276851958#c7784482594140626076" title="comment permalink">9:34 AM, July 20, 2013</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=7784482594140626076" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3644639377493533910"><a name="c3644639377493533910"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/09006401258217501346" rel="nofollow">Ashutosh Kumar</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>wowww!!!gr8..thanks,..</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html?showComment=1374526637107#c3644639377493533910" title="comment permalink">6:57 AM, July 23, 2013</a>
+	  <span class="item-control blog-admin pid-1192003406"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3644639377493533910" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c224048925310689941"><a name="c224048925310689941"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/05019035643886796013" rel="nofollow">Vijay</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Very very helpful...</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html?showComment=1375952391018#c224048925310689941" title="comment permalink">6:59 PM, August 08, 2013</a>
+	  <span class="item-control blog-admin pid-6373116"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=224048925310689941" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c1829002591937861535"><a name="c1829002591937861535"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://exceptionline.com" rel="nofollow">John</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p><a href="http://exceptionline.com" rel="nofollow">thank you sir for nice tutorial</a></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html?showComment=1377715475250#c1829002591937861535" title="comment permalink">4:44 AM, August 29, 2013</a>
+	  <span class="item-control blog-admin pid-1685696761"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=1829002591937861535" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c1736947368976528428"><a name="c1736947368976528428"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/06250879360565025960" rel="nofollow">Andres Gomez</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thank you, it was very helpful!</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html?showComment=1378212867082#c1736947368976528428" title="comment permalink">10:54 PM, September 03, 2013</a>
+	  <span class="item-control blog-admin pid-613812612"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=1736947368976528428" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c1212333613899473319"><a name="c1212333613899473319"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Very Nice Article.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html?showComment=1391622457188#c1212333613899473319" title="comment permalink">4:47 AM, February 06, 2014</a>
+	  <span class="item-control blog-admin pid-258898031"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=1212333613899473319" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c5393793750929010898"><a name="c5393793750929010898"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00505368142331798809" rel="nofollow">Chetan Patel</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>To solve pitfall 2, in equals method cant I use object instanceof subclass instead of parent class? Will it not solve problem?</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html?showComment=1394251076600#c5393793750929010898" title="comment permalink">2:57 PM, March 08, 2014</a>
+	  <span class="item-control blog-admin pid-1232110012"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=5393793750929010898" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c2921828387459326982"><a name="c2921828387459326982"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>I have been using hibernate for long time. But I never knew the details listed here. Thanks for sharing. </p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html?showComment=1411097019727#c2921828387459326982" title="comment permalink">1:23 PM, September 19, 2014</a>
+	  <span class="item-control blog-admin pid-1264672855"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2921828387459326982" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=9190841805623492737'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/9190841805623492737/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+    <a name="links"></a><h4>Links to this post:</h4>
+    <dl id="comments-block">
+    <script type="text/javascript" src="https://www.blogger.com/dyn-js/backlink.js?blogID=35897879&postID=9190841805623492737" charset="utf-8" defer="true">
+</script>
+<noscript><a href="http://blogsearch.google.com/?ui=blg&q=link:http://java-success.blogspot.com/2012/09/understanding-hibernate-proxy-objects.html">See links to this post</a></noscript>
+<div id="blogger-dcom-block" style="display:none">
+        <dt class="comment-title">
+        <span class="comment-toggler">&nbsp;</span>
+        <a href="<$BlogBacklinkURL$>" rel="nofollow"><$BlogBacklinkTitle$></a> <span class="item-control blog-admin"><a style="border:none;" href="https://www.blogger.com/delete-backlink.g?blogID=35897879&amp;postID=9190841805623492737&amp;backlinkURL=%3C$BlogBacklinkURLEscaped$%3E" title="Remove Link" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+        </dt>
+        <dd class="comment-body"><$BlogBacklinkSnippet$>
+        <br />
+        <span class="comment-poster">
+        <em><$I18NPostedByBacklinkAuthor$> @ <$BlogBacklinkDateTime$></em>
+        </span>
+        </dd>
+    </div>
+<script type="text/javascript">if (typeof BL_addOnLoadEvent == 'function') { BL_addOnLoadEvent(function() { BL_writeBacklinks(); }); }</script>
+
+    </dl>
+    <p class="comment-timestamp"><script type="text/javascript">function BlogThis() {
+Q=''; x=document; y=window;
+if(x.selection) {
+  Q=x.selection.createRange().text;
+} else if (y.getSelection) {
+  Q=y.getSelection();
+} else if (x.getSelection) {
+  Q=x.getSelection();
+}
+popw = y.open('https://www.blogger.com/blog-this.g?t=' +
+  escape(Q) + '&u=' + escape(location.href) + '&n=' +
+  escape(document.title),'bloggerForm',
+  'scrollbars=no,width=475,height=300,top=175,left=75,status=yes,resizable=yes');
+void(0);
+}
+</script>
+<a class="comment-link" href="javascript:BlogThis();" id="b-backlink">Create a Link</a></p>
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2012/09/java-coding-to-compare-and-sort-objects.html">Java coding to compare and sort objects</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/08/article-scenarios-and-solutions-for_28.html">Article: Scenarios and solutions for better concur...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/08/are-you-going-for-programming-jobs-at.html">Are you going for programming jobs at investment b...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/08/article-scenarios-and-solutions-for_21.html">Article: Scenarios and solutions for better concur...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/08/article-scenarios-and-solutions-for.html">Article: Scenarios and solutions for better concur...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/08/article-sample-java-resume-or-sample.html">Article: Sample Java Resume or CV</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/08/article-using-builders-instead-of.html">Article: Using Builders instead of Constructors to...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/08/article-functional-programming-in-java.html">Article: Functional programming in Java</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/08/java-logical-thinking-code-example.html">Java logical thinking and coding questions and ans...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/08/how-to-standout-from-other-javajee.html">How to standout from other Java/JEE professionals?...</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

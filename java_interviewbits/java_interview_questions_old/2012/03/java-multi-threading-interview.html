@@ -1,0 +1,1280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Java multi-threading interview questions and answers: atomic operations</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/5273241981817442057/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Mar 26, 2012</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="5273241981817442057"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Java multi-threading interview questions and answers: atomic operations
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><table>
+<tr>
+<td width="35%">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3764234023451771";
+/* LHS - Medium Rectangle */
+google_ad_slot = "1728948974";
+google_ad_width = 336;
+google_ad_height = 280;
+google_ad_channel ="6353655268";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+</td>
+<td width="65%">
+<b>Q. </b>Can you give some examples of thread racing conditions you had experienced?<br />
+<b>A. </b><br />
+<br />
+<b>1.</b> Declaring variables in JSP pages are not thread-safe. The declared variables in JSP pages end-up as instance variables in the converted Servlets. <br />
+<br />
+&lt;%! Calendar c = Calendar.getInstance(); %&gt;<br />
+<br />
+<b>2.</b> Decalring instance variables in Servlets is not thread safe, as Servlets are inherently multi-threaded and gets accessed by multiple-threads. Same is true for the <i><b>Action </b></i>classes in the struts framework.<br />
+<br />
+<b>3.</b> Some of the Java standard library classes like <i><b>SimpleDateFormat </b></i>is not thread-safe. Always check the API to see if a particular class is thread-safe. If a  particular class or library is not therad-safe, you could do one of three things.
+</td>
+</tr>
+</table>
+
+ 
+
+
+ <br />
+<br />
+<ul><li>Provide your own wrapper class that decorates the third-party library with proper synchronization. This is a typical use of the <b>decorator design pattern</b>.</li>
+<li>Use an alternative library, which is thread-safe if available. For example, <b>Joda Time Library.&nbsp;  </b></li>
+<li>Use it in a thread-safe manner. For example, you could use the <i><b>SimpleDateFormat </b></i>class as shown below within a <i><b>ThreadLocal </b></i>class.  Each thread will have its own instance of the <i>SimpleDateFormat</i> object.</li>
+</ul><br />
+<br />
+<!-- INFOLINKS_OFF -->
+<pre class="brush: csharp">public class DateFormatTest {
+
+  //anonymous inner class. Each thread will have its own copy
+  private final static ThreadLocal&lt;SimpleDateFormat&gt; shortDateFormat =  new ThreadLocal&lt;SimpleDateFormat&gt;() {
+            protected SimpleDateFormat initialValue() {
+                 return new SimpleDateFormat("dd/MM/yyyy");
+             }
+  };
+   
+      
+ public Date convert(String strDate)
+                     throws ParseException {
+ 
+    //get the SimpleDateFormat instance for this thread and parse the date string  
+    Date d = shortDateFormat.get().parse(strDate);
+    return d;
+  }
+
+}
+
+</pre><b>4. </b>The one that is very popular with the interviewers is writing the singleton classes that are not thread-safe.<br />
+<br />
+<b>Q</b>. Can you have a true singleton class in Java? How would you write a <b><span style="font-size: large;">thread-safe singleton</span></b> class?<br />
+<b>A</b>. A singleton class is something for which only one instance exists per class loader. Single instance for a whole application cannot be guaranteed. That is just definition of what a singleton is. The one that is&nbsp; popular with the interviewers is writing a thread-safe singleton class. For example, the following singleton class is not thread-safe because before a thread creates the Singleton instance, another thread can proceed to the instantiation part of the code -- instance = new Object( );&nbsp; to create more than one instance of the Singleton object. Even though the code --&gt; instance = new Object( ); appears to be single line, the JVM has to execute a number of internal steps like allocating memory, creating a new object and assigning the newly created object to the referenced variable. Only after the completion of these steps, the condition instance == null will return false.<br />
+<br />
+<pre class="brush: csharp">//final so that cannot be subclassed
+public final class Singleton {
+ 
+    private static Object instance = null;
+ 
+    //private so that it cannot be instantiated from outside this class
+    private Singleton() {}
+ 
+    public static Object getInstance() {
+        if (instance == null) {
+            instance = new Object(); 
+        }
+ 
+        return instance;
+    }
+}
+</pre><br />
+<br />
+So, you can make the above code thread-safe in a number of ways.<br />
+<br />
+<br />
+<b>Option 1:</b> Synchronize the whole method or the block of code. This approach is not efficient as the use of synchronized keyword in a singleton class means that only one thread will be executing the synchronized block at a time and all other threads would be waiting. <br />
+<br />
+<br />
+<b>Option 2:</b> Eagerly initialize the singleton instance when the class is actually loaded as opposed to initializing it lazily at at run time only when it is accessed.<br />
+<br />
+<br />
+<pre class="brush: csharp">//final so that cannot be subclassed
+public final class ThreadSafeSingleton {
+ 
+    //eager initialization and instantitiated as soon as the class is loaded by a classloader in the JVM 
+    private static Object instance = new Object();
+ 
+    //private so that it cannot be instantiated from outside this class
+    private Singleton() {}
+ 
+    public static Object getInstance() { 
+        return instance;
+    }
+} </pre><br />
+<b>Option 3</b>: You can use the "<b>Initialize-On-Demand Holder Class"</b> idiom proposed by Brian Goetz to create a thread-safe lazy-initialized Singleton as shown below by creating an inner class. <br />
+<br />
+<br />
+<pre class="brush: csharp">public final class ThreadSafeSingleton {
+&nbsp;
+&nbsp;&nbsp;&nbsp; //private so that it cannot be instantiated from outside this class
+&nbsp;&nbsp;&nbsp; private ThreadSafeSingleton() {}
+&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp; //static inner class, invoked only when ThreadSafeSingleton.getInstance() is called
+&nbsp;&nbsp;&nbsp; private static class ThreadSafeSingletonHolder {
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; private static ThreadSafeSingleton instance = new ThreadSafeSingleton();
+&nbsp;&nbsp;&nbsp; }
+&nbsp;
+&nbsp;&nbsp;&nbsp; public static Object getInstance() { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return ThreadSafeSingletonHolder.instance;
+&nbsp;&nbsp;&nbsp; }
+}
+
+</pre><br />
+<b>Option 4:</b> is to create a per thread singleton as discussed earlier with the <b><i>ThreadLocal </i></b>class for the <i>SimpledateFormat</i>.<br />
+<br />
+<br />
+<br />
+<b>Q.</b> Explain how you would get thread-safety issues due to <span style="font-size: large;"><b>non-atomic</b> operations</span> with a code example?<br />
+<b>A.</b> The code snippets below demonstrates non-atomic operations producing incorrect results with code. The program below uses a shared Counter object, that is shared between three concurrent users (i.e. three threads). The Counter object is responsible for incrementing the counter. <br />
+<br />
+<br />
+<b>Firstly</b>, the Counter class. The counted values are stored in a <i>HashMap </i>by name (i.e. thread name) as the key for later retrieval<br />
+<br />
+<br />
+<pre class="brush: csharp">import java.util.HashMap;
+import java.util.Map;
+
+public class Counter {
+
+ //shared variable or resource
+ private Integer count = Integer.valueOf(0); 
+ 
+ private Map&lt;String, Integer&gt; userToNumber = new HashMap&lt;String, Integer&gt;(10);
+
+ public void  increment() {
+  try {
+   count = count + 1;   //increment the counter
+   Thread.sleep(50);    // to imitate other operations and to make the racing condion to occur more often for the demo
+   Thread thread = Thread.currentThread();
+   userToNumber.put(thread.getName(), count);
+  } catch (InterruptedException e) {
+   e.printStackTrace();
+  }
+
+ }
+ 
+ 
+ public Integer getCount(String name) {
+  return userToNumber.get(name);
+ }
+ 
+}
+
+
+</pre><br />
+<br />
+<b>Next</b>, the Runnable task where each thread will be entering and executing concurrently.<br />
+<br />
+<br />
+<pre class="brush: csharp">public class CountingTask implements Runnable {
+ 
+ 
+ private Counter counter;
+
+ public CountingTask(Counter counter) {
+  super();
+  this.counter = counter;
+ }
+
+ @Override
+ public void run() {
+  counter.increment();
+  Thread thread = Thread.currentThread();
+  System.out.println(thread.getName() + " value is " + counter.getCount(thread.getName()));
+  
+ }
+
+}
+
+</pre><br />
+<br />
+<b>Finally</b>, the Manager class that creates 3 new threads from the main thread.<br />
+<br />
+<br />
+<pre class="brush: csharp">public class CountingManager {
+ 
+ public static void main(String[] args) throws InterruptedException {
+  
+  Counter counter = new Counter(); // create an instance of the Counter
+  CountingTask task = new CountingTask(counter); // pass the counter to the runnable CountingTask
+
+  
+  //Create 10 user threads (non-daemon) from the main thread that share the counter object  
+  Thread thread1 = new Thread(task, "User-1");
+  Thread thread2 = new Thread(task, "User-2");
+  Thread thread3 = new Thread(task, "User-3");
+  
+  
+  //start the threads
+  thread1.start();
+  thread2.start();
+  thread3.start();
+  
+  
+  //observe the racing conditions in the output
+  
+ }
+
+}
+
+</pre><br />
+To see the racing condition, inspect the output of the above code<br />
+<br />
+<br />
+<pre class="brush: csharp">User-3 value is 3
+User-1 value is 3
+User-2 value is 3
+</pre><br />
+<br />
+All three threads or users get assigned the same value of 3 due to racing conditions. We are expecting to see three different count values to be assigned from 1 to 3.  What happened here is that when the first thread incremented the count from 0 to 1 and entered into the sleep(50) block, the second and third threads incremented the counts from 1 to 2 and 2 to 3 respectively. This shows that the 2 operations -- the operation that increments the thread and the operation that stores the incremented value in a HashMap are not atomic, and produces incorrect results due to racing conditions.     <br />
+<br />
+<br />
+<b>Q.</b> How will you fix the above racing issue?<br />
+<b>A.</b> This can be fixed a number of ways.<br />
+<br />
+<br />
+<b>Option 1:</b> Method level synchronization. This is the simplest. As you can see, the  increment() method is synchronized, so that the other threads must wait for the thread that already has the lock to execute that method.<br />
+<br />
+<pre class="brush: csharp">import java.util.HashMap;
+import java.util.Map;
+
+public class Counter {
+
+ //shared variable or resource
+ private Integer count = Integer.valueOf(0); 
+ 
+ private Map&lt;String, Integer&gt; userToNumber = new HashMap&lt;String, Integer&gt;(10);
+
+ public synchronized void  increment() {
+  try {
+   count = count + 1;
+   Thread.sleep(50);
+   Thread thread = Thread.currentThread();
+   userToNumber.put(thread.getName(), count);
+  } catch (InterruptedException e) {
+   e.printStackTrace();
+  }
+
+ }
+ 
+ 
+ public Integer getCount(String name) {
+  return userToNumber.get(name);
+ }
+ 
+}
+
+</pre><br />
+<b>Option 2:</b> Even though the Option 1 is simple, it locks the entire method and can adversely impact performance for long running methods as each thread has to execute the entire method one at a time. So, the Option 1 can be improved by providing block level lock. Lock only those operations that are acting on the shared resource and making it non-atomic.<br />
+<br />
+<br />
+The code below uses an Object, which has its own lock to ensure that two threads cannot execute both the Operation 1 and 2 at the same time because there is only one lock. <br />
+<br />
+<pre class="brush: csharp">import java.util.HashMap;
+import java.util.Map;
+
+public class Counter {
+
+ //shared variable or resource
+ private Integer count = Integer.valueOf(0); 
+ 
+ private Map&lt;String, Integer&gt; userToNumber = new HashMap&lt;String, Integer&gt;(10);
+ 
+ private Object mutex = new Object();   // a lock
+
+ public void  increment() {
+  try {
+   synchronized(mutex) {
+     count = count + 1;                         //operation 1
+     Thread.sleep(50); 
+     Thread thread = Thread.currentThread();
+     userToNumber.put(thread.getName(), count); //operation 2
+   }
+   // there could be other operations here that uses the shared resource as read only
+   
+  } catch (InterruptedException e) {
+   e.printStackTrace();
+  }
+
+ }
+ 
+ public Integer getCount(String name) {
+  return userToNumber.get(name);
+ }
+ 
+}
+
+</pre><br />
+<b>Option 3:</b> This is a very trivial, but practical example. The Java 5 introduced locks and locks are better than using just objects for more flexible locking scenarios where Locks can be used in place of synchronized blocks. Locks offer more flexibility than synchronized blocks in that a thread can unlock multiple locks it holds in a different order than the locks were obtained. Here is the code that replaces synchronized with a reentrant lock. Synchronized blocks in Java are reentrant, which means if a Java thread enters a synchronized block of code, and thereby take the lock on the object the block is synchronized on, the thread can enter other Java code blocks synchronized on the same lock object. <br />
+<br />
+For example, here is the demo of reentrant lock. <br />
+<br />
+<pre class="brush: csharp">public class Reentrant{
+
+  public synchronized method1(){
+    method2();    //calls another synchronized method on the same object
+  }
+
+  public synchronized method2(){
+    //do something
+  }
+}
+
+</pre><br />
+<br />
+Here is the<b> Option 3 </b>example using a <b>ReentrantLock</b>.<br />
+<br />
+<pre class="brush: csharp">import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class Counter {
+
+ // shared variable or resource
+ private Integer count = Integer.valueOf(0);
+
+ private Map&lt;String, Integer&gt; userToNumber = new HashMap&lt;String, Integer&gt;(10);
+
+ private Lock mutex = new ReentrantLock(); // a lock
+
+ public void increment() {
+  try {
+   mutex.lock();
+   try {
+    count = count + 1;
+    Thread.sleep(50); 
+    Thread thread = Thread.currentThread();
+    userToNumber.put(thread.getName(), count);
+   } finally {
+    mutex.unlock(); // finally block is executed even if an
+        // exception is thrown
+   }
+  } catch (InterruptedException e) {
+   e.printStackTrace();
+  } finally {
+
+  }
+
+ }
+
+ public Integer getCount(String name) {
+  return userToNumber.get(name);
+ }
+
+}
+
+</pre><br />
+<br />
+Note that the locks are unlocked in a finally block as it is executed even if an exception is thrown.<br />
+<br />
+The output for the above 3 options will be something like shown below. The order cannot be guaranteed. But you will get unique numbers assigned for each user.<br />
+<br />
+<pre class="brush: csharp">User-1 value is 1
+User-3 value is 2
+User-2 value is 3
+
+</pre><br />
+<br />
+<b>Q.</b> The following code snippet changes the Counter class to maintain individual counting as in each user counter will be incremented starting from 1. So, the Counter will no longer be the shared resource. The <i>CountingTask </i>class is also modified to loop through each user 2 times as shown below. Is there anything wrong with the code shown below?<br />
+<br />
+<br />
+<br />
+The Counter class with individual counts<br />
+<br />
+<pre class="brush: csharp">import java.util.HashMap;
+import java.util.Map;
+
+public class Counter {
+
+ private Map&lt;String, Integer&gt; userToNumber = new HashMap&lt;String, Integer&gt;(10);
+
+ public void increment() {
+  Thread thread = Thread.currentThread();
+  if (!userToNumber.containsKey(thread.getName())) {
+   userToNumber.put(thread.getName(), Integer.valueOf(1));  //op1
+  } else {
+   Integer count = userToNumber.get(thread.getName());
+   if (count != null) {
+    ++count; // op2: increment it
+    userToNumber.put(thread.getName(), count); //op3
+   }
+  }
+
+ }
+
+ public Integer getCount(String name) {
+  return userToNumber.get(name);
+ }
+}
+
+</pre><br />
+The counting task that repeats twice for each user<br />
+<br />
+<pre class="brush: csharp">public class CountingTask implements Runnable {
+
+ private Counter counter;
+
+ public CountingTask(Counter counter) {
+  super();
+  this.counter = counter;
+ }
+
+ @Override
+ public void run() {
+
+  for (int i = 0; i &lt; 2; i++) {
+   counter.increment();
+   Thread thread = Thread.currentThread();
+   System.out.println(thread.getName() + " value is "
+     + counter.getCount(thread.getName()));
+  }
+ }
+
+}
+</pre><br />
+<br />
+<b>A.</b> If each user will be accessed by only one thread, then the above code is thread-safe because each user will be operating on his/her data. So, only one thread will access the map entry for User-1, and so on. But, what happens if User-3 has two threads created as shown below.<br />
+<br />
+The Thread 3 and 4 are User 3. In this scenario, the above code is not thread safe, and it needs to be made atomic with one of the three options discussed above. It can be quite dangerous to assume that one user will be accessed only by one thread. What if in the future, additional threads are added to improve performance per user?<br />
+<br />
+<pre class="brush: csharp">public class CountingManager {
+ 
+ public static void main(String[] args) throws InterruptedException {
+  
+  Counter counter = new Counter(); // create an instance of the Counter
+  CountingTask task = new CountingTask(counter); // pass the counter to the runnable CountingTask
+
+  
+  //Create 10 user threads (non-daemon) from the main thread that share the counter object  
+  Thread thread1 = new Thread(task, "User-1");
+  Thread thread2 = new Thread(task, "User-2");
+  Thread thread3 = new Thread(task, "User-3"); //user 3
+  Thread thread4 = new Thread(task, "User-3"); //User 3
+  
+  
+  //start the threads
+  thread1.start();
+  thread2.start();
+  thread3.start();
+  thread4.start();
+  
+  
+  //observe the racing conditions in the output
+  
+ }
+
+}
+
+</pre><br />
+If you don't perform the operations 1 to 3 atomically (i.e. as a unit), you will get an out put like<br />
+<br />
+<pre class="brush: csharp">User-1 value is 1
+User-1 value is 2
+User-3 value is 2
+User-3 value is 3
+User-3 value is 2
+User-3 value is 4
+User-2 value is 1
+User-2 value is 2
+
+</pre><br />
+<br />
+As you can see, the User-3 has the value 2 repeated twice and value 1 is missing.  If you apply the one of the options outlined above, you will get an output like<br />
+<br />
+<pre class="brush: csharp">User-1 value is 1
+User-1 value is 2
+User-3 value is 1
+User-3 value is 2
+User-2 value is 1
+User-2 value is 2
+User-3 value is 3
+User-3 value is 4
+
+</pre><br />
+Hence, the operations 1-3 need to be made <span style="font-size: large;"><b>atomic </b></span>if accessed concurrently by multiple threads. Those three operations are<br />
+<br />
+<b>1.</b> storing the initial value<br />
+<b>2.</b> incrementing the counter<br />
+<b>3.</b> storing the incremented value
+
+<br/>
+<br/>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+/* Leader -- Bottom */
+google_ad_slot = "0221266263";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Multi-threading">Multi-threading</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2012/03/java-multi-threading-interview.html" title="permanent link"> 3/26/2012 06:06:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=5273241981817442057" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=5273241981817442057&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>7 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c4063897826807675431"><a name="c4063897826807675431"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://thecafetechno.com/tutorials/design-patterns/proxy-pattern-in-java/" rel="nofollow">proxy pattern in java with real world example</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Main benefit of decorator is that it affect only individual object and not all object which itself a big control and flexibility inheritance doesn&#39;t offer. See here for <a href="http://thecafetechno.com/tutorials/design-patterns/adapter-pattern-in-java-with-sample-code-to-download/" rel="nofollow">another example of decorator pattern in Java.</a></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/03/java-multi-threading-interview.html?showComment=1334043720981#c4063897826807675431" title="comment permalink">5:42 PM, April 10, 2012</a>
+	  <span class="item-control blog-admin pid-997189556"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=4063897826807675431" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c2524660022966510174"><a name="c2524660022966510174"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Hi<br />Here we can add double locking in singleton pattern..</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/03/java-multi-threading-interview.html?showComment=1337369311564#c2524660022966510174" title="comment permalink">5:28 AM, May 19, 2012</a>
+	  <span class="item-control blog-admin pid-844182066"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2524660022966510174" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c6181913969968727274"><a name="c6181913969968727274"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/16657589358195747879" rel="nofollow">Mohit Mishra</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Good questions!!!<br /><br />I have also added around 2000 Core Java and J2EE questions in <br /><br /><a href="http://www.prepareforexam.com/Interview.jsp" rel="nofollow">Java Interview Questions</a><br /><br />Have a look at them and reply.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/03/java-multi-threading-interview.html?showComment=1346047907841#c6181913969968727274" title="comment permalink">4:11 PM, August 27, 2012</a>
+	  <span class="item-control blog-admin pid-403678500"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=6181913969968727274" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c7773464006954099700"><a name="c7773464006954099700"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Decalring instance variables in Servlets is not thread safe, as Servlets are inherently multi-threaded and gets accessed by multiple-threads. Same is true for the Action classes in the struts framework.[This is applicable for struts 1, in Struts 2 these are thread safe.]</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/03/java-multi-threading-interview.html?showComment=1359298116340#c7773464006954099700" title="comment permalink">1:48 AM, January 28, 2013</a>
+	  <span class="item-control blog-admin pid-1143501131"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=7773464006954099700" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c7532263074428840411"><a name="c7532263074428840411"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/01367683658003928892" rel="nofollow">Sagar Shekhar</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>In Struts2 these are thread safe because whenever thread/request hits any ActionClass,every thread interacts with an Action object i.e for for every request there is a separate object  of that action class and all those objects remain in the Value Stack</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/03/java-multi-threading-interview.html?showComment=1367613245257#c7532263074428840411" title="comment permalink">6:34 AM, May 04, 2013</a>
+	  <span class="item-control blog-admin pid-797762695"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=7532263074428840411" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3389828014027201451"><a name="c3389828014027201451"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/04025765492823253360" rel="nofollow">tanmoy das</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Sir, can you briefly describe what is Memory Consistency Errors ?</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/03/java-multi-threading-interview.html?showComment=1396976468312#c3389828014027201451" title="comment permalink">3:01 AM, April 09, 2014</a>
+	  <span class="item-control blog-admin pid-1646546686"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3389828014027201451" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c7400569267999915431"><a name="c7400569267999915431"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Memory consistency errors occur when different threads have inconsistent views of what should be the same data. It is bit complex and you need to understand the Java memory model.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/03/java-multi-threading-interview.html?showComment=1407338534640#c7400569267999915431" title="comment permalink">1:22 AM, August 07, 2014</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=7400569267999915431" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=5273241981817442057'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/5273241981817442057/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2012/03/java-interview-questions-and-answers.html">Java Interview Questions and Answers - performance...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/03/enterprise-java-interview-questions-and.html">Enterprise Java Interview Questions and Answers: W...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/database-interview-questions-and.html">Database interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/java-web-services-interview-questions_20.html">Java Web Services Interview Questions and Answers:...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/web-services-interview-questions-and.html">Web Services Interview Questions and Answers - RES...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/java-web-services-interview-questions.html">Java Web Services Interview Questions and Answers:...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/hibernate-interview-questions-and.html">Hibernate Interview Questions and Answers: integra...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/spring-and-hibernate-interview.html">Spring and Hibernate Interview Questions and Answe...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/hibernate-interview-q-with-annotations.html">Hibernate Interview Questions and Answers: with an...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/javascript-interview-questions-and_26.html">JavaScript Interview Questions and Answers: Coding...</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

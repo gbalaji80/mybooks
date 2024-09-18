@@ -1,0 +1,1338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: 30+ Core Java multithreading interview questions and answers</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/8510816050163641716/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Sep 19, 2013</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="8510816050163641716"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 30+ Core Java multithreading interview questions and answers
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><h2>
+Java Multi-threading Interview Questions and Answers</h2>
+<table bgcolor="#FFFFCC" border="2" cell-padding="10px" style="width: 100%;">
+<tbody>
+<tr>
+<td><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html">Beginner Q&amp;A </a> </td>
+<td><a href="http://java-success.blogspot.com/2012/04/java-multi-threading-interview.html">More beginner Q&amp;A </a> </td>
+<td><a href="http://java-success.blogspot.com/2014/06/understanding-java-locks-multi.html">Beginner locks</a> </td>
+<td><a href="http://java-success.blogspot.com.au/2014/06/how-java-threads-communicate-with-each.html">Beginner thread communication</a> </td>
+<td><a href="http://java-success.blogspot.com/2014/06/what-does-java-thread-join-do-what-is.html">Beginner thread sequencing</a> </td>
+<td><a href="http://java-success.blogspot.com/2011/12/more-java-multi-threading-interview.html">Intermediate Q&amp;A </a> </td>
+<td><a href="http://java-success.blogspot.com/2014/08/what-is-volatile-variable-in-java-and.html">Volatile variable</a></td>
+</tr>
+
+<tr>
+<td><a href="http://java-success.blogspot.com/2012/03/java-multi-threading-interview.html">Advanced Q&amp;A</a> </td>
+<td><a href="http://java-success.blogspot.com/2013/07/core-java-multi-thread-coding-printing_19.html">Printing odd and even numbers</a> </td>
+<td><a href="http://java-success.blogspot.com/2012/03/java-5-executor-framework-why-use.html">Thread pools</a> </td>
+<td><a href="http://java-success.blogspot.com/2014/01/java-executorservice-for-multi.html">ExecutorService</a> </td>
+<td><a href="http://java-success.blogspot.com/2012/03/java-multi-threading-interview.html">Atomic operations</a> </td>
+<td><a href="http://java-success.blogspot.com.au/2012/08/article-scenarios-and-solutions-for_21.html">CountDownLatch and CyclicBarrier</a> </td>
+<td><a href="http://java-success.blogspot.com/2012/08/article-scenarios-and-solutions-for_28.html">Semaphores and mutexes</a> </td>
+</tr>
+</tbody></table>
+<br />
+<b>Q</b>. Why do interviewers like multi-threading interview questions? <br />
+<b>A</b>. Because it is not easy, but very essential to write scalable and high throughput systems.<br />
+<br />
+If you are going for Java interviews to work on <b>large scale systems</b>,&nbsp; expect multi-threading interview questions. These are more <b>beginner or fresher level </b>questions and if you are already good with the basics, try more <b>intermediate</b> to <b>advanced </b>level coding questions and answers on Java multi-threading at&nbsp;<span style="font-size: large;"><a href="http://java-success.blogspot.com/2011/12/more-java-multi-threading-interview.html">Java multi-threading-1</a> </span>&nbsp;| &nbsp; <span style="font-size: large;"><a href="http://java-success.blogspot.com/2012/03/java-multi-threading-interview.html">Java multi-threading-2</a></span>
+
+<br />
+<br />
+<b>Q</b>. What is the difference between processes and threads? <br />
+<b>A</b>. A process is an execution of a program but a thread is a single execution sequence within the process. A process can contain multiple threads. A thread is sometimes called a lightweight process.<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-0MB6kcFY27M/TnbyrtMd86I/AAAAAAAAADc/UAimh0zhYiQ/s1600/process_vs_threads.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-0MB6kcFY27M/TnbyrtMd86I/AAAAAAAAADc/UAimh0zhYiQ/s640/process_vs_threads.bmp" height="200" width="450" /></a></div>
+<br />
+A JVM runs in a single process and threads in a JVM share the heap belonging to that process. That is why several threads may access the same object. Threads <b>share the heap and have their own stack space</b>. This is how one thread’s invocation of a method and its local variables are kept thread safe from other threads. But the heap is not thread-safe and must be synchronized for thread safety.<br />
+<br />
+<b>Q.</b> Explain different ways of creating a thread?<br />
+<b>A.</b> Threads can be used by either<br />
+<ul>
+<li>Extending the <i>Thread </i>class.</li>
+<li>Implementing the <i>Runnable </i>interface.</li>
+<li>Using the <span style="font-size: large;"><a href="http://java-success.blogspot.com/2012/03/java-5-executor-framework-why-use.html">Executor framework</a> </span>(this creates a thread pool)&nbsp; </li>
+</ul>
+<br />
+<!-- INFOLINKS_OFF -->
+
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-1KHV7FoIf1c/T3JxpERlC6I/AAAAAAAAAVs/xYvbr8Qgq8g/s1600/multi-threading-main-and-worker-thread.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-1KHV7FoIf1c/T3JxpERlC6I/AAAAAAAAAVs/xYvbr8Qgq8g/s400/multi-threading-main-and-worker-thread.JPG" height="243" width="400" /></a></div>
+<br />
+<pre class="java" name="code">class Counter extends Thread {
+   
+    //method where the thread execution will start 
+    public void run(){
+        //logic to execute in a thread    
+    }
+
+    //let’s see how to start the threads
+    public static void main(String[] args){
+       Thread t1 = new Counter();
+       Thread t2 = new Counter();
+       t1.start();  //start the first thread. This calls the run() method.
+       t2.start(); //this starts the 2nd thread. This calls the run() method.  
+    }
+} 
+
+</pre>
+<br />
+<br />
+<pre class="java" name="code">class Counter extends Base implements Runnable{
+  
+    //method where the thread execution will start 
+    public void run(){
+        //logic to execute in a thread    
+    }
+
+    //let us see how to start the threads
+    public static void main(String[] args){
+         Thread t1 = new Thread(new Counter());
+         Thread t2 = new Thread(new Counter());
+         t1.start();  //start the first thread. This calls the run() method.
+         t2.start();  //this starts the 2nd thread. This calls the run() method.  
+    }
+}&nbsp;</pre>
+<br />
+The thread pool is more efficient and&nbsp;<span style="font-size: large;"><a href="http://java-success.blogspot.com/2012/03/java-5-executor-framework-why-use.html"> learn why and how to create pool of&nbsp; threads using the executor framework</a></span>.<br />
+<br />
+<b>Q.</b> Which one would you prefer and why?<br />
+<b>A.</b> The Runnable interface is preferred, as it does not require your object to inherit a thread because when you need multiple inheritance, only interfaces can help you. In the above example we had to extend the Base class so implementing Runnable interface is an obvious choice. Also note how the threads are started in each of the different cases as shown in the code sample. In an OO approach you should only extend a class when you want to make it different from it’s superclass, and change it’s behavior. By implementing a Runnable interface instead of extending the Thread class, you are telling to the user that the class <i>Counter </i>is an object of type <i>Base </i>and will run as a thread. 
+
+<br />
+<br />
+<br />
+<b>Q.</b> Briefly explain high-level thread states? <br />
+<b>A.</b> The state chart diagram below describes the thread states.<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://4.bp.blogspot.com/-70zCxUqzY7o/Tnb0xki_u4I/AAAAAAAAADg/axyfRs6U02A/s1600/thread_states.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-70zCxUqzY7o/Tnb0xki_u4I/AAAAAAAAADg/axyfRs6U02A/s640/thread_states.JPG" height="300" width="640" /></a></div>
+<ul>
+<li><b>Runnable </b>— A thread becomes runnable when you call the <b>start( )</b>, but does&nbsp; not necessarily start running immediately.&nbsp; It will be pooled waiting for its turn to be picked for execution by the thread scheduler based on thread priorities. <br />
+<br />
+<pre class="java" name="code">MyThread aThread = new MyThread();
+aThread.start();                   //becomes runnable
+</pre>
+</li>
+</ul>
+<ul>
+<li><b>Running</b>: The processor is actively executing the thread code. It runs until it becomes blocked, or voluntarily gives up its turn with this static method <b>Thread.yield( )</b>. Because of context switching overhead, yield( ) should not be used very frequently</li>
+</ul>
+<ul>
+<li><b>Waiting</b>: A thread is in a blocked state while it waits for some external processing such as file I/O to finish.A call to <b>currObject.wait( )</b> method causes the current thread to wait until some other thread invokes <b>currObject.notify( )</b> or the <b>currObject.notifyAll( )</b> is executed. </li>
+</ul>
+<ul>
+<li><b>Sleeping</b>: Java threads are forcibly put to sleep (suspended) with this overloaded method: Thread.<b>sleep</b>(milliseconds), Thread.<b>sleep</b>(milliseconds, nanoseconds); </li>
+</ul>
+<ul>
+<li><b>Blocked on I/O</b>: Will move to runnable after I/O condition like reading bytes of data etc changes. </li>
+</ul>
+<ul>
+<li><b>Blocked on synchronization</b>: will move to running when a lock is acquired.&nbsp;</li>
+</ul>
+<ul>
+<li><b>Dead</b>: The thread is finished working. </li>
+</ul>
+<div style="font-family: inherit;">
+<b>Thread.State </b>enumeration contains the possible states of a Java thread in the underlying JVM.&nbsp;These thread states are possible due to Java's following thread concepts:</div>
+<ul>
+<li>The objects can be <b>shared </b>and <b>modified </b>(i.e. if mutable) by any threads.</li>
+<li>The <b>preemptive </b>nature of the thread scheduler can<b> swap threads on and off</b> cores in a multi-core CPU machine at any time.</li>
+<li>This means the methods can be swapped out while they are running. Otherwise a method in an infinite loop will clog the CPU forever leaving the other methods on different threads to starve.&nbsp;</li>
+<li>To prevent thread safety issues, the methods and block of code that has vulnerable data can be <b>locked</b>.&nbsp;</li>
+<li>This enables the threads to be in locked or waiting to acquire a lock states.&nbsp;</li>
+<li>The threads also get into the waiting state for I/O resources like sockets, file handles, and database connections.&nbsp;</li>
+<li>The threads that are performing I/O read/write operations can not be swapped. Hence, they need to either complete to the finished state with success/failure or another thread must close the socket for it to get to the state of dead or finished. This is why proper service timeout values are necessary to prevent the thread to get blocked for ever in an I/O operation, causing performance issues.&nbsp;</li>
+<li>The threads can be put to sleep to give other threads in waiting state an opportunity to execute.</li>
+</ul>
+<br />
+<br />
+<b>Q.</b> What is the difference between yield and sleeping? What is the difference between the methods sleep( ) and wait( )? <br />
+<b>A</b>. When a task invokes yield( ), it changes from running state to runnable state. When a task invokes sleep ( ), it changes from running state to waiting/sleeping state.<br />
+<br />
+The method wait(1000) causes the current thread to wait up to one second a signal from other threads. A thread could wait less than 1 second if it receives the notify( ) or notifyAll( ) method call. The call to sleep(1000) causes the current thread to sleep for t least 1 second.<br />
+<br />
+<b>Q.</b> Why is locking of a method or block of code for thread safety is called "<b>synchronized</b>" and not "<b>lock</b>" or "<b>locked</b>"?<br />
+<b>A.</b> When a method or block of code is locked with the reserved "synchronized" key word in Java, the memory (i.e. heap) where the shared data is kept is synchronized. This means,<br />
+<br />
+<ul>
+<li>When a synchronized block or method is entered after the lock has been acquired by a thread, it first <b>reads any changes to the locked object from the main heap memory</b> to ensure that the thread that has the lock has the current info before start executing.</li>
+<li>After the synchronized &nbsp;block has completed and the thread is ready to relinquish the lock, <b>all the changes that were made to the object that was locked is written or flushed back to the main heap memory</b> so that the other threads that acquire the lock next has the current info.</li>
+</ul>
+<br />
+This is why it is called "synchronized" and not "locked". This is also the reason why the immutable objects are inherently thread-safe and does not require any synchronization. Once created, the immutable objects cannot be modified.<br />
+<br />
+<b>Q. </b>How does thread synchronization occurs inside a monitor? What levels of synchronization can you apply? What is the difference between synchronized method and synchronized block? <br />
+<b>A.</b> In Java programming, each object has a lock. A thread can acquire the lock for an object by using the synchronized keyword. The synchronized keyword can be applied in method level (coarse grained lock – can affect performance adversely) or block level of code (fine grained lock). Often using a lock on a method level is too coarse. Why lock up a piece of code that does not access any shared resources by locking up an entire method. Since each object has a lock, dummy objects can be created to implement block level synchronization. The block level is more efficient because it does not lock the whole method. <br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-xeJeQtuYmB4/Tnb16TJPy8I/AAAAAAAAADk/YUO3L12Owvk/s1600/blck_and_method_synchronization.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-xeJeQtuYmB4/Tnb16TJPy8I/AAAAAAAAADk/YUO3L12Owvk/s640/blck_and_method_synchronization.JPG" height="370" width="640" /></a></div>
+<br />
+<br />
+The JVM uses locks in conjunction with monitors. A monitor is basically a guardian who watches over a sequence of synchronized code and making sure only one thread at a time executes a synchronized piece of code. Each monitor is associated with an object reference. When a thread arrives at the first instruction in a block of code it must obtain a lock on the referenced object. The thread is not allowed to execute the code until it obtains the lock. Once it has obtained the lock, the thread enters the block of protected code. When the thread leaves the block, no matter how it leaves the block, it releases the lock on the associated object. For static methods, you acquire a class level lock. <br />
+<br />
+<span style="font-size: large;">More Interview Q&amp;A on Java multithreading:</span><br />
+<br />
+<b>Beginner:</b><br />
+<ul>
+<li><a href="http://java-success.blogspot.com/2012/04/java-multi-threading-interview.html">Java multithreading questions and answers -- synchronization, daemon thread, inter thread communication</a></li>
+<li><a href="http://java-success.blogspot.com/2012/07/java-coding-question-and-answer-on.html">Java coding question and answer on multi-threading</a></li>
+</ul>
+<div>
+<b>Intermediate to Advanced</b></div>
+<ul>
+<li><a href="http://java-success.blogspot.com/2011/12/more-java-multi-threading-interview.html">Java multi threading questions and answers -- coding</a></li>
+<li><a href="http://java-success.blogspot.com/2012/03/java-multi-threading-interview.html">Java multi threading questions and answers -- atomic operations&nbsp;</a></li>
+</ul>
+<br />
+<b>Articles on Java 5 concurrent package</b><br />
+<ul>
+<li><a href="http://java-success.blogspot.com/2012/08/article-scenarios-and-solutions-for_21.html">Article: Scenarios and solutions for better concurrency and thread safety part-2 CountDownLatch and CyclicBarrier</a></li>
+<li><a href="http://java-success.blogspot.com/2012/08/article-scenarios-and-solutions-for_28.html" target="_blank">Article:&nbsp;Scenarios and solutions for better concurrency and thread safety part-3 Semaphores and mutexes</a></li>
+</ul>
+<br />
+<div style="text-align: center;">
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Center - Large Rectangle -->
+<br />
+<ins class="adsbygoogle" data-ad-client="ca-pub-3764234023451771" data-ad-slot="1845819831" style="display: inline-block; height: 280px; width: 336px;"></ins><script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Multi-threading">Multi-threading</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2011/09/java-multi-threading-interview.html" title="permanent link"> 9/19/2013 06:14:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=8510816050163641716" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=8510816050163641716&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>42 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c79022153041913202"><a name="c79022153041913202"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Excellent Article.....</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1327338521854#c79022153041913202" title="comment permalink">4:08 AM, January 24, 2012</a>
+	  <span class="item-control blog-admin pid-409261671"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=79022153041913202" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c4573021907433921474"><a name="c4573021907433921474"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://javarevisited.blogspot.com/2011/09/find-hostname-from-ip-address-to.html" rel="nofollow">Javin @ hostname to IP address in windows</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Indeed Threading is most confusing topic of Java and most asked topic also and confusion only increased with new concurrent package. thanks for your tips quite useful for beginners. I have also shared my experience as <a href="http://javarevisited.blogspot.com/2011/07/java-multi-threading-interview.html" rel="nofollow">Top 10 multi-threading interview questions</a> , do let me know how do you find it.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1329915062731#c4573021907433921474" title="comment permalink">11:51 PM, February 22, 2012</a>
+	  <span class="item-control blog-admin pid-377064261"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=4573021907433921474" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3391460890414403867"><a name="c3391460890414403867"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Shadeven</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Just read the first couple lines, and love your article already! Good work!</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1331379629629#c3391460890414403867" title="comment permalink">10:40 PM, March 10, 2012</a>
+	  <span class="item-control blog-admin pid-1429825288"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3391460890414403867" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c97297259502324135"><a name="c97297259502324135"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>how come the timestamp show &quot;2015-09-19&quot;?</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1331521871399#c97297259502324135" title="comment permalink">2:11 PM, March 12, 2012</a>
+	  <span class="item-control blog-admin pid-1534104464"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=97297259502324135" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c7721248968057053005"><a name="c7721248968057053005"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran.K</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>That is a blogspot work around for a particular post to be the home page.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1331522457028#c7721248968057053005" title="comment permalink">2:20 PM, March 12, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=7721248968057053005" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c2935698621703694697"><a name="c2935698621703694697"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.fromdev.com/2012/02/java-interview-question-answer.html" rel="nofollow">FromDev</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>very well explained. I really liked the images you have created to visualize the threading concepts. Its very difficult otherwise. Thanks for sharing.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1332004660121#c2935698621703694697" title="comment permalink">4:17 AM, March 18, 2012</a>
+	  <span class="item-control blog-admin pid-11622689"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2935698621703694697" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c2296362998622789779"><a name="c2296362998622789779"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.software-testinginterviewquestions.com" rel="nofollow">Software Testing Interview Questions</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Good Article, Nice explanations</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1332230092677#c2296362998622789779" title="comment permalink">6:54 PM, March 20, 2012</a>
+	  <span class="item-control blog-admin pid-1891467906"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2296362998622789779" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3403868652556968160"><a name="c3403868652556968160"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran.K</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Diagrams and code snippets do help in grasping the concepts.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1332398713375#c3403868652556968160" title="comment permalink">5:45 PM, March 22, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3403868652556968160" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c304437461678656381"><a name="c304437461678656381"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Excellent questions</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1333587038185#c304437461678656381" title="comment permalink">10:50 AM, April 05, 2012</a>
+	  <span class="item-control blog-admin pid-423813820"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=304437461678656381" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c2415396379907229316"><a name="c2415396379907229316"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p><b>Excellent work. Thanks </b></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1333615079415#c2415396379907229316" title="comment permalink">6:37 PM, April 05, 2012</a>
+	  <span class="item-control blog-admin pid-1072107587"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2415396379907229316" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c7673764849416196075"><a name="c7673764849416196075"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://thecafetechno.com/design-pattern-tutorial-with-real-world-examples/" rel="nofollow">design pattern tutorial with real world examples</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>excellent article...another article i suggest is <a href="http://thecafetechno.com/tutorials/interview-questions/most-frequently-asked-core-java-interview-questions-and-answers/" rel="nofollow">top 30 core java interview questions and answers</a></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1334351714283#c7673764849416196075" title="comment permalink">7:15 AM, April 14, 2012</a>
+	  <span class="item-control blog-admin pid-1530706733"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=7673764849416196075" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c4019815940244128753"><a name="c4019815940244128753"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://thecafetechno.com/tutorials/interview-questions/most-frequently-asked-core-java-interview-questions-and-answers/" rel="nofollow">top 30 core java interview questions and answers</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>great article</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1334351808092#c4019815940244128753" title="comment permalink">7:16 AM, April 14, 2012</a>
+	  <span class="item-control blog-admin pid-1530706733"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=4019815940244128753" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c153398713132601725"><a name="c153398713132601725"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.tipsoninterview.in" rel="nofollow">Interview Tips</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Nice blog postings, thanks for your update on java questions.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1335537256889#c153398713132601725" title="comment permalink">12:34 AM, April 28, 2012</a>
+	  <span class="item-control blog-admin pid-1433556928"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=153398713132601725" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c7248725177619750877"><a name="c7248725177619750877"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Rohan Dekate</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Hi ArulKumaran,<br />A must blog for learning threading concepts, Looking forward to order your book. Just wnat to know that does your book contain spring and wicket  interview question or not.. Iam new to These framework . I really like these framework  , but have difficulty in visualizing things.  I will wait for your answer</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1339145095900#c7248725177619750877" title="comment permalink">6:44 PM, June 08, 2012</a>
+	  <span class="item-control blog-admin pid-791908749"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=7248725177619750877" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c7086359315534070988"><a name="c7086359315534070988"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/14557651647546272538" rel="nofollow">Ava joseph</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Nice Blog. This blog is very interesting and you are provide best information for users. I always visited your blog site.Thanks for your wonderful sharing.<br /><br /><a href="http://www.attuneinfocom.com/expertise/liferay.html" rel="nofollow">Liferay Development</a> and <a href="http://www.attuneinfocom.com/expertise/liferay.html" rel="nofollow">Liferay Portal</a></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1340014493510#c7086359315534070988" title="comment permalink">8:14 PM, June 18, 2012</a>
+	  <span class="item-control blog-admin pid-1915285041"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=7086359315534070988" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c236529078011732889"><a name="c236529078011732889"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>awesome!!!</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1340530103646#c236529078011732889" title="comment permalink">7:28 PM, June 24, 2012</a>
+	  <span class="item-control blog-admin pid-940344923"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=236529078011732889" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c483995769457951139"><a name="c483995769457951139"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/15902876988041144030" rel="nofollow">Pooja</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>its really good. Multi threading is very important and complex part in java. would like to read some more questions on the same..</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1340955345950#c483995769457951139" title="comment permalink">5:35 PM, June 29, 2012</a>
+	  <span class="item-control blog-admin pid-640658459"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=483995769457951139" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3024812142745188840"><a name="c3024812142745188840"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>if you click on the link below, there are more advanced questions and answers</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1340956162898#c3024812142745188840" title="comment permalink">5:49 PM, June 29, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3024812142745188840" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8308992125081778268"><a name="c8308992125081778268"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Hi to all i am Rayudu...............I need Project Details</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1342598997684#c8308992125081778268" title="comment permalink">6:09 PM, July 18, 2012</a>
+	  <span class="item-control blog-admin pid-668110940"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8308992125081778268" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3216634692813268335"><a name="c3216634692813268335"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Not sure what you mean by project details.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1342603252132#c3216634692813268335" title="comment permalink">7:20 PM, July 18, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3216634692813268335" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3905495836704047340"><a name="c3905495836704047340"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00500233775974467889" rel="nofollow">kavi</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>As per state chart diagram, it shows that &#39;Blocked or synchronized&#39; state will directly move to running state. But it is not quite matching with description. </p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1345048317126#c3905495836704047340" title="comment permalink">2:31 AM, August 16, 2012</a>
+	  <span class="item-control blog-admin pid-360465693"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3905495836704047340" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c5041146572086565247"><a name="c5041146572086565247"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>I have fixed that Kavi. Thanks for pointing that out.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1345076882264#c5041146572086565247" title="comment permalink">10:28 AM, August 16, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=5041146572086565247" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3264950766777719525"><a name="c3264950766777719525"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00500233775974467889" rel="nofollow">kavi</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thanks Arun!</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1345486631899#c3264950766777719525" title="comment permalink">4:17 AM, August 21, 2012</a>
+	  <span class="item-control blog-admin pid-360465693"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3264950766777719525" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8862990999830367133"><a name="c8862990999830367133"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/06641004926229524972" rel="nofollow">nk</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Very well explained. Much appreciate the effort.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1346835532197#c8862990999830367133" title="comment permalink">6:58 PM, September 05, 2012</a>
+	  <span class="item-control blog-admin pid-542352416"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8862990999830367133" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8010056272103501864"><a name="c8010056272103501864"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/10871800110228460134" rel="nofollow">sarah</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>This was really interesting information. Thanks to share with us.<br /><br />For shape up your career visit<br /><a href="http://www.buildcareer.in/Booming-Careers/" rel="nofollow">Career</a><br /><a href="http://www.buildcareer.in/Booming-Careers/" rel="nofollow">Careers</a></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1349448053682#c8010056272103501864" title="comment permalink">12:40 AM, October 06, 2012</a>
+	  <span class="item-control blog-admin pid-1412499472"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8010056272103501864" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8051672734081267991"><a name="c8051672734081267991"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/16612176699040469403" rel="nofollow">suresh</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Hi Arul,<br /><br />I have a question related to :<br />what is the difference between and Extending Thread and implementing Runnable interface and when to use.<br />Can u explain in simple way and in interview prospective I was confused.<br /><br />Please Explain me.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1349679113623#c8051672734081267991" title="comment permalink">5:51 PM, October 08, 2012</a>
+	  <span class="item-control blog-admin pid-45823585"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8051672734081267991" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8489091307340436601"><a name="c8489091307340436601"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>In Java, a class can extend only one other class. Multiple inheritance is not allowed. If you use extends Thread, then that class can&#39;t extend any other classes. But if you use implements Runnable, then it can extend some other class if required. A Java class can implement multiple interfaces, but can extend only one other class.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1349679609311#c8489091307340436601" title="comment permalink">6:00 PM, October 08, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8489091307340436601" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c632881403707215183"><a name="c632881403707215183"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Hi Arulkumaran, I want to learn Hard Core Java concept like Heap memory allocation, garbage collection etc. If your book &quot;Core Java Career Essential&quot; cover this topic as well. If no, can you suggest me some good books or site.<br /><br />Deepak</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1350700992776#c632881403707215183" title="comment permalink">1:43 PM, October 20, 2012</a>
+	  <span class="item-control blog-admin pid-1837238155"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=632881403707215183" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8624173200572326945"><a name="c8624173200572326945"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>The book does not cover the 2 topics you had mentioned. Google for it and you should get some good articles on it.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1350715995596#c8624173200572326945" title="comment permalink">5:53 PM, October 20, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8624173200572326945" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c4726942026439674661"><a name="c4726942026439674661"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>For example,  try  the following URLs to get started --&gt; <br /><br />http://javarevisited.blogspot.com.au/2011/04/garbage-collection-in-java.html <br /><br />http://www.oracle.com/technetwork/java/gc-tuning-5-138395.html<br /><br />http://www.javaworld.com/javaworld/jw-08-1996/jw-08-gc.html<br /><br /><br />http://www.vogella.com/articles/JavaPerformance/article.html</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1350719352533#c4726942026439674661" title="comment permalink">6:49 PM, October 20, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=4726942026439674661" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c5235258861608474047"><a name="c5235258861608474047"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Explain different ways of creating a thread?<br />A. Threads can be used by either<br /><br />    Extending the Thread class.<br />    Implementing the Runnable interface.<br />Implementing the callable interface</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1359299451569#c5235258861608474047" title="comment permalink">2:10 AM, January 28, 2013</a>
+	  <span class="item-control blog-admin pid-1143501131"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=5235258861608474047" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c6339179793478510865"><a name="c6339179793478510865"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/08506631015316230288" rel="nofollow">Sumit</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Hi Arulkumaran, <br />One conceptual doubt on Sleep method and Thread states.<br />Consider the situation:<br /><br />synchronized(LOCK) {<br />    Thread.sleep(1000); // LOCK is held<br />}<br /><br />Now as we all know that lock will not be released by the current running thread. <br />Now as per state diagram, if current thread has called sleep method, it will move to Sleeping state and then to runnable state after it is either interrupted or has slept for the specified duration. Now since the lock has not been released and the current thread has moved to runnable state rather than runnning state, will not it cause a deadlock or potential deadlock situation.<br />Thanks &amp; Regards, <br />Sumit</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1363147205073#c6339179793478510865" title="comment permalink">3:00 PM, March 13, 2013</a>
+	  <span class="item-control blog-admin pid-1215692550"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=6339179793478510865" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c2621652051638669679"><a name="c2621652051638669679"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Write the sample code, and see what happens.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1363433912938#c2621652051638669679" title="comment permalink">10:38 PM, March 16, 2013</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2621652051638669679" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8710009499285583484"><a name="c8710009499285583484"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/17594226541116004795" rel="nofollow">A j2ee Architect</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Could not locate any information about the keyword: &quot;volatile&quot;<br /><br />Is it explained elsewhere?</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1365152243906#c8710009499285583484" title="comment permalink">7:57 PM, April 05, 2013</a>
+	  <span class="item-control blog-admin pid-1333302620"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8710009499285583484" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c1092183360634548399"><a name="c1092183360634548399"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/17594226541116004795" rel="nofollow">Java son</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Hello Arun,<br /><br />Excellent and easy to understand explanation. <br />Could you include usage of the synchronized keyword ....<br />For example a java class (implementing runnable) having 3 methods .... <br />Method ONE: public void m1()<br />Method TWO: public void static m2()<br />Method THREE: public void m3() ... with a synchronized block within.<br /><br />How will this class behave .... in case of T1.m1(), T1.m2(), T2.m1(), T2.m3()<br />Where T1, T2 refer to threads invoking the methods.<br /><br />thank you. <br /></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1365308960786#c1092183360634548399" title="comment permalink">2:29 PM, April 07, 2013</a>
+	  <span class="item-control blog-admin pid-1333302620"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=1092183360634548399" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c7932380951707542012"><a name="c7932380951707542012"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.benchfolks.org/java-j2ee-training" rel="nofollow">java certification</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Java is a high-level programming language originally developed by Sun Microsystems and released in 1995. Java runs on a variety of platforms, such as Windows, Mac OS, and the various versions of UNIX.In interviews, normally questions start with some basic concept of the subject and later they continue based on further discussion.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1376544638644#c7932380951707542012" title="comment permalink">3:30 PM, August 15, 2013</a>
+	  <span class="item-control blog-admin pid-1346187825"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=7932380951707542012" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8930060084415504004"><a name="c8930060084415504004"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Nice Article, please correct the following, notify or notifyall cant be used on sleep<br /><br />The method wait(1000), causes the current thread to sleep up to one second. A thread could sleep less than 1 second if it receives the notify( ) or notifyAll( ) method call. </p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1380697784459#c8930060084415504004" title="comment permalink">5:09 PM, October 02, 2013</a>
+	  <span class="item-control blog-admin pid-1352316809"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8930060084415504004" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c4121811401432996034"><a name="c4121811401432996034"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://grails.asia/" rel="nofollow">beginner</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>good sample.  interviewers seems just to think questions when they are on the table with you. thats why they usually think of the most common questions on core java, etc</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1391730105523#c4121811401432996034" title="comment permalink">10:41 AM, February 07, 2014</a>
+	  <span class="item-control blog-admin pid-1451763491"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=4121811401432996034" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c5118793368038251570"><a name="c5118793368038251570"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/07023232929671397250" rel="nofollow">Santanu Nandi</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>One question. Can you please change the line&quot; changes from running state to waiting/sleeping state.<br /><br />The method wait(1000), causes the current thread to sleep up to one second.&quot;<br />There are two mistakes over there. For junior developers it might create wrong impression. </p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1394036904139#c5118793368038251570" title="comment permalink">3:28 AM, March 06, 2014</a>
+	  <span class="item-control blog-admin pid-1824380030"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=5118793368038251570" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c5738228600892437864"><a name="c5738228600892437864"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/12382841528250087249" rel="nofollow">lonely ....but still standing</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Arulkumaran , does your books available in book shops or it is available only in online shopping ?</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1403332957879#c5738228600892437864" title="comment permalink">4:42 PM, June 21, 2014</a>
+	  <span class="item-control blog-admin pid-439635164"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=5738228600892437864" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c5798156673512272076"><a name="c5798156673512272076"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Predominantly online stores.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1403336588695#c5798156673512272076" title="comment permalink">5:43 PM, June 21, 2014</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=5798156673512272076" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c4548391309367519091"><a name="c4548391309367519091"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/02009513713165345107" rel="nofollow">Learnz Studyz</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thanks for sharing i got lot of information it will be very helpful in my <a href="http://www.ask4success.net" rel="nofollow">success</a>.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/java-multi-threading-interview.html?showComment=1406716228728#c4548391309367519091" title="comment permalink">8:30 PM, July 30, 2014</a>
+	  <span class="item-control blog-admin pid-1922947873"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=4548391309367519091" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=8510816050163641716'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/8510816050163641716/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2013/09/when-to-use-builder-design-pattern-real.html">When to use a builder design pattern? real life ti...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/09/angularjs-communicating-between.html">AngularJS communicating between controllers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/09/google-guava-library-handy-methods-to.html">Google Guava library handy methods to write your C...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/09/angularjs-big-picture-overview.html">AngularJS big picture : Overview</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/09/defining-hibernate-entities-with.html">Defining Hibernate entities with auditable fields,...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/09/working-with-angular-js-and-jquery-ui.html">Working with Angular JS and jQuery UI : resizable ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/09/agile-development-methodology-theme.html">Agile development methodology: theme, epic and use...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/09/web-ie-http-security-vulnerabilities.html">Web (i.e. HTTP) security vulnerabilities - HttpOnl...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/08/deadlock-retry-with-spring-aop-using.html">Deadlock retry with Spring AOP using aspectj tutor...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/08/deadlock-retry-with-jdk-dynamic-proxy.html">Deadlock Retry with JDK Dynamic Proxy</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

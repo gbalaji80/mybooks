@@ -1,0 +1,2472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Java bitwise operators with practical examples</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/3840026364392742055/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Jul 14, 2014</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="3840026364392742055"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Java bitwise operators with practical examples
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div>Even though there is rarely a time bitwise operations seem directly necessary, the standard Java libraries use bitwise operations indirectly for efficient processing. For example, the <i>StringBuffer.reverse( )</i>, <i>Integer.toString( )</i>, <i>BigDecimal</i> and <i>BigInteger</i> classes to name a few. There are number of practical examples listed where bitwise operations are very handy. Some interviewers prefer asking questions on this topic or including it in the written test to determine how technical you are.<br />
+<style type="text/css">P { margin-bottom: 0.21cm; }</style>
+
+
+<br />
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+</div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<br />
+<span style="font-family: Garamond, serif;"><span style="font-size: small;"><span style="font-size: large;"><b>Example 1</b></span>: <span style="font-family: inherit;">To <b>pack</b>
+and <b>unpack</b> values. For example, to represent </span></span></span><span style="font-family: inherit;">
+</span></div>
+<ul>
+<li><div align="JUSTIFY" style="background: none repeat scroll 0% 0% transparent; line-height: 0.49cm; margin-bottom: 0cm; page-break-before: auto;">
+<span style="font-family: inherit;"><span style="font-size: small;">age of a person in the
+ range of 0 to 127. Use <b>7 bits.</b></span></span></div>
+</li>
+<span style="font-family: inherit;"><span style="font-size: small;">
+</span></span>
+<li><div align="JUSTIFY" style="background: none repeat scroll 0% 0% transparent; line-height: 0.49cm; margin-bottom: 0cm; page-break-before: auto;">
+<span style="font-family: inherit;"><span style="font-size: small;">gender of a person 0 or 1
+ (0 – female and 1 – male). Use <b>1 bit.</b></span></span></div>
+</li>
+<span style="font-family: inherit;"><span style="font-size: small;">
+</span></span>
+<li><div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm; page-break-before: auto;">
+<span style="font-family: inherit;"><span style="font-size: small;">height of a person in the
+ range of  0 to 255. Use <b>8 bits</b>.  </span></span>
+ </div>
+</li>
+</ul>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm; page-break-before: auto;">
+<span style="font-family: inherit;"><br /></span></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm; page-break-before: auto;">
+<span style="font-family: inherit;"><span style="font-size: small;">To pack this info: (((age
+&lt;&lt; 1) |  gender ) &lt;&lt; 8 ) | height.    For example, age =
+25, gender = 1, and height = 255cm.  <b>Shift</b> the age by 1 bit,
+and <b>combine</b> it with gender, and then <b>shift</b> the age and
+gender by 8 bits and <b>combine</b> it with the height.</span></span></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm; page-break-before: auto;">
+<br /></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm; page-break-before: auto;">
+<span style="font-family: Garamond, serif;"><span style="font-size: small;"><b>Packing</b></span></span></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm; page-break-before: auto;">
+<span style="font-family: Garamond, serif;"><span style="font-size: small;"><b>
+
+
+ 
+ 
+ 
+ <style type="text/css">TD P { margin-bottom: 0cm; }P { margin-bottom: 0.21cm; }</style>
+
+
+</b></span></span></div>
+<table border="1" cellpadding="4" cellspacing="0" style="width: 100%;">
+ <colgroup><col width="61*"></col>
+ <col width="12*"></col>
+ <col width="11*"></col>
+ <col width="13*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="11*"></col>
+ <col width="13*"></col>
+ <col width="13*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="13*"></col>
+ <col width="13*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="13*"></col>
+ <col width="11*"></col>
+ </colgroup><tbody>
+<tr valign="TOP">
+  <td width="24%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td bgcolor="#e6e6e6" colspan="7" width="33%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">Age</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">Gender</span></span></span></div>
+</td>
+  <td bgcolor="#b3b3b3" colspan="8" width="38%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">Height</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="24%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">Bits</span></span></div>
+</td>
+  <td bgcolor="#e6e6e6" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">16</span></span></span></div>
+</td>
+  <td bgcolor="#e6e6e6" width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">15</span></span></span></div>
+</td>
+  <td bgcolor="#e6e6e6" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">14</span></span></span></div>
+</td>
+  <td bgcolor="#e6e6e6" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">13</span></span></span></div>
+</td>
+  <td bgcolor="#e6e6e6" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">12</span></span></span></div>
+</td>
+  <td bgcolor="#e6e6e6" width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">11</span></span></span></div>
+</td>
+  <td bgcolor="#e6e6e6" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">10</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">9</span></span></span></div>
+</td>
+  <td bgcolor="#b3b3b3" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">8</span></span></span></div>
+</td>
+  <td bgcolor="#b3b3b3" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">7</span></span></span></div>
+</td>
+  <td bgcolor="#b3b3b3" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">6</span></span></span></div>
+</td>
+  <td bgcolor="#b3b3b3" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">5</span></span></span></div>
+</td>
+  <td bgcolor="#b3b3b3" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">4</span></span></span></div>
+</td>
+  <td bgcolor="#b3b3b3" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">3</span></span></span></div>
+</td>
+  <td bgcolor="#b3b3b3" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">2</span></span></span></div>
+</td>
+  <td bgcolor="#b3b3b3" width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;"><span style="background: transparent;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="24%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">age
+   (25 years) using 7 bits</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="24%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">Age
+   &lt;&lt; 1 (Shift age by 1 bit)</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="24%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">Gender
+   (1 – male) using 1 bit</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="24%"><div align="JUSTIFY" style="background: transparent; margin-bottom: 0cm; page-break-before: auto;">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">Combine age with
+   gender:</span></span></div>
+<div align="JUSTIFY" style="background: transparent; margin-bottom: 0cm; page-break-before: auto;">
+<br /></div>
+<div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">(age &lt;&lt; 1)
+   |  gender </span></span>
+   </div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="24%"><div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">((age &lt;&lt; 1)
+   |  gender ) &lt;&lt; 8 ), shift age and gender by 8 bits.</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="24%"><div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">Height (255 cm)
+   using 8 bits.</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="24%"><div align="JUSTIFY" style="background: transparent; margin-bottom: 0cm; page-break-before: auto;">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="font-weight: normal;">Combine</span><b>
+   </b><span style="font-weight: normal;">height with age and gender: </span></span></span>
+   </div>
+<div align="JUSTIFY" style="background: transparent; font-weight: normal; margin-bottom: 0cm; page-break-before: auto;">
+<br /></div>
+<div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><b>val</b> =
+   (((age &lt;&lt; 1) |  gender ) &lt;&lt; 8 ) | height</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="24%"><div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<br /></div>
+</td>
+  <td colspan="7" width="33%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">Age
+   range</span></span></span></div>
+<div align="CENTER">
+<br /></div>
+<div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">16
+   + 8 + 1 = 25</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">Gender</span></span></span></div>
+<div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">=
+   1</span></span></span></div>
+</td>
+  <td colspan="8" width="38%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">Height
+   range</span></span></span></div>
+<div align="CENTER">
+<br /></div>
+<div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">128
+   + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255.</span></span></span></div>
+</td>
+ </tr>
+</tbody></table>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm; page-break-before: auto;">
+</div>
+<br />
+<br />
+<pre class="java" name="code">public class Binary5 {
+
+    public static void main(String[ ] args) {
+        
+        //packing
+        int val = ((((25 &lt;&lt; 1) | 1) &lt;&lt; 8) | 255);
+        System.out.println("packed=" + val);
+        System.out.println("packed binary=" 
+                               + Integer.toBinaryString(val));       //0011001111111111
+        
+        //unpacking
+        System.out.println("height=" + (val &amp; 0xff));                //extract last 8 bits.
+        System.out.println("gender=" + ((val &gt;&gt;&gt; 8) &amp; 1));  //extract bit 9
+        System.out.println("age=" + ((val &gt;&gt;&gt; 9)));         //extract bits 10 – 16.
+
+    }
+}
+</pre>
+<br />
+<b>Output:&nbsp;</b><br />
+<br />
+<pre class="java" name="code">packed=13311
+packed binary=11001111111111
+height=255
+gender=1
+age=25
+</pre>
+<br />
+<style type="text/css">P { margin-bottom: 0.21cm; }</style>
+
+
+<br />
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<span style="font-family: Garamond, serif;"><span style="font-size: small;"><b>Unpacking (or
+extracting) height: </b><span style="font-weight: normal;">Extract the
+low order 8 bits.</span></span></span></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<span style="font-family: Garamond, serif;"><span style="font-size: small;"><span style="font-weight: normal;">
+
+
+ 
+ 
+ 
+ <style type="text/css">TD P { margin-bottom: 0cm; }P { margin-bottom: 0.21cm; }</style>
+
+
+</span></span></span></div>
+<table border="1" cellpadding="4" cellspacing="0" style="width: 100%;">
+ <colgroup><col width="63*"></col>
+ <col width="13*"></col>
+ <col width="15*"></col>
+ <col width="11*"></col>
+ <col width="10*"></col>
+ <col width="12*"></col>
+ <col width="11*"></col>
+ <col width="14*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="13*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="10*"></col>
+ </colgroup><tbody>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">packed
+   <b>value</b>:</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="6%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">Masking:
+   0xFF</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="6%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">Extract
+   height = </span></span>
+   </div>
+<div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">value
+   <b>&amp;</b> 0xFF:</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="6%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="6%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">2<sup>7</sup></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">2<sup>6</sup></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">2<sup>5</sup></span></span></div>
+</td>
+  <td width="5%"><span style="font-size: x-small;">2<sup>4</sup></span></td>
+  <td width="5%"><span style="font-size: x-small;">2<sup>3</sup></span></td>
+  <td width="5%"><span style="font-size: x-small;">2<sup>2</sup></span></td>
+  <td width="5%"><span style="font-size: x-small;">2<sup>1</sup></span></td>
+  <td width="4%"><span style="font-size: x-small;">2<sup>0</sup></span></td>
+ </tr>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">height:</span></span></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="6%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td colspan="8" width="37%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">128
+   + 64 + 32 + 16 + 8 + 4 + 2 + 1 = <b>255</b></span></span></div>
+</td>
+ </tr>
+</tbody></table>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<br /></div>
+<br />
+<style type="text/css">P { margin-bottom: 0.21cm; }</style>
+
+
+<br />
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<span style="font-family: Garamond, serif;"><span style="font-size: small;"><b>Unpacking (or extracting)
+gender: </b><span style="font-weight: normal;">Extract bit 9.</span></span></span></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<span style="font-family: Garamond, serif;"><span style="font-size: small;"><span style="font-weight: normal;">
+
+
+ 
+ 
+ 
+ <style type="text/css">TD P { margin-bottom: 0cm; }P { margin-bottom: 0.21cm; }</style>
+
+
+</span></span></span></div>
+<table border="1" cellpadding="4" cellspacing="0" style="width: 100%;">
+ <colgroup><col width="63*"></col>
+ <col width="13*"></col>
+ <col width="15*"></col>
+ <col width="11*"></col>
+ <col width="10*"></col>
+ <col width="12*"></col>
+ <col width="11*"></col>
+ <col width="14*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="13*"></col>
+ <col width="12*"></col>
+ <col width="11*"></col>
+ <col width="11*"></col>
+ </colgroup><tbody>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">packed
+   <b>value</b>:</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="6%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<span style="color: black;"><span style="font-family: Times New Roman, serif;"><span style="font-size: small;">8
+   lower order bits (i.e. shaded area) are shifted out.</span></span></span></div>
+<div align="JUSTIFY">
+<br /></div>
+<div align="JUSTIFY">
+<span style="color: black;"><span style="font-family: Times New Roman, serif;"><span style="font-size: small;">value
+   &gt;&gt;&gt; 8</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="6%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">Masking:
+   1 </span></span>
+   </div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="6%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">Extract
+   gender = </span></span>
+   </div>
+<div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="color: black;"><span style="font-family: Times New Roman, serif;">(value
+   &gt;&gt;&gt; 8) </span></span><span style="color: black;"><span style="font-family: Times New Roman, serif;"><b>&amp;</b></span></span><span style="color: black;"><span style="font-family: Times New Roman, serif;">1</span></span>:</span></span></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="6%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="6%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">2<sup>0</sup></span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">gender:</span></span></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="6%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><b><span style="background: transparent;">1</span></b></span></span></div>
+</td>
+ </tr>
+</tbody></table>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<br /></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<span style="font-family: Garamond, serif;"><span style="font-size: small;"><span style="font-weight: normal;">
+
+
+ 
+ 
+ 
+ <style type="text/css">P { margin-bottom: 0.21cm; }</style>
+
+
+</span></span></span></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+</div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<span style="font-family: Garamond, serif;"><span style="font-size: small;"><b>Unpacking (or
+extracting) age: </b><span style="font-weight: normal;">Extract</span><b>
+</b><span style="font-weight: normal;">bits 10 – 16 (i.e. higher
+order bits ).</span></span></span></div>
+<style type="text/css">TD P { margin-bottom: 0cm; }P { margin-bottom: 0.21cm; }</style>
+
+
+<br />
+<table border="1" cellpadding="4" cellspacing="0" style="width: 100%;">
+ <colgroup><col width="63*"></col>
+ <col width="13*"></col>
+ <col width="15*"></col>
+ <col width="11*"></col>
+ <col width="10*"></col>
+ <col width="12*"></col>
+ <col width="11*"></col>
+ <col width="14*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="12*"></col>
+ <col width="13*"></col>
+ <col width="12*"></col>
+ <col width="11*"></col>
+ <col width="11*"></col>
+ </colgroup><tbody>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">packed
+   <b>value</b>:</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="6%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">1</span></span></span></div>
+</td>
+  <td bgcolor="#cccccc" width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">Extract
+   age  = </span></span>
+   </div>
+<div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">value
+   <b>&gt;&gt;&gt;</b> 9:</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="6%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: transparent;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">0</span></span></span></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;"><span style="background: #c0c0c0;">1</span></span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="6%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="4%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="5%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">2<sup>6</sup></span></span></div>
+</td>
+  <td width="5%"><span style="font-size: x-small;">2<sup>5</sup></span></td>
+  <td width="5%"><span style="font-size: x-small;">2<sup>4</sup></span></td>
+  <td width="5%"><span style="font-size: x-small;">2<sup>3</sup></span></td>
+  <td width="5%"><span style="font-size: x-small;">2<sup>2</sup></span></td>
+  <td width="4%"><span style="font-size: x-small;">2<sup>1</sup></span></td>
+  <td width="4%"><span style="font-size: x-small;">2<sup>0</sup></span></td>
+ </tr>
+<tr valign="TOP">
+  <td width="25%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">age:</span></span></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="6%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="4%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td width="5%"><div align="JUSTIFY">
+<br /></div>
+</td>
+  <td colspan="7" width="33%"><div align="JUSTIFY">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">2<sup>4
+   + </sup>2<sup>3 + </sup>2<sup>0 =</sup> 16 + 8 + 1 = <b>25</b></span></span></div>
+</td>
+ </tr>
+</tbody></table>
+<br />
+<style type="text/css">P { margin-bottom: 0.21cm; }</style>
+
+
+<br />
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<br />
+<span style="font-size: small;"><span style="font-family: Garamond, serif; font-size: large;"><b>Example 2</b>:</span> <span style="font-family: inherit;">To
+compactly represent a number of attributes like being bold, italics,
+etc of a character in a text editor. This is a more practical
+example.   </span></span>
+</div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm; page-break-before: auto;">
+<br /></div>
+<style type="text/css">TD P { margin-bottom: 0cm; }P { margin-bottom: 0.21cm; }</style>
+
+
+<br />
+<table border="1" cellpadding="4" cellspacing="0" style="width: 100%;">
+ <colgroup><col width="26*"></col>
+ <col width="26*"></col>
+ <col width="36*"></col>
+ <col width="37*"></col>
+ <col width="43*"></col>
+ <col width="39*"></col>
+ <col width="23*"></col>
+ <col width="26*"></col>
+ </colgroup><tbody>
+<tr valign="TOP">
+  <td width="10%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">shadow</span></span></div>
+</td>
+  <td width="10%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">blink</span></span></div>
+</td>
+  <td width="14%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">subscript</span></span></div>
+</td>
+  <td width="15%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">superscript</span></span></div>
+</td>
+  <td width="17%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">strikethrough</span></span></div>
+</td>
+  <td width="15%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">underline</span></span></div>
+</td>
+  <td width="9%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">italics</span></span></div>
+</td>
+  <td width="10%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">bold</span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="10%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="10%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">1</span></span></div>
+</td>
+  <td width="14%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="15%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">1</span></span></div>
+</td>
+  <td width="17%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="15%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="9%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">0</span></span></div>
+</td>
+  <td width="10%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: small;">1</span></span></div>
+</td>
+ </tr>
+</tbody></table>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<br /></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<br /></div>
+<pre class="java" name="code">import java.util.Arrays;
+
+public class Binary6 {
+    public static void main(String[ ] args) {
+        byte[ ] vals = { 0, 1, 0, 1, 0, 0, 0, 1 };
+
+        byte value = pack(vals);
+        System.out.println("packedValue=" + value);    // 81
+        System.out.println("unpackedValues="
+                + Arrays.toString(unpack(value)));     // [0, 1, 0, 1, 0, 0, 0, 1]
+    }
+
+    public static byte pack(byte[ ] vals) {
+        byte result = 0;
+        for (byte bit : vals) {
+            result = (byte) ((result &lt;&lt; 1) | (bit &amp; 1));
+        }
+        return result;
+    }
+
+    public static byte[ ] unpack(byte val) {
+        byte[ ] result = new byte[8];
+        for (int i = 0; i &lt; 8; i++) {
+            result[i] = (byte) ((val &gt;&gt; (7 - i)) &amp; 1);
+        }
+        return result;
+    }
+}
+</pre>
+<br />
+<style type="text/css">P { margin-bottom: 0.21cm; }</style>
+
+
+<br />
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<br />
+<span style="font-size: small;"><span style="font-family: Garamond, serif; font-size: large;"><b>Example 3</b>:</span> <span style="font-family: inherit;">If you
+can think of anything as slots  or switches that need to be flagged
+on or off, you can think of bitwise operators. For example, if you
+want to mark some events on a calendar.&nbsp;</span></span></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<br /></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<span style="font-family: Garamond, serif;"><span style="font-size: small;">
+
+
+ 
+ 
+ 
+ <style type="text/css">TD P { margin-bottom: 0cm; }P { margin-bottom: 0.21cm; }</style>
+
+
+</span></span></div>
+<table border="1" cellpadding="4" cellspacing="0" style="width: 100%;">
+ <colgroup><col width="37*"></col>
+ <col width="37*"></col>
+ <col width="37*"></col>
+ <col width="40*"></col>
+ <col width="34*"></col>
+ <col width="37*"></col>
+ <col width="37*"></col>
+ </colgroup><tbody>
+<tr valign="TOP">
+  <td width="14%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">6
+   </span></span>
+   </div>
+<div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">Saturday</span></span></div>
+</td>
+  <td width="14%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">5</span></span></div>
+<div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">Friday</span></span></div>
+</td>
+  <td width="14%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">4
+   </span></span>
+   </div>
+<div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">Thursday</span></span></div>
+</td>
+  <td width="15%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">3
+   </span></span>
+   </div>
+<div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">Wednesday</span></span></div>
+</td>
+  <td width="13%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">2</span></span></div>
+<div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">Tuesday</span></span></div>
+</td>
+  <td width="14%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">1
+   </span></span>
+   </div>
+<div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">Monday</span></span></div>
+</td>
+  <td width="14%"><div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">0
+   </span></span>
+   </div>
+<div align="CENTER">
+<span style="font-family: Times New Roman, serif;"><span style="font-size: x-small;">Sunday</span></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="14%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="14%"><div align="CENTER">
+<br /></div>
+</td>
+  <td bgcolor="#cccccc" width="14%"><div align="CENTER">
+<br /></div>
+</td>
+  <td bgcolor="#cccccc" width="15%"><div align="CENTER">
+<br /></div>
+</td>
+  <td bgcolor="#cccccc" width="13%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="14%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="14%"><div align="CENTER">
+<br /></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="14%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="14%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="14%"><div align="CENTER">
+<br /></div>
+</td>
+  <td width="15%"><div align="CENTER">
+<br /></div>
+</td>
+  <td bgcolor="#e6e6e6" width="13%"><div align="CENTER">
+<br /></div>
+</td>
+  <td bgcolor="#e6e6e6" width="14%"><div align="CENTER">
+<br /></div>
+</td>
+  <td bgcolor="#e6e6e6" width="14%"><div align="CENTER">
+<br /></div>
+</td>
+ </tr>
+</tbody></table>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<br /></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<span style="font-family: Garamond, serif;"><span style="font-size: small;">&nbsp;</span></span><span style="font-family: Garamond, serif;"><span style="font-size: small;">
+
+
+ 
+ 
+ 
+ <style type="text/css">P { margin-bottom: 0.21cm; }</style>
+
+
+</span></span></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<span style="font-size: small;"><span style="font-family: Garamond, serif; font-size: large;"><b>Example 4:</b></span> <span style="font-family: inherit;">To
+multiply or divide by 2<sup>n</sup>.</span></span></div>
+<div align="JUSTIFY" style="background: transparent; line-height: 0.49cm; margin-bottom: 0cm;">
+<span style="font-family: Garamond, serif;"><span style="font-size: small;">&nbsp;</span></span>
+</div>
+<pre class="java" name="code">public class ShiftOperator {
+    
+    //multiply by 2 power n. n = 6
+    private static final int  MULTIPLY = 10 &lt;&lt; 6;
+    //Divide by  2 power n where n = 6.
+    private static final int  DIVIDE = 640 &gt;&gt; 6;
+    
+    public static void main(String[ ] args) {
+         System.out.println(MULTIPLY);               // 640
+         System.out.println(DIVIDE);                 // 10
+    }
+} 
+</pre>
+<div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Core%20Java">Core Java</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2014/07/java-bitwise-operators-with-practical.html" title="permanent link"> 7/14/2014 11:06:00 AM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=3840026364392742055" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=3840026364392742055&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>0 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=3840026364392742055'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/3840026364392742055/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+    <a name="links"></a><h4>Links to this post:</h4>
+    <dl id="comments-block">
+    <script type="text/javascript" src="https://www.blogger.com/dyn-js/backlink.js?blogID=35897879&postID=3840026364392742055" charset="utf-8" defer="true">
+</script>
+<noscript><a href="http://blogsearch.google.com/?ui=blg&q=link:http://java-success.blogspot.com/2014/07/java-bitwise-operators-with-practical.html">See links to this post</a></noscript>
+<div id="blogger-dcom-block" style="display:none">
+        <dt class="comment-title">
+        <span class="comment-toggler">&nbsp;</span>
+        <a href="<$BlogBacklinkURL$>" rel="nofollow"><$BlogBacklinkTitle$></a> <span class="item-control blog-admin"><a style="border:none;" href="https://www.blogger.com/delete-backlink.g?blogID=35897879&amp;postID=3840026364392742055&amp;backlinkURL=%3C$BlogBacklinkURLEscaped$%3E" title="Remove Link" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+        </dt>
+        <dd class="comment-body"><$BlogBacklinkSnippet$>
+        <br />
+        <span class="comment-poster">
+        <em><$I18NPostedByBacklinkAuthor$> @ <$BlogBacklinkDateTime$></em>
+        </span>
+        </dd>
+    </div>
+<script type="text/javascript">if (typeof BL_addOnLoadEvent == 'function') { BL_addOnLoadEvent(function() { BL_writeBacklinks(); }); }</script>
+
+    </dl>
+    <p class="comment-timestamp"><script type="text/javascript">function BlogThis() {
+Q=''; x=document; y=window;
+if(x.selection) {
+  Q=x.selection.createRange().text;
+} else if (y.getSelection) {
+  Q=y.getSelection();
+} else if (x.getSelection) {
+  Q=x.getSelection();
+}
+popw = y.open('https://www.blogger.com/blog-this.g?t=' +
+  escape(Q) + '&u=' + escape(location.href) + '&n=' +
+  escape(document.title),'bloggerForm',
+  'scrollbars=no,width=475,height=300,top=175,left=75,status=yes,resizable=yes');
+void(0);
+}
+</script>
+<a class="comment-link" href="javascript:BlogThis();" id="b-backlink">Create a Link</a></p>
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2014/07/maven-with-nexus-for-distribution.html">Maven with Nexus for distribution management</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/maven-assembly-plugin-example.html">Maven assembly plugin example</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/difference-between-maven-snapshot-and.html">Difference between Maven snapshot and release vers...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/drools-tutorial-non-trivial-example.html">Drools tutorial -- A non trivial example with step...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/top-11-mistakes-or-slackness-that-can.html">Top 11 mistakes or slackness that can come back an...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/can-you-explain-java-class-loaders-how.html">Can you explain Java class loaders? How is the ver...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/top-50-core-java-interview-questions_5.html">Top 50 Core Java Interview questions you can&#39;t aff...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/java-executor-service-to-run_5.html">Java Executor service to run concurrently and sequ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/java-executor-service-to-run.html">Java Executor service to run concurrently and sequ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/fizz-buzz-java-coding-example.html">Fizz Buzz Java coding example</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

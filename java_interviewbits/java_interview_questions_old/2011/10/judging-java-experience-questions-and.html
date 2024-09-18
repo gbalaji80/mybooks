@@ -1,0 +1,892 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Java interview questions and answers on code quality</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/7012422215717169494/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Oct 14, 2011</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="7012422215717169494"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Java interview questions and answers on code quality
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div>Open-ended interview questions can tell a lot about a candidate.Code quality starts when you interview someone. You need the right people with the right skills and most importantly the <b>right attitude</b>. If you don't know how to achieve good code quality or don't care about it then your chances of job interview success will be very slim if not zero. The open-ended job interview questions give you a great opportunity to sell not only your technical skills, but also your soft-skills and personal traits. Impressive answers in open-ended questions can motivate your prospective interviewers to overlook any short-comings in your resume like not knowing a particular framework or tool or not having any experience with a particular application server. The following questions are very frequently asked, and your answers will be drilled down. So, don't just rely only on memorizing the answers given below, but apply it. <br />
+<br />
+<b>Q.</b> How do you ensure code quality in your application?<br />
+<b>A. </b>code quality means writing <b>readable </b>and <b>robust </b>code, that conforms as much as possible to the style-guideline that is used, and that has as little as possible defects. It also means writing <b>maintainable </b>code with proper automated and manual tests. <br />
+<br />
+<b>1. Write a number of automated tests</b><br />
+<br />
+<ul>
+<li><b>Unit tests&nbsp;</b> using<b> JUnit </b>or<b> TestNG</b>. For unit tests use mock objects to ensure that your tests don't fail due to volatility of the data changes. There are mocking frameworks like <b>EasyMock</b>, <b>Mockito</b>, and <b>PowerMock</b>.</li>
+</ul>
+<ul>
+<li><b>Integration testing</b> of your services with JUnit or TestNG. Your integration tests are only as good as the quality of the data. You could either use dedicated test databases or use frameworks like <b>DBUnit</b> to manage extraction and insertion of data. </li>
+</ul>
+<ul>
+<li><b>Web testing</b>&nbsp; using <b>Selenium + WebDriver</b>. Selenium + WebDriver ( <a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html">Selenium interview questions and answers</a>) allows you to reenact web user experience and run it as an automated unit test using JUnit or TestNG.<a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html"></a>Your tests are only as good as the quality of the data. You could either use dedicated system test databases or use frameworks like <b>DBUnit</b>. DBUnit allows you to extract the data from databases into flat XML files, and then refresh (i.e. insert or update) the data into the database during setup phase of running the unit tests. There are handy proxy JDBC driver tool called <b>P6SPY</b>, which logs the SQL queries that are executed against the database by the DBUnit. This P6SPY also very handy in debugging Hibernate’s generated SQL&nbsp; by acting as a proxy driver between JDBC and the real driver so that all generated SQL will be logged. There are other Web testing tools like <b>Badboy</b>.</li>
+</ul>
+<ul>
+<li><b>Load testing your application </b>with tools like <b>JMeter</b>, <b>OpenSTA</b>, etc.&nbsp; The Badboy compliments JMeter by allowing you to record scripts and then exporting the scripts as a JMeter file to be used in JMeter.<a href="http://java-success.blogspot.com/2011/10/jmeter-interview-questions-and-answers.html">JMeter Interview Questions and Answers</a></li>
+</ul>
+<br />
+<b>2. Have regular code reviews.</b> There are tools like <b>Crucible</b> from Atlassian that gives your team an efficient way to benefit from the power of constant code review with features like inline commenting, simple workflow, asynchronous reviews, email and RSS notifications, JIRA integration and much more. <br />
+<br />
+<b>3. Using a number of code quality tools.</b><br />
+<br />
+<ul>
+<li><b>Checkstyle </b>ensures the style of your Java code is standardized and "nice". It checks white spaces, new lines, formatting, etc. (i.e. it looks on the code line by line).&nbsp; This only ensure style of your code.</li>
+<li>On the other hand there is <b>PMD </b>which not necessarily checks the style of your code but it checks the structure of the whole code. PMD scans Java source code and looks for potential problems like possible bugs, dead code, suboptimal code, overcomplicated expressions, duplicate code, etc.</li>
+<li><b>FindBugs </b>is a static analysis tool to look for bugs in Java code. It discovers possible <i>NullPointerExceptions </i>and a lot more bugs.</li>
+<li><b>Sonar</b> is a very powerful tool covering 7 axes of code quality as shown below.</li>
+</ul>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-Tfolrz8o5II/TpZL4nd1K2I/AAAAAAAAAHg/0mgJ5dCgWdE/s1600/code_quality_sonar.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-Tfolrz8o5II/TpZL4nd1K2I/AAAAAAAAAHg/0mgJ5dCgWdE/s320/code_quality_sonar.JPG" height="164" width="320" /></a></div>
+<div style="text-align: center;">
+(The diagram is from the Sonar website)</div>
+<br />
+<b>4. Using continuous integration servers</b> (on a clean separate machine) like <b>Bamboo</b>, <b>Hudson</b>, <b>CruiseControl</b>, etc to continuously integrate and test your code.<br />
+<br />
+<b>5. Not stopping to code once the code works.</b> Too many developers feel their job stops at making something happen. It is a best practice to constantly <b>refactor code </b>with proper unit tests in place. <br />
+<br />
+<br />
+<b>Q.</b> Do you use test driven development? Why / Why not? <br />
+<b>A.</b> [Hint] Yes.<br />
+<br />
+<ul>
+<li>Gives you a better understanding of what you're going to write.&nbsp; Gets you to clearly think what the inputs are and what the output is.&nbsp; Helps you separate the concerns by getting you to think about the single responsibility principle (SRP).</li>
+<li>Enforces a better test coverage. This gives you the confidence to refactor your code in the future, since you have a good coverage.</li>
+<li>You won't waste time writing features you don't need.</li>
+</ul>
+<br />
+<b>Q</b>. How do you keep your knowledge up to date about writing quality code?<br />
+<b>A</b>. Mainly through good books and online resources.<br />
+<br />
+<b>Through good books</b><br />
+<ul>
+<li><b>Code Complete</b>: A Practical Handbook of Software Construction by Steve McConnel</li>
+<li><b>Clean Code</b>:&nbsp; A Handbook of Agile Software Craftsmanship by Robert. C. Martin</li>
+</ul>
+<br />
+<b>Through good articles and&nbsp; quick tips at online resources like</b><br />
+<ul>
+<li>&nbsp; JavaLobby (java.dzone.com)</li>
+<li>&nbsp; TheServerside.com</li>
+<li>&nbsp; InfoQ.com</li>
+<li>&nbsp; handy blogs on Mockito, PowerMock, Easy mock, DBUnit, Selenium, JUnit, TestNG, etc.&nbsp;</li>
+</ul>
+<br />
+<b>Q.</b> What do you look for when you are reviewing others' code?<br />
+<b>A.</b> Firstly, and most importantly look to see if the following key areas are properly adhered to avoid any potential issues relating to thread-safety, performance, memory leak, scalability, transaction management, exception handling, etc. Also, look for the key areas like best practices, design concepts, and design patterns. <a href="http://java-success.blogspot.com/2006/10/learn-javaj2ee-core-conceptskey-areas.html">Key Areas</a>.<br />
+<br />
+Secondly, ensure that proper test cases are written. Also, ensure that it has a good code coverage.<br />
+<br />
+Here are a few finer points:<br />
+<ul>
+<li>Naming conventions.</li>
+<li>Existence of unused code and commenting code out. Delete unused code. Source control is there for maintaining the history of your code.</li>
+<li>Unnecessary comments.&nbsp; The method and variable names must be self explanatory without cluttering the code with excessive comments. The methods should do only one thing with fewer lines of code. More than 15-20 lines of code is questionable. The number of parameters passed in must also be small. The public methods must fail fast with proper validations.</li>
+<li>Repeated code due to copy-paste. For example, same logic or hard coded values repeated in a number of places.</li>
+<li>Favoring trivial performance optimization over readability and maintainability.&nbsp; </li>
+<li>Tightly copuled code. For example, not coding to interfaces, favoring inheritance over composition, etc.</li>
+<li>Badly defined variable scopes or variable types. For example, using a data type double to represent monetary values instead of BigDecimal. The variable scopes must be as narrow as possible.</li>
+<li>Using mutable objects and read only varaibles where immutable objects make more sense.</li>
+<li>Proper implementation of language contracts. For example, not properly implemented equals and hashCode methods.</li>
+<li>Deeply nested loops or conditionals. Nested loops can be replaced with changing the logic or through recursion. Nested if-else conditionals are a good candidate for applying polymorphism.</li>
+<li>Not properly handling exceptions. For example, burying exceptions, exposing internal exception details to the users without proper friendly messages at the Web&nbsp; layer, etc.</li>
+<li>Badly written unit tests.</li>
+<li>Not designing the classes and interfaces with proper design concepts and principles. For example, strongly coupled classes, classes trying to do more things than it should, modelling it as a class when it should be an attribute, etc.</li>
+<li>Not handling and testing non-functional scenarios. For example, not properly handling service timeouts or using incorrect timeout values.</li>
+<li>Reinventing the wheel by writing your own implementation, when there is already a proven and tested&nbsp; implementation provided by the API.<br />
+</li>
+</ul>
+<b>Note: </b>The Core Java Career Essentials cover all the above in detail with examples.<br />
+<br />
+<br />
+<b>Q.</b> There are lots of advantages in writing tests, but in your experience, are there any disadvantages?<br />
+<b>A</b>. [<b>Hint</b>: Everything has pros and cons. Discussing the cons demonstrates your experience, but make it a point to mention how you overcome the cons to exemplify your problem solving, researching, and analytical skills. <br />
+<br />
+Tests need to be maintained. If a particular method signature or logic is changed, then all the relevant tests need to be fixed. Many developers don't put lots of thoughts into writing quality test cases through proper <b>what if</b> analysis. For example, what if new records are added to the database? What if the data is missing?, etc. So, this continuous tweaking of test cases will require time. Writing quality tests require experience and lots of&nbsp; analysis.you need to have an enthusiastic team and at least one experienced developer who knows how to write good tests, and also knows a few thing about good architecture<br />
+<br />
+Requires some<b> initial upfront investment</b> in time and cost. But, this initial up front investment will pay-off&nbsp; significantly in a long run through quality code and robust application.<br />
+<br />
+<b>Q.</b> What is the difference between fake objects, mock objects, and stubs?<br />
+<b>A. </b><br />
+<br />
+<ul>
+<li><b>Fake </b>objects build a very lightweight implementation of the same functionality as provided by a component that you are faking. Since they take some shortcut, they are not suitable for production.</li>
+</ul>
+<ul>
+<li><b>Mocks </b>are objects pre-programmed with expectations which form a specification of the calls they are expected to receive. You can use mocking frameworks like <i>EasyMock</i>, <i>Mockito</i>, <i>PowerMock</i>, etc to achieve this.When an actual service is invoked, a mock object is executed with a known outcome instead of the actual service. With mock objects, you can verify if expected method calls were made and how many times. The verify(mockOrderDao) shown below tells EasyMock to validate that all of the expected method calls were executed and in the correct order. </li>
+</ul>
+<br />
+<pre class="brush: csharp">public void testOrderService() {
+          
+        //....
+         
+        expect(mockOrderDao.getOrders(...)) .andReturn(mockResults);
+        replay(mockDao);
+        assertTrue(service.login(userName, password));
+        verify(mockDao);  //expected method calls were executed 
+     }
+</pre>
+<br />
+<br />
+<ul>
+<li><b>Stubs </b>are like a mock class, except that they don't provide the ability to verify that methods have been called or not called. Generally services that are not ready or currently not stable are stubbed to make the test code more stable. </li>
+</ul>
+<br />
+You use a Mock when it's an object that returns values that you set to the tested class. You use a Stub to mimic an Interface or Abstract class to be tested. <u>In fact, the difference is very subtle and it doesn't really matter what you call it, fake, mock, or stub, they are all objects that aren't used in production, and used for managing complexity to write quality tests</u>. <br />
+<br />
+<br />
+<b>Q.</b> Can you list some of the key principles to remember while designing your classes?<br />
+<b>A.</b> Use design principles and patterns, but use them judiciously. Design for current requirements without anticipating future requirements, and over complicating things. A well designed (i.e. loosely coupled and&nbsp; more cohesive) system can easily lend itself to future changes, whilst keeping the system less complex. <br />
+<br />
+<ul>
+<li>Favor composition over inheritance.</li>
+<li>Don't Repeat Yourself (DRY principle). Code once and only once.</li>
+<li>Find what varies and encapsulate it.</li>
+<li>Code to an interface, and not to an implementation.</li>
+<li>Strive for loose coupling and high cohesion.</li>
+</ul>
+<br />
+<b>Q.</b> In your experience, what are some of the common dilemmas you face when writing unit tests?<br />
+<b>A.</b> [Hint: provide the dilemma and the tips to overcome the dilemma]<br />
+<br />
+<ul>
+<li><b>Whether to fix the code or the test. </b>When you write unit tests, sometimes you feel compelled to change your code just to facilitate the test. For example, when you need to test a private method or attribute. Doing so is a bad idea. If you ever feel tempted to make a private method public purely for testing purposes, don't do it. Testing is meant to improve the quality of your code, not decrease it. Having said this, in most cases, thinking about the test first in a TDD (.i.e. Test Driven Development) will help you refactor and write better code. Also, mock frameworks like <b>PowerMock</b>, let you mock private methods, static methods, constructors, final classes and methods, etc. Care must be taken in testing private methods. Inside a class you can end up with a lot of private methods manipulating instance or class variables without having them passed as parameters. This leads to high method coupling, and something not recommended. Instead use private methods that take explicit parameters and provide explicit return values.</li>
+</ul>
+<ul>
+<li><b>Whether to use mocks or not.</b> The quality unit tests need to be repeatable. Some non-deterministic or environmental conditions can make your code fragile. Mocking these scenarios can make your code more robust. For example, a <i>CircusService </i>class can use a mock <i>CircusDao </i>to avoid test cases failing due to data related issues. Alternatively, the test cases can use frameworks like <b>DBUnit </b>to insert data&nbsp; during test set up and&nbsp; remove data during the test tear down to provide stable data for the test cases. Some test cases rely on Web service calls, and availability of these services are non-deterministic, and it makes more sense to mock those services.</li>
+</ul>
+<br />
+<ul>
+<li><b>How to test non-functional requirements?</b> For example, a non-functional requirement like 95 percent of all Web-based transactions should complete within 2 seconds. Your approach here would be to simply run the test code many times in a loop and compare the transaction times with target time, and keeping track of the number of passes and fails. If at the end of the test less than 95 percent of the transactions fail, then fail the test too. There are scenarios where @Test(timeout=5)&nbsp; becomes handy to fail a test case that takes longer than 5 seconds to execute.</li>
+</ul>
+<br />
+<ul>
+<li><b>Testing multi-thread code</b>. This can be quite challenging&nbsp; and sometimes an impossible task. If the tests are too complex, then review your code and design. There are ways to program for multi-threading that are more conducive for testing. For example, making&nbsp; your objects immutable where possible, reducing the number of instances where multiple threads interact with the same instance, and using the <i>ExecutorService </i>(e.g. having a <i>SerialExecutorService </i>which is part of the <b>jconch</b> framework to execute the threads serially)&nbsp; instead of the Thread class, etc. There are frameworks like <b>GroboUtils </b>and <b>MultithreadedTC </b>aiming to expand the testing possibilities of Java with support for multi-threading and hierarchical unit testing. The goal of&nbsp; <b>jconch </b>project is to provide safe set of implementations for common tasks in multi-threaded Java applications. The <i>SerialExecutorService </i>class is one of them.</li>
+</ul>
+<br />
+<div style="color: #b45f06;">
+<span style="font-size: large;"><b>Related links:</b></span></div>
+<br />
+<ul>
+<li> <span style="font-size: large;"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html">Selenium interview questions and answers</a></span> </li>
+<li><span style="font-size: large;"><a href="http://java-success.blogspot.com/2011/10/jmeter-interview-questions-and-answers.html">JMeter interview questions and answers</a></span></li>
+<li><span style="font-size: large;"><a href="http://java-success.blogspot.com/2011/10/unit-testing-with-mock-objects.html">unit testing with mocking interview questions and answers</a></span><br />
+</li>
+</ul>
+<br />
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Center - Large Rectangle -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-3764234023451771"
+     data-ad-slot="1845819831"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Core%20Java">Core Java</a>, <a rel='tag' href="http://java-success.blogspot.com/search/label/Java%20Key%20Areas">Java Key Areas</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2011/10/judging-java-experience-questions-and.html" title="permanent link"> 10/14/2011 12:02:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=7012422215717169494" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=7012422215717169494&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>3 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c4092468128216546079"><a name="c4092468128216546079"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/11021942489366968268" rel="nofollow">A Kumar</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Great article, buddy</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/judging-java-experience-questions-and.html?showComment=1323709552857#c4092468128216546079" title="comment permalink">4:05 AM, December 13, 2011</a>
+	  <span class="item-control blog-admin pid-27689329"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=4092468128216546079" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8539269826118044903"><a name="c8539269826118044903"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00641970138717209707" rel="nofollow">rtivo</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Hi<br /><br />Tks very much for post: <br /><br />I like it and hope that you continue posting.<br /><br />Let me show other source that may be good for community.<br /><br />Source: <a href="http://interviewquestionsandanswers.biz/area-manager-interview-questions/" rel="nofollow">Area manager interview questions</a><br /><br />Best rgs<br />David<br /></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/judging-java-experience-questions-and.html?showComment=1348405246672#c8539269826118044903" title="comment permalink">11:00 PM, September 23, 2012</a>
+	  <span class="item-control blog-admin pid-1683435030"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8539269826118044903" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c9131699660010436398"><a name="c9131699660010436398"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Very nice article.Thank you.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/judging-java-experience-questions-and.html?showComment=1397820288013#c9131699660010436398" title="comment permalink">9:24 PM, April 18, 2014</a>
+	  <span class="item-control blog-admin pid-2123793620"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=9131699660010436398" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=7012422215717169494'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/7012422215717169494/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2011/10/jsp-interview-questions-and-answers.html">JSP Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/sql-interview-questions-and-answers.html">SQL Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/spring-interview-questions-and-answers.html">20+ Spring Interview Questions and Answers: Overvi...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/jsf-interview-questions-and-answers.html">JSF Interview Questions and Answers: Overview</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/maven-interview-questions-and-answers.html">Maven interview questions and answers - inheritanc...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/servlets-interview-questions-and.html">Servlets interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/build-tools-maven-and-ant-interview.html">Build tools (Maven and Ant)  interview questions a...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/why-blog-on-java-interview-questions.html">Why train with 650+ Java and JEE Interview Questio...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/enterprise-java-interview-questions-and.html">Enterprise Java interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/java-coding-interview-questions-and.html">Java coding interview questions and answers</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

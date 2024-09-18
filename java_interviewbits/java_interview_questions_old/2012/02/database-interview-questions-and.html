@@ -1,0 +1,964 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Database interview questions and answers</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/1108086149371246307/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Mar 1, 2012</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="1108086149371246307"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Database interview questions and answers
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><script type="text/javascript"><!--
+google_ad_client = "ca-pub-3764234023451771";
+/* Leader board */
+google_ad_slot = "4890304945";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<br/>
+<br/>
+
+
+
+<b>Q.</b> What do you understand by the terms clustered index and non-clustered index?<br />
+<b>A.</b> When you create a clustered index on a table, all the rows in the table are stored in the order of the clustered index key. So, there can be only one clustered index per table. Non-clustered indexes have their own storage space separate from the table data storage. Clustered and non-clustered indexes are stored as binary search tree (i.e. keep data sorted and has the average performance of O(log n) for delete, inserts, and search) structures with the leaf level nodes having the index key and it's row locator for a faster retrieval.<br />
+<br />
+<br />
+<br />
+<b>Q.</b> What is the difference between primary key and unique key?<br />
+<b>A.</b> Both primary key and unique key enforce uniqueness of the column on which they are defined. But by default, a primary key creates a clustered index on the column, whereas a unique key creates a non clustered index by default. Another major difference is that, a primary key doesn't allow NULL values, but unique key allows a single NULL.<br />
+<br />
+<b>Q.</b> What are the pros and cons of an index?<br />
+<b>A. </b><br />
+<br />
+<b>PROS</b><br />
+<br />
+<ul><li>If an index does not exist on a table, a table scan must be performed for each table referenced in a database query. The larger the table, the longer a table scan takes because a table scan requires each table row to be accessed sequentially. So, indexes can improve search performance, especially for the reporting requirements.</li>
+</ul><br />
+<br />
+<b>CONS</b><br />
+<br />
+<ul><li>Excessive non-clustered indexes can consume additional storage space.</li>
+<li>Excessive non-clustered indexes can adversely impact performance of the INSERT, UPDATE, and DELETE statements as the indexes need to recreated after each of the above operation.</li>
+</ul>So, it is essential to have a right balance based on the<b> usage pattern</b>.<br />
+<ul></ul><br />
+<br />
+<b>Q. </b>What are the pros and cons of stored procedures?<br />
+<b>A. </b><br />
+<br />
+<b>PROS</b><br />
+<br />
+<ul><li>pre-compiled and less network trips for faster performance</li>
+<li>less susceptible to SQL injection attacks</li>
+<li>more precise control over transactions and locking</li>
+<li>can abstract complex data processing from application by acting as a <b>facade layer</b>.</li>
+</ul><br />
+<b>CONS</b><br />
+<br />
+<ul><li>There are chances of&nbsp; larger chunks of business logic and duplications creeping into stored procedures and causing maintenance issues. Writing and maintaining stored procedures is most often a specialized skill set that not all developers possess. This situation may introduce bottlenecks in the project development schedule.</li>
+<li>Less portable.The stored procedures are specific to a particular database. </li>
+<li>Scaling a database is much harder than scaling an application.</li>
+<li>The application performance can be improved by caching the relevant data to reduce the network trips.</li>
+</ul><br />
+<br />
+<b>So, when should stored procedures be used ?</b><br />
+<br />
+Stored procedures are ideal when there is a complex piece of business logic that needs complex data logic to be performed involving a lot of database operations. If this logic is required in many different places, then store procedure makes even more sense. For example, batch jobs and complex report generation that performs lots of database operations.<br />
+<br />
+<br />
+<b>So, when shouldn't stored procedures be used ?</b><br />
+<br />
+When you are performing basic CRUD (Create, Read, Update, and Delete) operations. For example, in a Web application a user creates some data, read the created data, and then updates or deletes some of the created data. <br />
+<br />
+<br />
+<br />
+<b>Q.</b> How would you go about writing a stored procedure that needs to loop through a number of selected rows?<br />
+<b>A.</b> You need to use a cursor. A cursor is basically a pointer to row by operation. For example, you can create a cursor by selecting a number of records into it. Then, you can fetch each row at a time and perform some operations like invoking another stored proc by passing the selected row value as an argument, etc. Once uou have looped through all the records, you need to close and deallocate the cursor. For example, the stored procedure below written in Sybase demonstrates the use of a cursor.<br />
+<br />
+Apply to the database "mydatabase"<br />
+<br />
+<pre class="brush: csharp">use mydatabase
+go
+
+</pre><br />
+<br />
+Drop the stored procedure if it already exists<br />
+<br />
+<pre class="brush: csharp">IF OBJECT_ID('dbo.temp_sp') IS NOT NULL
+BEGIN 
+
+    DROP PROCEDURE dbo.temp_sp
+    IF OBJECT_ID('dbo.temp_sp') IS NOT NULL
+        PRINT '&lt;&lt;&lt; FAILED DROPPING PROCEDURE dbo.temp_sp &gt;&gt;&gt;'
+    ELSE
+        PRINT '&lt;&lt;&lt; DROPPED PROCEDURE dbo.temp_sp &gt;&gt;&gt;'
+END
+go
+
+</pre><br />
+Create the stored procedure that uses cursor<br />
+<br />
+<br />
+<pre class="brush: csharp">create proc temp_sp 
+
+as
+   DECLARE @ADVISERID char(10)
+   DECLARE advisers_cur cursor 
+     for select adviser_id  FROM  tbl_advisers where adviser_id like 'Z%'  -- select adviser_ids starting with 'Z'
+     for read only
+    
+   
+   open  advisers_cur                     -- open the cursor
+   FETCH advisers_cur INTO @ADVISERID     -- store value(s) from the cursor into declared variables
+   
+   --@@sqlstatus is a sybase implcit variable that returns success/failure status of previous statement execution
+   WHILE (@@sqlstatus = 0)
+   BEGIN
+      SELECT @ADVISERID                   -- select the adviser_id stored into  @ADVISERID
+      FETCH advisers_cur INTO @ADVISERID  --store value(s) from the cursor into declared variables
+   END
+
+   close advisers_cur
+   deallocate cursor advisers_cur
+
+go
+
+</pre><br />
+Execute the stored procedure that uses a cursor<br />
+<br />
+<br />
+<pre class="brush: csharp">exec mydatabase..temp_sp
+</pre><br />
+<br />
+<b>Q. </b>Why should you deallocate the cursors?<br />
+<b>A.</b> You need deallocate the cursor to clear the memory space occupied by the cursor.  This will enable the cleared space to be availble for other use.<br />
+<br />
+<br />
+<b>Q.</b> How would you go about copying bulk data in and out of a database? <br />
+<b>A.</b> The process is known as bulk copy, and the tools used for this are database specific. For example, in Sybase and SQLServer use a utility called "bcp", which allows you to export bulk data into comma delimited files, and then import the data in csv or any other delimited formats back into different database or table. In Oracle database, you achieve this via the SQLLoader. The DB2 database has IMPORT and LOAD command to achieve the same.<br />
+<br />
+<br />
+<b>Q.</b> What are triggers? what are the different types of triggers?<br />
+<b>A. </b>Triggers are stored procedures that are stored in the database and implicitly run, or fired, when something like INSERT, UPDATE , or DELETE happens to that table. There are 3 types of DML triggers that happens before or after events like INSERT, UPDATE, or DELETE. There could be other database specific triggers.<br />
+<br />
+<b>Q.</b> When to not use a trigger, and when is it appropriate to use a trigger?<br />
+<b>A.</b><br />
+<br />
+<b>When to not use  a trigger?</b><br />
+<br />
+<br />
+The database triggers need to be used very judiciously as they are executed every time an event like insert, update or delete occur.   Don't use a trigger  where<br />
+<ul><li>database constraints like unique constraint, not null, primary key, check constraints, etc can be used to check for data validity.</li>
+<li>triggers are recursive.</li>
+</ul><br />
+<b>Where to use a trigger?</b><br />
+<br />
+<ul><li>Maintaining complex integrity constraints (referential integrity) or business rules where other types of constraints cannot be used. Because triggers are executed as part of the SQL statement (and its containing transaction) causing the row change event, and because the trigger code has direct access to the changed row, you could in theory use them to correct or reject invalid data.</li>
+<li>Auditing information in a table by recording the changes. Some tables are required to be audited as part of the non-functional requirement for changes.</li>
+<li>Automatically signaling other programs that action needs to take place when changes are made to a table.</li>
+<li>Collecting and maintaining aggregate or statistical data.&nbsp;</li>
+</ul><br />
+<br />
+<b>Q. </b>If one of your goals is to reduce network loads, how will you about achieving it?<br />
+<b>A. </b><br />
+<ul><li>you can use materialized views to distribute your load from a master site to other regional sites. Instead of the entire company accessing a single database server, user load is distributed across multiple database servers with the help of multi-tier materialized views. This enables you to distribute the load to&nbsp; materialized view sites instead of master sites. To decrease the amount of data that is replicated, a materialized view can be a subset of a master table or master materialized view.</li>
+</ul><br />
+<ul><li>Write stored procedures to minimize network round trips.</li>
+</ul><br />
+<ul><li>Carefully crafting your SQL to return only required data. For example Don't do select * from tbl_mytable. Instead, specify the columns you are interested in. For example, select firstname, surname from tbl_mytable.</li>
+</ul><br />
+<ul><li>You can set the fetch size to an appropriate value to get the right balance between data size and number of network trips made.&nbsp;</li>
+</ul><b>Q.</b> What are the other uses of materialized views?<br />
+<b>A. </b><br />
+<ul><li>Materialized view is one of the key SQL tuning approaches to improve performance by allowing you to pre-join complex views and pre-compute summaries for super-fast response time.</li>
+</ul><br />
+<ul><li>Materialized views are schema objects that can be used to summarize, precompute, replicate, and distribute data. E.g. to construct a data warehouse, reporting, etc. A materialized view can be either read-only, updatable, or writable. Users cannot perform data manipulation language (DML) statements on read-only materialized views, but they can perform DML on updatable and writable materialized views.</li>
+</ul><br />
+<ul><li>A materialized view provides indirect access to table data by storing the results of a query in a separate schema object. Unlike an ordinary view, which does not take up any storage space or contain any data. You can define a materialized view on a base table, partitioned table or view and you can define indexes on a materialized view. </li>
+</ul><br />
+<b>Q.</b> If you are working with a legacy application, and some of the database tables are not properly designed with the appropriate constraints, how will you go about rectifying the situation?<br />
+<b>A.</b> One possible solution is to write triggers to perform the appropriate validation. Here is an example of an insert trigger.<br />
+<br />
+<pre class="brush: csharp">CREATE TRIGGER TableA_itrig
+  ON TableA  FOR INSERT
+AS
+BEGIN
+ 
+ IF @@rowcount = 0
+  RETURN
+
+ IF NOT EXISTS
+ (
+  SELECT  *
+  FROM  inserted ins, TableB ol
+  WHERE  ins.code = ol.code
+ )
+ 
+ BEGIN
+  RAISERROR 20001, "The associated object is not found"
+  ROLLBACK TRAN
+  RETURN
+ END
+ 
+END
+</pre><br />
+<br />
+<b>Q. </b>If you are working on a new application that requires stringent auditing requirements, how would you go about achieving it?<br />
+<b>A.</b> Since it is a new application, there are a number of options as listed below.<br />
+&nbsp; <br />
+<ul><li>The application is designed from the beginning so that all changes are logged either synchronously or asynchronously. Asynchronously means publishing the auditing messages to a queue or topic, and a separate process will receive these messages and write a database or flat file. All data changes go through a data access layer of the application which logs all changes<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li>The database is constructed in such a way that logging information is included in each table, perhaps set via a trigger. This approach may adversely impact performance when inserts and updates are very frequent. </li>
+</ul><br />
+<b>Q. </b>What if you have to work with an existing legacy application?<br />
+<b>A.&nbsp;</b> Use triggers.<br />
+<br />
+<br />
+<a href="http://java-success.blogspot.com.au/2011/10/sql-interview-questions-and-answers.html"><b>SQL Interview Questions and Answers </b></a><div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Database">Database</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2012/02/database-interview-questions-and.html" title="permanent link"> 3/01/2012 01:11:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=1108086149371246307" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=1108086149371246307&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>3 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c7748905530409871586"><a name="c7748905530409871586"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Hi <br />Thanks for appending Producer-consumer pattern. Here we can explain some caching strategy done by database for queries or some meta data..<br />I think That will be nice.<br />one link is<a href="http://docs.oracle.com/cd/A97336_01/cache.102/a88706/ic_intro.htm" rel="nofollow"> Database Caching</a></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/02/database-interview-questions-and.html?showComment=1337284368388#c7748905530409871586" title="comment permalink">5:52 AM, May 18, 2012</a>
+	  <span class="item-control blog-admin pid-334808538"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=7748905530409871586" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c2961016534357075353"><a name="c2961016534357075353"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>I used to be able to find good info from your <br />blog posts.<br /><i>Review my web site</i> - <b><a href="http://www.youtube.com/watch?v=penvTzY0nxQ" rel="nofollow">fastest way to lose belly fat</a></b></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/02/database-interview-questions-and.html?showComment=1352762781970#c2961016534357075353" title="comment permalink">10:26 AM, November 13, 2012</a>
+	  <span class="item-control blog-admin pid-783396529"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2961016534357075353" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c7492988352402552554"><a name="c7492988352402552554"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p><span class="deleted-comment">This comment has been removed by a blog administrator.</span></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/02/database-interview-questions-and.html?showComment=1354108754956#c7492988352402552554" title="comment permalink">12:19 AM, November 29, 2012</a>
+	  <span class="item-control blog-admin "><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=7492988352402552554" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=1108086149371246307'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/1108086149371246307/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+    <a name="links"></a><h4>Links to this post:</h4>
+    <dl id="comments-block">
+    <script type="text/javascript" src="https://www.blogger.com/dyn-js/backlink.js?blogID=35897879&postID=1108086149371246307" charset="utf-8" defer="true">
+</script>
+<noscript><a href="http://blogsearch.google.com/?ui=blg&q=link:http://java-success.blogspot.com/2012/02/database-interview-questions-and.html">See links to this post</a></noscript>
+<div id="blogger-dcom-block" style="display:none">
+        <dt class="comment-title">
+        <span class="comment-toggler">&nbsp;</span>
+        <a href="<$BlogBacklinkURL$>" rel="nofollow"><$BlogBacklinkTitle$></a> <span class="item-control blog-admin"><a style="border:none;" href="https://www.blogger.com/delete-backlink.g?blogID=35897879&amp;postID=1108086149371246307&amp;backlinkURL=%3C$BlogBacklinkURLEscaped$%3E" title="Remove Link" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+        </dt>
+        <dd class="comment-body"><$BlogBacklinkSnippet$>
+        <br />
+        <span class="comment-poster">
+        <em><$I18NPostedByBacklinkAuthor$> @ <$BlogBacklinkDateTime$></em>
+        </span>
+        </dd>
+    </div>
+<script type="text/javascript">if (typeof BL_addOnLoadEvent == 'function') { BL_addOnLoadEvent(function() { BL_writeBacklinks(); }); }</script>
+
+    </dl>
+    <p class="comment-timestamp"><script type="text/javascript">function BlogThis() {
+Q=''; x=document; y=window;
+if(x.selection) {
+  Q=x.selection.createRange().text;
+} else if (y.getSelection) {
+  Q=y.getSelection();
+} else if (x.getSelection) {
+  Q=x.getSelection();
+}
+popw = y.open('https://www.blogger.com/blog-this.g?t=' +
+  escape(Q) + '&u=' + escape(location.href) + '&n=' +
+  escape(document.title),'bloggerForm',
+  'scrollbars=no,width=475,height=300,top=175,left=75,status=yes,resizable=yes');
+void(0);
+}
+</script>
+<a class="comment-link" href="javascript:BlogThis();" id="b-backlink">Create a Link</a></p>
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2012/02/java-web-services-interview-questions_20.html">Java Web Services Interview Questions and Answers:...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/web-services-interview-questions-and.html">Web Services Interview Questions and Answers - RES...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/java-web-services-interview-questions.html">Java Web Services Interview Questions and Answers:...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/hibernate-interview-questions-and.html">Hibernate Interview Questions and Answers: integra...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/spring-and-hibernate-interview.html">Spring and Hibernate Interview Questions and Answe...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/hibernate-interview-q-with-annotations.html">Hibernate Interview Questions and Answers: with an...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/javascript-interview-questions-and_26.html">JavaScript Interview Questions and Answers: Coding...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/unix-interview-questions-and-answers.html">UNIX Interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/javascript-interview-questions-and_8681.html">JavaScript Interview Questions and Answers: Functi...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/javascript-interview-questions-and_8908.html">JavaScript Interview Questions and Answers: Closur...</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

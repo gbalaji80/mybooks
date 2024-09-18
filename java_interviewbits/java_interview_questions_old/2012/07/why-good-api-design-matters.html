@@ -1,0 +1,911 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Why does good API design matter?</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/1269152127836039093/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Jul 4, 2012</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="1269152127836039093"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Why does good API design matter?
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><b>Q. </b>Why is a good API design important?<br />
+<b>A.</b>The Application Programming Interfaces (i.e. APIs) are fine grained services/libraries used by other applications, systems and libraries. A good API design improves flexibility, stability, and extendability of your application.<br />
+<br />
+Now a days, applications are built as reusable components or services. A single page rich web page invoking multiple back end services via ajax &nbsp;calls is very common. Services are used to put information into cloud storage, retrieving data from cloud storage, &nbsp;validating data, updating a cloud based database, etc. This makes it even more important to carefully design your API.<br />
+<br />
+<b>Q.</b> Give examples of a bad and good API designs in core Java API?<br />
+<b>A.</b> Here are some examples from Core Java API.<br />
+<br />
+<b>Bad Designs:</b><br />
+<ul>
+<li><span style="background-color: white;">The Java Date and Calendar APIs are inconsistent and unintuitive. Firstly, it's full of deprecated methods and secondly, it makes it hard to do simple date operations. The Date and the Calendar classes are very complicated. Use the Joda Time API as it is well designed and easier to use.</span></li>
+<li><span style="background-color: white;">Some of the legacy classes, which has synchronized methods everywhere are extended by other classes. For example, The <i>Properties </i>class extends the <i>Hashtable</i>, <i>Stack </i>extends the <i>Vector </i>class, etc.</span></li>
+</ul>
+<b style="background-color: white;">Good Designs:</b><br />
+<ul>
+<li><span style="background-color: white;">The Joda Time Library. This will be added to Java 7.</span></li>
+<li><span style="background-color: white;">The Java Collection API.&nbsp;</span></li>
+</ul>
+<b style="background-color: white;"><br /></b>
+<b style="background-color: white;">Q.</b><span style="background-color: white;"> What are some of the key considerations for a good API design</span><br />
+<b>A.&nbsp;</b><br />
+<br />
+<b>1. Define task oriented APIs</b><br />
+<br />
+It is easier to add new methods. Deleting methods will break your client code or service consumers and deprecating methods can make your API more complicated to use. &nbsp;Hence, favor fine-grained APIs that does a particular task. This also means you need to invoke many API methods to get the desired behaviour. When you are making remote calls over web services or cloud services, the performance may be adversely impacted. Good design is more important than just coding for performance. Premature optimization of code is an anti pattern. In rare instances where your profiling indicate performance issues, expose a number of fine grained services as a new coarse grained service. Remember -- it is easier to add new methods/services than deleting or deprecating existing methods/services. For example<br />
+<br />
+When designing APIs, always <b>think of the caller</b>.<br />
+<br />
+<ul>
+<li><span style="background-color: white;">How will the caller use the API?&nbsp;</span></li>
+<li><span style="background-color: white;">Are method names and signatures intuitive enough for the caller?&nbsp;</span></li>
+</ul>
+<br />
+<b style="background-color: white;">For example&nbsp;</b><br />
+<br />
+<b>Bad design:</b> A single method does too many things. The method name and signatures are ambiguous 
+
+<br />
+<br />
+<pre class="brush: csharp">public interface CashService { 
+ BigDecimal getBalance (CustomerAccount account, BigDecimal currentBalance, List&lt;TransactionDetail&gt; txnDetails, 
+                        boolean includeIncome, boolean includePending, boolean includeUnconfirmed) throws CashBalanceException;
+}</pre>
+<b><br /></b>
+<b>Better design:</b>  Finegrained APIs that does a particular task. No ambiguous boolean flags or method names.
+
+<br />
+<br />
+<pre class="brush: csharp">public interface CashService {
+
+ BigDecimal getAvailableBalance (CustomerAccount account) throws CashBalanceException;
+
+ BigDecimal getAutocashAvailableBalance ( BigDecimal currentBalance, List&lt;TransactionDetail&gt; txnDetails) throws CashBalanceException;
+ 
+ BigDecimal getPortfolioBalance (BigDecimal portfolioBalance, List&lt;TransactionDetail&gt; txnDetails) throws CashBalanceException;;
+ 
+ BigDecimal getRealtimeAvailableBalance (BigDecimal realtimeBalance, List&lt;TransactionDetail&gt; txnDetails) throws CashBalanceException;
+
+}</pre>
+<br />
+The public interface methods defined above could internally (i.e. in the implementation) use a number of reusable private methods to perform the calculation. When exposing functionalities via a public interface, <b>take a minimalistic approach </b>to expose only those methods that will be required by the caller.<b> Remember:</b> it is easier to add methods than to remove.<br />
+<br />
+
+<br />
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3764234023451771";
+/* Main Leader board - Text only */
+google_ad_slot = "5678244596";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_channel="2755834745";
+//-->
+</script>
+<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript">
+</script>
+
+<br />
+
+<br />
+<b>2. Instead of the boolean flags use the type safe enum</b>. The boolean true/false flags are ambiguous. 
+
+<br />
+<br />
+<b>Bad design</b>: boolean flags make the API difficult to understand<br />
+<br />
+<pre class="brush: csharp">public interface UserService { 
+ User getUser (String firstName, String surname, boolean isActive, boolean isMale, boolean ignoreSex) throws UserException;
+}
+</pre>
+<pre class="brush: csharp"></pre>
+<br />
+<b>Better design</b>: the enum can take on the values like ACTIVE_MALE, ACTIVE_FEMALE, INACTIVE_MALE, INACTIVE_FEMALE, etc. As the method can take an array of user types with the <b>varargs </b>feature.<br />
+<br />
+<pre class="brush: csharp">public interface UserService { 
+ User getUser (String firstName, String surname, UserType...type) throws UserException;
+}
+</pre>
+<b><br /></b>
+<b>3. Instead of passing many individual arguments corrupting the method signature, pass a well defined object </b>that wraps all the required values.<br />
+<br />
+<br />
+<pre class="brush: csharp">public interface UserService { 
+ User getUser (User user) throws UserException;
+}
+</pre>
+Where the <i>User</i> object looks like
+
+
+<br />
+<br />
+<pre class="brush: csharp">public class User implements Serializable{
+
+  private String firstName;
+  private String surname;
+  private UserType[] userTypes.</pre>
+<pre class="brush: csharp">  //other attributes
+
+  //getter and setters
+
+  //toString(...), equals(...), hashCode() methods  
+}
+</pre>
+<br />
+<b>4. If you are using other collection types like List, Set, etc, make sure that you use generics </b>as it makes it clear as to what type of object is stored. E.g. List&lt;User&gt;, Set&lt;usertype&gt;, etc.<br />
+<b><br /></b>
+<b>5. Your API design must include the precondition check</b>. The method implementation must <b>fail fast</b> after validating the relevant input. For example,<br />
+<br />
+<pre class="brush: csharp">public User getUser (User user) throws UserException {
+
+     if(user == null &amp;&amp; (StringUtils.isEmpty(user.getFirstName()) || StringUtils.isEmpty(user.getSrurname()) ){
+      throw new UserException("Invalid input: " + user);
+  }
+  
+  
+  ....
+
+}
+</pre>
+<b><br /></b>
+<b>6. Providing good exception/error handling is essential</b> to give the developers using your API an opportunity to correct their mistakes. Error messages should be clear and concise. Messages such as “Invalid input” are highly unhelpful. Also, avoid using a single exception object covering a number of very different possible errors. The decision to throw an exception, an error code, or a value like null to indicate "value is not found" must be carefully considered.
+
+<br />
+<br />
+<pre class="brush: csharp">public User getUser (User user) throws UserException {
+
+     if(user == null &amp;&amp; (StringUtils.isEmpty(user.getFirstName()) || StringUtils.isEmpty(user.getSrurname()) ){
+      throw new UserException("User's firstName and surname are required. Invalid input: " + user + "");
+  }
+  
+  
+  ....
+
+}
+</pre>
+<br />
+In the above code, if an input validation fails it makes sense to throw an exception to indicate that an invalid input is supplied. It does not make sense to throw an exception if the designer anticipates that looking for a user that isn't there is not a common case and likely to indicate something that the caller would deal with the condition by substituting with a default "guest user" or prompting the user to register. In this case, returning a null value will be appropriate as this is not an exceptional condition. So, knowing the context in which an API is going to be used will allow you to make the right choice as to throw an exception or not. If your API requires a user to be present before it performs a task, then it makes more sense to throw a "UserNotFoundException".<br />
+<br />
+With careful design of types and parameters, errors can often be caught at compile time instead of being delayed until runtime.
+
+
+Having said this, exceptions compared to true/false and error codes have several important advantages:<br />
+<br />
+<br />
+<ul>
+<li><span style="background-color: white;">Exceptions cannot be ignored. If your code throws an exception the caller has to catch it to avoid getting an&nbsp;unhanded&nbsp;exception. The error codes or true/false can be ignored.</span></li>
+<li><span style="background-color: white;">Exceptions can be handled at a higher level than the immediate caller. If you use error codes you may end up in situations where you at all layers of you application have to check for errors and pass them back to the caller. So, error codes are more appropriate at the highest layer.&nbsp;</span></li>
+</ul>
+<br />
+<br />
+What ever technique you use, be consistent in your approach. Decide early on whether to use a <b>checked </b>or <b>unchecked </b>exception. If planning to use both, clearly have a plan as to when to use a checked exception and when to use an unchecked exception.<div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Java%20EE">Java EE</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2012/07/why-good-api-design-matters.html" title="permanent link"> 7/04/2012 02:38:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=1269152127836039093" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=1269152127836039093&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>2 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c454695346378034863"><a name="c454695346378034863"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/12297430174084057527" rel="nofollow">Owen Fellows</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>I general I agree with what is written here except for throwing a UserException when preconditions fail.  Why not just throw an IllegalArgumentException which is a runtime exception and therefore does not need to be declared.<br />If you have a real exception then you could throw a UserException but doing it this way saves your caller having to deal with an exception which, in reality, will never be thrown.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/07/why-good-api-design-matters.html?showComment=1341405365856#c454695346378034863" title="comment permalink">10:36 PM, July 04, 2012</a>
+	  <span class="item-control blog-admin pid-1334564671"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=454695346378034863" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3615475027961226145"><a name="c3615475027961226145"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Good point Owen, and agree with you. The UserException shown above could be a checked (i.e. compile time) exception or unchecked exception (i.e. runtime)</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/07/why-good-api-design-matters.html?showComment=1341446012066#c3615475027961226145" title="comment permalink">9:53 AM, July 05, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3615475027961226145" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=1269152127836039093'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/1269152127836039093/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+    <a name="links"></a><h4>Links to this post:</h4>
+    <dl id="comments-block">
+    <script type="text/javascript" src="https://www.blogger.com/dyn-js/backlink.js?blogID=35897879&postID=1269152127836039093" charset="utf-8" defer="true">
+</script>
+<noscript><a href="http://blogsearch.google.com/?ui=blg&q=link:http://java-success.blogspot.com/2012/07/why-good-api-design-matters.html">See links to this post</a></noscript>
+<div id="blogger-dcom-block" style="display:none">
+        <dt class="comment-title">
+        <span class="comment-toggler">&nbsp;</span>
+        <a href="<$BlogBacklinkURL$>" rel="nofollow"><$BlogBacklinkTitle$></a> <span class="item-control blog-admin"><a style="border:none;" href="https://www.blogger.com/delete-backlink.g?blogID=35897879&amp;postID=1269152127836039093&amp;backlinkURL=%3C$BlogBacklinkURLEscaped$%3E" title="Remove Link" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+        </dt>
+        <dd class="comment-body"><$BlogBacklinkSnippet$>
+        <br />
+        <span class="comment-poster">
+        <em><$I18NPostedByBacklinkAuthor$> @ <$BlogBacklinkDateTime$></em>
+        </span>
+        </dd>
+    </div>
+<script type="text/javascript">if (typeof BL_addOnLoadEvent == 'function') { BL_addOnLoadEvent(function() { BL_writeBacklinks(); }); }</script>
+
+    </dl>
+    <p class="comment-timestamp"><script type="text/javascript">function BlogThis() {
+Q=''; x=document; y=window;
+if(x.selection) {
+  Q=x.selection.createRange().text;
+} else if (y.getSelection) {
+  Q=y.getSelection();
+} else if (x.getSelection) {
+  Q=x.getSelection();
+}
+popw = y.open('https://www.blogger.com/blog-this.g?t=' +
+  escape(Q) + '&u=' + escape(location.href) + '&n=' +
+  escape(document.title),'bloggerForm',
+  'scrollbars=no,width=475,height=300,top=175,left=75,status=yes,resizable=yes');
+void(0);
+}
+</script>
+<a class="comment-link" href="javascript:BlogThis();" id="b-backlink">Create a Link</a></p>
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2012/07/java-coding-question-and-answer-on.html">Java coding question and answer on multi-threading...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/06/reviewing-given-java-code-in-job.html">Reviewing a given Java code in job interviews and ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/06/core-java-coding-questions-frequently_27.html">Core Java coding questions frequently asked in wri...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/06/core-java-coding-questions-frequently_26.html">Core Java coding questions frequently asked in wri...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/06/core-java-coding-questions-frequently.html">Core Java coding questions frequently asked in wri...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/06/batch-processing-in-java-with-spring_19.html">Batch Processing in Java with Spring batch -- part...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/06/batch-processing-in-java-with-spring_18.html">Batch processing in Java with Spring batch - part ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/06/server-side-versus-client-side.html">Server side versus client side templating</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/06/batch-processing-in-java-with-spring.html">Batch processing in Java with Spring batch - part ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/05/eclipse-debugging-tips-tutorial-style.html">Top 5 Eclipse debugging tips tutorial style</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

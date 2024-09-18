@@ -1,0 +1,985 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Transaction management with Spring and JTA interview questions and answers</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/6985203978947800765/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Jun 26, 2014</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="6985203978947800765"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Transaction management with Spring and JTA interview questions and answers
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><b>Q</b>. What is a Transaction? What does <i>setAutoCommit</i> do?<br />
+<b>A</b>.&nbsp; A transaction is a set of operations that should be completed as a unit. If one operation fails then all the other operations fail as well. For example if you transfer funds between two accounts there will be two operations in the set <br />
+<br />
+1. Withdraw money from one account.<br />
+2. Deposit money into other account.
+<br />
+<br />
+These two operations should be completed as a single unit. Otherwise your money will get lost if the withdrawal is successful and the deposit fails. There are four characteristics (ACID properties) for a Transaction.<br />
+<style type="text/css">P { margin-bottom: 0.21cm; }</style>
+
+
+<br />
+<dl><dd><table border="1" cellpadding="8" cellspacing="0" style="width: 100%;">
+  <colgroup><col width="5"></col>
+  <col width="113"></col>
+  <col width="223"></col>
+  <col width="133"></col>
+  </colgroup><tbody>
+<tr valign="TOP">
+   <td bgcolor="#000000" width="112"><div align="JUSTIFY">
+<span style="font-size: small;"><span style="color: white;"><b>A</b>tomicity</span></span></div>
+</td>
+   <td bgcolor="#000000" width="113"><div align="JUSTIFY">
+<span style="font-size: small;"><span style="color: white;"><b>C</b>onsistency</span></span></div>
+</td>
+   <td bgcolor="#000000" width="223"><div align="JUSTIFY">
+<span style="font-size: small;"><span style="color: white;"><b>I</b>solation</span></span></div>
+</td>
+   <td bgcolor="#000000" width="133"><div align="JUSTIFY">
+<span style="font-size: small;"><span style="color: white;"><b>D</b>urability</span></span></div>
+</td>
+  </tr>
+<tr valign="TOP">
+   <td width="112"><span style="font-family: Arial, sans-serif; font-size: small;">All
+    the individual operations should either complete or fail.</span></td>
+   <td width="113"><span style="font-family: Arial, sans-serif; font-size: small;">The
+    design of the transaction should update the database correctly.</span></td>
+   <td width="223"><span style="font-family: Arial, sans-serif; font-size: small;">Prevents
+    data being corrupted by concurrent access by two different
+    sources.  It keeps transactions isolated or separated from each
+    other until they are finished.</span></td>
+   <td width="133"><span style="font-family: Arial, sans-serif; font-size: small;">Ensures
+    that the database is definitely updated once the Transaction is
+    completed.</span></td>
+  </tr>
+</tbody></table>
+</dd></dl>
+Transactions maintain data integrity. A transaction has a beginning and an end like everything else in life. The <i>setAutocommit(….)</i>, <i>commit( )</i> and <i>rollback( ) </i>are used for marking the transactions (known as transaction demarcation). When a connection is created, it is in auto-commit mode. This means that each individual SQL statement is treated as a transaction and will be automatically committed immediately after it is executed. The way to allow two or more statements to be grouped into a transaction is to disable auto-commit mode:<br />
+<br />
+<pre class="java" name="code">try{
+    Connection myConnection = dataSource.getConnection();
+ 
+    // set autoCommit to false
+    myConnection.setAutoCommit(false);
+
+    withdrawMoneyFromFirstAccount(.............);   //operation 1
+    depositMoneyIntoSecondAccount(.............);   //operation 2
+ 
+    myConnection .commit();
+}
+catch(Exception sqle){
+  try{
+     myConnection .rollback();
+  }catch( Exception e){}
+}
+finally{
+   try{
+        if( conn != null) {
+             conn.close();
+        }
+  } catch( Exception e) {}
+}
+</pre>
+<br />
+<br />
+The above code ensures that <u>both operation 1 and operation 2 succeed or fail as an atomic unit </u>and consequently leaves the database in a consistent state. Also, turning auto-commit off will provide better performance.<br />
+<br />
+<b>Q</b>. What is transaction demarcation? What are the different ways of defining transactional boundaries?<br />
+<b>A</b>. Data Access Objects (DAO) are transactional objects. Each operation associated with <b>CRUD </b>operations like Create, Update and/or Delete operations should be associated with transactions. Transaction demarcation is the manner in which transaction boundaries are defined. There are two approaches for transaction demarcation.<br />
+<br />
+There are <b>2 types of transaction demarcation</b><br />
+<br />
+1. Declarative transaction demarcation<br />
+2.&nbsp; Programmatic transaction demarcation<br />
+<br />
+<b><span style="font-size: large;">1. Declarative transaction demarcation</span></b>: <br />
+<br />
+The programmer  declaratively specifies the transaction boundaries using transaction attributes for an EJB via ejb-jar.xml deployment descriptor. 
+<br />
+<br />
+<b>Note</b>: Spring framework  has support for declarative transaction demarcation by specifying transaction attributes via Spring config files. If you choose Spring framework to mark the transaction boundaries, then you need to turn off transaction demarcation in your EJB  by marking it as
+
+<trans-attribute>NotSupported.</trans-attribute> 
+<br />
+<br />
+<b>Q.</b> How are these declarative transactions know when to rollback?
+<br />
+<br />
+<b>EJBs</b>: When the EJB container manages the transaction, it is automatically rolled back when a System Exception occurs. This is possible because the container can intercept “<b>System Exception</b>”. However, when an "<b>Application Exception</b>" occurs, the container does not intercept it and therefore leaves it to the code to roll back using <i>ctx.setRollbackOnly()</i> method.
+<br />
+<br />
+Spring Framework:  Transaction declaration format is:
+<br />
+<br />
+<pre class="java" name="code">PROPAGATION_NAME,ISOLATION_NAME,readOnly,timeout_NNNN,+CheckedException1,-CheckedException2
+</pre>
+<br />
+By default transactions are rolled-back on j<i>ava.lang.RuntimeException</i>. You can control when transactions are committed and rolled back with the “+” or “-“ prefixes in the exception declaration. “+” means commit on exception (You can even force it on RuntimeException) and “-” means rollback on exception. You can specify multiple rules for rollback as “,” separated. 
+<br />
+<br />
+<b>For example</b>:&nbsp; Following declaration will rollback transactions on RunTime exceptions and MyCheckedException, which is a checked exception.
+<br />
+<br />
+<pre class="java" name="code">PROPAGATION_REQUIRED,-MyCheckedException
+</pre>
+<br />
+<b><span style="font-size: large;">2.&nbsp; Programmatic transaction demarcation</span></b>:<br />
+<br />
+The programmer is responsible for coding transaction logic as shown above. The application controls the transaction via an API like JDBC API, JTA API, Hibernate API etc. JDBC  transactions are controlled using the java.sql.Connection object. There are two modes: auto-commit and manual commit. Following methods are provided in the JDBC API via non-XA java.sql.Connection class for programmatically controlling transactions:
+<br />
+<br />
+<pre class="java" name="code">public void setAutoCommit(boolean mode);
+public boolean getAutoCommit();
+public void commit();
+public void rollback();
+</pre>
+<br />
+<br />
+For XA-Connections use the following methods on javax.transaction.UserTransaction. 
+<br />
+<br />
+<pre class="java" name="code">public void begin();
+public void commit();
+public void rollback();
+public int getStatus();
+public void setRollbackOnly();
+public void setTransactionTimeOut(int)
+</pre>
+<br />
+<br />
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Center - Leader board -->
+<br />
+<ins class="adsbygoogle" data-ad-client="ca-pub-3764234023451771" data-ad-slot="5678244596" style="display: inline-block; height: 90px; width: 728px;"></ins><script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<br />
+<b>Q</b>. What support does Spring framework have for transaction management? <br />
+<b>A</b>. <br />
+<br />
+<span style="font-size: large;"><b>1. </b></span>Spring supports both global transactions across multiple transactional resources through JTA and resouce specific local transaction associated with a JDBC connection. It provides a consistent programming model to support both local and global transactions. You write your code once, and it can benefit from different transaction management strategies in different environmen.
+<br />
+<br />
+<span style="font-size: large;"><b>2</b></span>. Supports both declarative transaction management via AOP and programmatic transaction management with the Spring Framework transaction abstraction which can run over any underlying transaction infrastructure. With the preferred declarative model, developers typically write little or no code related to transaction management.
+<br />
+<br />
+<b>Step 1</b>: Define your transaction manager in a Spring context file
+<br />
+<br />
+<pre class="java" name="code">&lt;bean id="txnManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"/&gt;
+..
+&lt;tx:annotation-driven transaction-manager="txnManager"/&gt;
+</pre>
+<br />
+<br />
+<b>Step 2:</b> In your business service layer that makes calls to a number of daos, annotate to define your transaction demarcation
+<br />
+<br />
+<pre class="java" name="code">@Transactional
+public int addUser(User user) {
+    ...
+}
+</pre>
+<br />
+<br />
+The @Transactional annotation takes propagation and isolation levels as attributes, and the defaults being  Propagation : Required and  Isolation level : Default.
+<br />
+<br />
+<span style="font-size: large;"><b>3</b></span>. Spring framework has support for most transactional APIs such as JDBC, Hibernate, JPA, JDO, JTA etc. All you need to do is use proper transaction manager implementation class. For example org.springframework.jdbc.datasource.DriverManagerDataSource for JDBC transaction management and org.springframework.orm.hibernate3.HibernateTransactionManager for Hibernate as ORM tool.
+<br />
+<br />
+<span style="font-size: large;"><b>4</b></span>. The support for programmatic transaction management is provided via TransactionTemplate or PlatformTransactionManager implementation.
+<br />
+<br />
+<pre class="java" name="code">private PlatformTransactionManager txnManager;
+
+public int addUser(User user) {
+  TransactionDefinition transactionDefinition = new DefaultTransactionDefinition();
+  TransactionStatus status = transactionManager.getTransaction(transactionDefinition);
+  
+   try{
+      //....transactional operations
+   
+   transactionManager.commit(status);
+   }
+   catch(Exception ex){
+      transactionManager.rollback(status);
+   }
+  
+}
+</pre>
+<br />
+<br />
+The Transaction Definition object encapsulates the transactional properties such as the isolation level, propagation behavior, timeout etc. The Transaction Status object represents the status of the executing transaction whether it is in new, completed, etc. 
+<br />
+<br />
+<b>Q</b>. What is a distributed (aka JTA/XA) transaction? How does it differ from a local transaction?<br />
+<b>A</b>. There are two types of transactions:<br />
+<br />
+<span style="font-size: large;"><b>Local transaction:</b></span> Transaction is within the same database. As we have seen above, with JDBC transaction demarcation, you can combine multiple SQL statements into a single transaction, but the transactional scope is limited to a single database connection. A JDBC transaction cannot span multiple databases. 
+<br />
+<br />
+<b><span style="font-size: large;">Distributed Transaction</span> (aka Global Transaction, JTA/XA transaction):</b>  The transactions that constitute a distributed transaction might be in the same database, but more typically are in different databases and often in different locations. For example, A distributed transaction might consist of money being transferred from an account in one bank to an account in another bank. You would not want either transaction committed without assurance that both will complete successfully. The Java Transaction API (JTA) and its sibling Java Transaction Service (JTS), provide distributed transaction services for the JEE platform. A distributed transaction (aka JTA/XA transaction) involves a <b>transaction manager </b>and one or more <b>resource managers</b>. A resource manager represents any kind of data store. The transaction manager is responsible for coordinating communication between your application and all the resource managers.  A transaction manager decides whether to commit or rollback at the end of the transaction in a distributed system. A resource manager is responsible for controlling of accessing the common resources in the distributed system. 
+<br />
+<br />
+<b>Q</b>. What is two-phase commit?
+<br />
+<b>A</b>.&nbsp;  two-phase commit is an approach for committing a distributed transaction in 2 phases. <br />
+<br />
+<b>Q</b>. What do you understand by JTA and JTS?
+<br />
+<b>A</b>. JTA is a high level transaction interface which allows transaction demarcation in a manner that is independent of the transaction manager implementation. JTS specifies the implementation of a <b>Transaction Manager </b>which supports the JTA. The code developed by developers does not call the JTS methods directly, but only invokes the JTA methods. The JTA internally invokes the JTS routines.    
+<br />
+<br />
+<b>Q</b>. What is a XA resource? 
+<br />
+<b>A</b>. The XA specification defines how an application program uses a transaction manager to coordinate distributed transactions across multiple resource managers. Any resource manager that adheres to <b>XA</b> specification can participate in a transaction coordinated by an XA-compliant transaction manager.<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://4.bp.blogspot.com/-3zhChdKdDwM/U6aFblS8ozI/AAAAAAAAChI/O5PFQwIDWbs/s1600/Screen+shot+2014-06-22+at+5.27.08+PM.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-3zhChdKdDwM/U6aFblS8ozI/AAAAAAAAChI/O5PFQwIDWbs/s1600/Screen+shot+2014-06-22+at+5.27.08+PM.png" height="298" width="640" /></a></div>
+<br />
+JTA transaction demarcation requires a JDBC driver that implements XA interfaces like <i>javax.sql.XADatasource</i>, <i>javax.sql.XAConnection</i> and <i>javax.sql.XAResource</i>. A driver that implements these interfaces will be able to participate in JTA transactions. You will also require to set up the XADatasource using your application server specific configuration files, but once you get a handle on the DataSource via JNDI lookup, you can get a XA connection via j<i>avax.sql.DataSource.getConnection()</i> in a similar manner you get a non-XA connections. XA connections are different from non-XA connections and do not support JDBC’s auto-commit feature. You cannot also use the <i>commit( )</i>, <i>rollback( ) </i>methods on the <i>java.sql.Connection</i> class for the XA connections. A J2EE component can begin a transaction programmatically using  <i>javax.transaction.UserTransaction </i>interface or it can also be started declaratively by the EJB container if an EJB bean uses container managed transaction. For explicit (i.e. programmatic) JTA/XA transaction you should use the <i>UserTransaction.begin( )</i>, <i>UserTransaction.commit()</i> and  <i>UserTransaction.rollback() </i> methods.  For example:<br />
+<br />
+<pre class="java" name="code">// programmatic JTA transaction
+InitialContext ctx = new InitialContext();
+UserTransaction utx = (UserTransaction)ctx.lookup(“java:comp/UserTransaction”);
+
+try { 
+    //…
+    utx.begin();
+    //….
+    DataSource ds = getXADatasource();
+    Connection con = ds.getConnection(); // get a XAconnection.
+    PreparedStatement pstmt = con.prepareStatement(“UPDATE Employee emp where emp.id =?”);
+    pstmt.setInt(1, 12456);
+    pstmt.executeUpdate(); 
+    
+   utx.commit();//transaction manager uses two-phase commit protocol to end transaction  
+}
+catch(SQLException sqle){
+    utx.rollback();
+    throw new RuntimeException(sqle);
+}
+</pre>
+<br />
+<br />
+<b>Q</b>. Why JTA transactions are more powerful than JDBC transactions? <br />
+<b>A</b>. JTA transactions are more powerful than JDBC transactions because a JDBC transaction is limited to a single database whereas a JTA transaction can have multiple participants like:<br />
+<ul>
+<li>JDBC connections.</li>
+<li>JMS queues/topics.</li>
+<li>Enterprise JavaBeans (EJBs).</li>
+<li>Resource adapters that comply with JEE Connector Architecture&nbsp; (JCA) specification.&nbsp;&nbsp;</li>
+</ul>
+<div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Java%20Key%20Areas">Java Key Areas</a>, <a rel='tag' href="http://java-success.blogspot.com/search/label/JDBC">JDBC</a>, <a rel='tag' href="http://java-success.blogspot.com/search/label/JEE">JEE</a>, <a rel='tag' href="http://java-success.blogspot.com/search/label/JTA">JTA</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2014/06/transaction-management-with-spring-and.html" title="permanent link"> 6/26/2014 11:27:00 AM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=6985203978947800765" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=6985203978947800765&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>0 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=6985203978947800765'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/6985203978947800765/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+    <a name="links"></a><h4>Links to this post:</h4>
+    <dl id="comments-block">
+    <script type="text/javascript" src="https://www.blogger.com/dyn-js/backlink.js?blogID=35897879&postID=6985203978947800765" charset="utf-8" defer="true">
+</script>
+<noscript><a href="http://blogsearch.google.com/?ui=blg&q=link:http://java-success.blogspot.com/2014/06/transaction-management-with-spring-and.html">See links to this post</a></noscript>
+<div id="blogger-dcom-block" style="display:none">
+        <dt class="comment-title">
+        <span class="comment-toggler">&nbsp;</span>
+        <a href="<$BlogBacklinkURL$>" rel="nofollow"><$BlogBacklinkTitle$></a> <span class="item-control blog-admin"><a style="border:none;" href="https://www.blogger.com/delete-backlink.g?blogID=35897879&amp;postID=6985203978947800765&amp;backlinkURL=%3C$BlogBacklinkURLEscaped$%3E" title="Remove Link" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+        </dt>
+        <dd class="comment-body"><$BlogBacklinkSnippet$>
+        <br />
+        <span class="comment-poster">
+        <em><$I18NPostedByBacklinkAuthor$> @ <$BlogBacklinkDateTime$></em>
+        </span>
+        </dd>
+    </div>
+<script type="text/javascript">if (typeof BL_addOnLoadEvent == 'function') { BL_addOnLoadEvent(function() { BL_writeBacklinks(); }); }</script>
+
+    </dl>
+    <p class="comment-timestamp"><script type="text/javascript">function BlogThis() {
+Q=''; x=document; y=window;
+if(x.selection) {
+  Q=x.selection.createRange().text;
+} else if (y.getSelection) {
+  Q=y.getSelection();
+} else if (x.getSelection) {
+  Q=x.getSelection();
+}
+popw = y.open('https://www.blogger.com/blog-this.g?t=' +
+  escape(Q) + '&u=' + escape(location.href) + '&n=' +
+  escape(document.title),'bloggerForm',
+  'scrollbars=no,width=475,height=300,top=175,left=75,status=yes,resizable=yes');
+void(0);
+}
+</script>
+<a class="comment-link" href="javascript:BlogThis();" id="b-backlink">Create a Link</a></p>
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2014/06/what-is-difference-between-strategy-and.html">What is the difference between strategy and comman...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/top-17-unix-commands-java-developers.html">Top 17 Unix commands Java developers use frequentl...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/jndi-and-ldap-interview-questions-and.html">JNDI and LDAP interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/how-to-write-internalized-java.html">How to write internalized Java applications? What ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/jdbc-interview-questions-and-answers.html">JDBC Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/password-based-encryption-and.html">Password based Encryption and decryption example i...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/maven-interview-questions-and-answers.html">Maven interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/jms-interview-questions-and-answers.html">JMS Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/what-are-sdlc-activities-you-perform-as.html">What are the SDLC activities you perform as a Java...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/java-abstract-classes-vs-interfaces.html">Java abstract classes Vs interfaces. When to use a...</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

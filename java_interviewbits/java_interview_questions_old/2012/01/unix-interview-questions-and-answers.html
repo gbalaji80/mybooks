@@ -1,0 +1,982 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: UNIX Interview questions and answers</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/1943887859478801557/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Jan 24, 2012</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="1943887859478801557"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 UNIX Interview questions and answers
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><h2>
+Unix for software developers</h2>
+<table bgcolor="#FFFFCC" border="2" cell-padding="10px" style="width: 100%;">
+<tbody>
+<tr>
+<td colspan="2"><a href="http://java-success.blogspot.com/2014/06/top-17-unix-commands-java-developers.html"> <span style="font-size: large;">1.</span>Top 17 Unix commands Java developers use frequently</a> </td>
+<td><a href="http://java-success.blogspot.com/2014/06/unix-history-commands-for-java.html"> <span style="font-size: large;">2.</span>History commands</a> </td>
+<td><a href="http://java-success.blogspot.com/2014/06/unix-shell-scripting-zip-ftp-commenting.html"> <span style="font-size: large;">3.</span>Shell scripting</a> </td>
+<td><a href="http://java-success.blogspot.com/2013/06/unix-interview-questions-and-answers.html"> <span style="font-size: large;">4.</span> Reading from a file</a></td>
+</tr>
+<tr>
+<td><a href="http://java-success.blogspot.com/2013/06/unix-interview-questions-purging-older.html"> <span style="font-size: large;">5.</span>Purging older files</a> </td>
+<td><a href="http://java-success.blogspot.com/2013/05/unix-interview-questions-splitting-and.html"> <span style="font-size: large;">6.</span>Splitting and archiving files</a> </td>
+
+<td><a href="http://java-success.blogspot.com/2013/05/unix-emulator-ssh-client-and-much-more.html"> <span style="font-size: large;">7.</span>Emulator, SSH client</a> </td>
+<td><a href="http://java-success.blogspot.com/2013/04/unix-commands-for-software-developers.html"> <span style="font-size: large;">8.</span>Unix commands for developers</a> </td>
+<td><a href="http://java-success.blogspot.com/2012/01/unix-interview-questions-and-answers.html"> <span style="font-size: large;">9.</span>Unix basic interview Q&A</a> </td>
+
+</tr>
+</tbody></table>
+<br />
+
+In Core Java Career Essentials book, I had covered some of the core UNIX commands that are useful to Java developers with practical and real life examples. This blog expands on it with some handy UNIX features to complement the book.<br />
+<br />
+<b>Q. </b>Where would you use the control operators like ";", "&amp;&amp;", and "||" in UNIX?<br />
+<b>A. </b>These control operators are used to combine different commands in a single line. There is a difference between the characters in a sense how the subsequent commands are executed. For example, <br />
+<br />
+The following commands use a ";" to separate commands. This means both the commands will be executed regardless of the first command is successful (i.e. exit code of 0) or not  (i.e. exit code other than 0);<br />
+<br />
+<pre class="brush: csharp">$ cd Temp; echo $(pwd)
+</pre><br />
+You could get an output shown below if there is folder named Temp.<br />
+<br />
+<pre class="brush: csharp">/c/Temp
+</pre><br />
+If the folder named Temp is not present, you will get an error and the current directory printed.<br />
+<br />
+<pre class="brush: csharp">sh: cd: Temp: No such file or directory
+/c
+</pre><br />
+<br />
+So, what if you want to only print the current directory if the first change directory command is successful? This is where the "&amp;&amp;" operator comes in handy.<br />
+<br />
+<pre class="brush: csharp">$ cd Temp &amp;&amp; echo $(pwd)
+</pre><br />
+In the above example, the echo command will only be excuted if the change directory command is successful. If not successful, only an error will be thrown, and the current directory will not be printed. There are situations where<br />
+you might want to do the reverse. That is, execute the second command only if the first command fails. For example, make a  "Temp" directory only if the change directory fails. This where the "||" operator comes in handy.<br />
+<br />
+<pre class="brush: csharp">$ cd temp ||  mkdir temp &amp;&amp; cd temp  &amp;&amp; echo $(pwd)
+</pre><br />
+If, temp directory is not found, make a new directory named temp, and if make direcory is successful, change to that directory and echo the current directory. <br />
+<br />
+<br />
+<b>Q.</b> What do you uderstand by 2&gt;&amp;1 in UNIX?<br />
+<b>A.</b> In UNIX you have STDIN, which is denoted by number 0, STDOUT, which is denoted by 1, and STDERR, which is denoted by 2. So, the above line means, the error messages go to STDERR, which is redirected to STDOUT. So, the error messages go to where ever the STDOUT goes to. For example, The following command creates a multiple directories for a maven based Java project. if the the directory creation is successful, change directory to "project" and print the directory tree structure. The STDOUT and  STDERR are directed to the file named  maven-project.log under the project folder. <br />
+<br />
+<pre class="brush: csharp">$ mkdir -p project/{src/{main/{java,resources},test/{java,resources}}} &amp;&amp; cd project ; find . -type  d -print  &gt; maven-project.log
+</pre><br />
+<br />
+<br />
+The output will be something like<br />
+<br />
+<pre class="brush: csharp">.
+./src
+./src/main
+./src/main/java
+./src/main/resources
+./src/test
+./src/test/java
+./src/test/resources
+</pre><br />
+<br />
+<b>Q.</b> What is /dev/null?<br />
+<b>A.</b> It is a blackhole. For example,  in the earlier example, if you want to ignore error like "sh: cd: Temp: No such file or directory" being printed, you can redirect your output to /dev/null. For example<br />
+<br />
+<pre class="brush: csharp">$ cd temp &gt; /dev/null 2&gt;&amp;1 &amp;&amp; echo $(pwd)
+</pre><br />
+will fail silently and nothing will be printed if there is no "temp" folder. The message has gone into the blackhole. If there is a "temp" folder, the present working directory (i.e. pwd) will be printed out.<br />
+<br />
+<b>Q. </b>How would you go about the following scenario -- You had to move to another directory temporarily to look at a file, and then move back to the directory where you were?<br />
+<b>A.</b> One way is to start with "/c/Temp" folder<br />
+<br />
+<pre class="brush: csharp">$ cd ../projects/JMeter
+$ cd ../../Temp
+</pre><br />
+<br />
+The better way is to use the <b>pushd </b>and <b>popd </b>commands. These commands make use of a "stack" data structure using the "Last In First Out" approach.<br />
+<br />
+changes to the /c/Projects/JMeter folder and prints the stack<br />
+<br />
+<pre class="brush: csharp">$ pushd ../projects/JMeter
+</pre><br />
+The stack is printed as shown below.<br />
+<br />
+<pre class="brush: csharp">/c/projects/JMeter /c/Temp
+</pre><br />
+The /c/projects/JMeter will be popped out of the stack and the directory will change back to /c/Temp<br />
+<br />
+<pre class="brush: csharp">$ popd
+</pre><br />
+<br />
+If you want pushd to not print the stack, you could direct the output to the black hole /dev/null as shown below.<br />
+<br />
+<pre class="brush: csharp">$ pushd ../projects/JMeter &gt; /dev/null
+</pre><br />
+The above is a trivial example, but in real life, you may want to navigate between more number of directories and this stack based approach will come in very handy without having to use the "cd" command. Also, very useful in UNIX scripts. Use it astutely without having to build up a gigantic directory stack full of useless directories.<br />
+<br />
+<br />
+<b>Q.</b> In UNIX, only nine command line arguments can be accessed using positional parameters. How would you go about having access to more than 9 argumnets?<br />
+<b>A.</b> Using the shift command. For example, in unix, when you run a command like <br />
+<br />
+<pre class="brush: csharp">$ sh test-bash.sh file1 file2 file3 file4 file5 file6 file7 file8 file9, file10, fil11
+</pre><br />
+The ${0} is test-bash.sh, and ${1} is file1, ${2} file2 and so on till ${9}, which is file9. In the program, if you want to access file10 after processing file1 to file9, you need to use the "shift" command.<br />
+<br />
+<pre class="brush: csharp">$ shift
+</pre><br />
+All it does is move all the command line arguments to the left by 1 position. Which means the file1 will be moved out, and file2 becomes ${1} and file10 becomes ${2}. If you shift it agian, the file3 becomes ${1} and file11 becomes ${9}. In a nutshell<br />
+<br />
+<br />
+${#} -  Total number of arguments<br />
+${0} -   Command or the script name<br />
+${1},${2}, ${3} - First, second and third args respectively.<br />
+${*} -   All the command line arguments starting from $1.<br />
+${@} - Same as ${*} except when it is quoted "${@}" will pass the positional parameters unevaluated. For example, echo "${@}" will print<br />
+<br />
+<pre class="brush: csharp">echo "$1" "$2" ...
+</pre><br />
+<br />
+<br />
+<b>Q.</b> How will you go about writing a UNIX shell script, that reads one or more data files like the one shown below and perform a particular task like logging the information in the file or making database calls to patch some data? <br />
+<br />
+<br />
+The <b>test-data.txt</b><br />
+<br />
+<pre class="brush: csharp">Server Name:Database Name:username: password
+Line2-file-name1.sql
+Line2-file-name2.sql
+Line2-file-name3.sql
+</pre><br />
+<br />
+The usage of the script will be something like<br />
+<br />
+<pre class="brush: csharp">$ sh test-bash.sh test-data.txt test-data2.txt test-data3.txt
+</pre><br />
+<br />
+<b>A.</b> The sample script below will be predominantly making use of the commands discussed above. If not clear, try to read and understand the above Q&amp;As. The best way to learn is to try it out yourself. The lines starting with "#" are comments. If you do not have a UNIX environment, download a windows UNIX emularor like MSYS or CYGWIN to run it on your WINTEL platform.<br />
+<br />
+The <b>test-bash.sh.</b><br />
+<br />
+<pre class="brush: csharp">#!/bin/bash
+
+# usage is --&gt;  sh Temp/test-bash.sh Temp/test-data.txt
+# ${0} is  Temp/test-bash.sh 
+# ${1} is  Temp/test-data.txt
+
+echo No of arguments:  ${#}
+echo Arguments are: ${*}
+echo Arguments are: ${@}
+
+#usage sub function that gets invoked by the main function.
+#Echo the usage pattern and exit the script.   
+usage () {
+ echo Usage : $(basename ${0}) file
+ exit 1
+}
+
+
+#log sub function that gets invoked by the main function.
+log () {
+ echo ${@}
+ echo ${@} &gt;&gt; ${LOGFILE}
+}
+
+
+#-r means FILE exists and is readable. 
+#If the file does not exists or not readable, invoke the "usage" sub routine  to print the usage
+[[ -r ${1} ]] || usage
+
+
+#dirname prints the directory &amp; basename prints the file-name
+echo script directory name is: $(dirname ${0})   #
+echo script-name is:   $(basename ${0}) 
+echo data directory name is: $(dirname ${1})
+echo data-file-name is:   $(basename ${1}) 
+
+CMDFILE=$(basename ${1})
+
+#this will be test-data.txt.log
+LOGFILE=$(basename ${1}).log
+
+#  take the first line in the data file and
+#  translate ':" to ' ' (i.e. translate colon to empty space) 
+COMMAND=($(head -1 ${1} | tr ':'  ' '))
+
+#log the first line values in the data file 
+#separate with a comma
+log ${COMMAND[0]},${COMMAND[1] },${COMMAND[2]}
+
+
+pushd $(dirname ${1}) &gt; /dev/null
+
+#log an empty line
+log
+
+#log start timestamp
+log BEGIN $(date)
+
+
+for SQLFILE in $(sed -n '2,$p' ${CMDFILE}); do
+ log  ${SQLFILE}
+ # in real life execute the sql commands using an interactive SQL command. For example
+ # isql -S ${COMMAND[0]} -D ${COMMAND[1]} -U ${COMMAND[2]} -P ${COMMAND[3]} &lt; ${SQLFILE} &gt; ${LOGFILE} 2&gt;&amp;1
+done
+
+#log end time stamp
+log END $(date)
+
+popd &gt; /dev/null
+
+# if more data files are supplied as commandline arguments shift so that second file becomes ${1} and so on
+shift
+
+#If more filenames are supplied in the commandline arguments, repeat the script for the successive filenames.
+[[ ${@} ]] &amp;&amp; ${0} ${@}
+
+</pre><br />
+<br />
+The output for<br />
+<br />
+<br />
+<pre class="brush: csharp">$ sh test-bash.sh test-data.txt
+</pre><br />
+will be<br />
+<br />
+<br />
+<pre class="brush: csharp">No of arguments: 1
+Arguments are: test-data.txt
+Arguments are: test-data.txt
+script directory name is: .
+script-name is: test-bash.sh
+data directory name is: .
+data-file-name is: test-data.txt
+Server,Name,Database
+
+BEGIN Tue Jan 24 12:57:16 AUSEDT 2012
+Line2-file-name1.sql
+Line2-file-name2.sql
+Line2-file-name3.sql
+END Tue Jan 24 12:57:16 AUSEDT 2012
+
+</pre><div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/UNIX">UNIX</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2012/01/unix-interview-questions-and-answers.html" title="permanent link"> 1/24/2012 05:49:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=1943887859478801557" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=1943887859478801557&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>1 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c974366071540247100"><a name="c974366071540247100"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/03559096828939706780" rel="nofollow">Debashis Hati</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thanks a lot</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/01/unix-interview-questions-and-answers.html?showComment=1399627134612#c974366071540247100" title="comment permalink">7:18 PM, May 09, 2014</a>
+	  <span class="item-control blog-admin pid-1495549620"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=974366071540247100" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=1943887859478801557'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/1943887859478801557/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+    <a name="links"></a><h4>Links to this post:</h4>
+    <dl id="comments-block">
+    <script type="text/javascript" src="https://www.blogger.com/dyn-js/backlink.js?blogID=35897879&postID=1943887859478801557" charset="utf-8" defer="true">
+</script>
+<noscript><a href="http://blogsearch.google.com/?ui=blg&q=link:http://java-success.blogspot.com/2012/01/unix-interview-questions-and-answers.html">See links to this post</a></noscript>
+<div id="blogger-dcom-block" style="display:none">
+        <dt class="comment-title">
+        <span class="comment-toggler">&nbsp;</span>
+        <a href="<$BlogBacklinkURL$>" rel="nofollow"><$BlogBacklinkTitle$></a> <span class="item-control blog-admin"><a style="border:none;" href="https://www.blogger.com/delete-backlink.g?blogID=35897879&amp;postID=1943887859478801557&amp;backlinkURL=%3C$BlogBacklinkURLEscaped$%3E" title="Remove Link" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+        </dt>
+        <dd class="comment-body"><$BlogBacklinkSnippet$>
+        <br />
+        <span class="comment-poster">
+        <em><$I18NPostedByBacklinkAuthor$> @ <$BlogBacklinkDateTime$></em>
+        </span>
+        </dd>
+    </div>
+<script type="text/javascript">if (typeof BL_addOnLoadEvent == 'function') { BL_addOnLoadEvent(function() { BL_writeBacklinks(); }); }</script>
+
+    </dl>
+    <p class="comment-timestamp"><script type="text/javascript">function BlogThis() {
+Q=''; x=document; y=window;
+if(x.selection) {
+  Q=x.selection.createRange().text;
+} else if (y.getSelection) {
+  Q=y.getSelection();
+} else if (x.getSelection) {
+  Q=x.getSelection();
+}
+popw = y.open('https://www.blogger.com/blog-this.g?t=' +
+  escape(Q) + '&u=' + escape(location.href) + '&n=' +
+  escape(document.title),'bloggerForm',
+  'scrollbars=no,width=475,height=300,top=175,left=75,status=yes,resizable=yes');
+void(0);
+}
+</script>
+<a class="comment-link" href="javascript:BlogThis();" id="b-backlink">Create a Link</a></p>
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2012/01/javascript-interview-questions-and_8681.html">JavaScript Interview Questions and Answers: Functi...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/javascript-interview-questions-and_8908.html">JavaScript Interview Questions and Answers: Closur...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/javascript-interview-questions-and_10.html">JavaScript Interview Questions and Answers: Workin...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/javascript-interview-questions-and.html">JavaScript Interview Questions and Answers: Overvi...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/12/tricky-java-interview-questions-and.html">Tricky Java  interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/12/more-java-multi-threading-interview.html">Java multi-threading interview questions and answe...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/12/jsf-interview-questions-and-answers_13.html">JSF Interview Questions and Answers: event handlin...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/12/jsf-interview-questions-and-answers_09.html">JSF Interview Questions and Answers: postback and ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/12/jsf-interview-questions-and-answers.html">JSF Interview Questions and Answers: Seam</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/12/design-patterns-interview-questions-and.html">Observer design pattern for publish/Subscribe mode...</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

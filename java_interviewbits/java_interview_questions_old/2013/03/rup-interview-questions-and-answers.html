@@ -1,0 +1,813 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: RUP Interview Questions and Answers -- overview</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/7071005789357084224/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Mar 26, 2013</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="7071005789357084224"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 RUP Interview Questions and Answers -- overview
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><b>Q:</b> What is <b>RUP</b>?<br />
+<b>A:</b> Rational Unified Process (<b>RUP</b>) is a general framework that can be used to describe a development process. The software development cycle has got 4 phases in the following order <b>Inception</b>, <b>Elaboration</b>, <b>Construction</b>, and <b>Transition</b><br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-Qi-lE39CVJ0/T_4oICCkHNI/AAAAAAAAAoo/AIqxv-WFOBE/s1600/rup-phases.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-Qi-lE39CVJ0/T_4oICCkHNI/AAAAAAAAAoo/AIqxv-WFOBE/s640/rup-phases.jpg" height="198" width="640" /></a></div>
+<br />
+The core of the phases is state-based, and the state is determined by what fundamental questions you are trying to answer:<br />
+<br />
+<span style="font-size: large;"><b>Inception </b></span>- During the inception phase, you work out the business case for the project. You also will be making a rough cost estimate and return on investment. You should also outline the scope and size of the project.<br />
+<br />
+<b>What key question do you ask at the end of this phase?</b>&nbsp;Do you and the customer have a shared understanding of the system?<br />
+<br />
+<table>
+<tbody>
+<tr>
+<td width="30%"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-3764234023451771";
+/* LHS - vertical bar */
+google_ad_slot = "9570018680";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_channel ="9570018680";
+google_page_url = "http://java-success.blogspot.com.au/2011/09/java-collection-interview-questions-and.html";
+//</script>
+</td></tr>
+</tbody></table>
+--&gt;
+<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript">
+</script>
+
+<td><span style="font-size: large;"><b>Elaboration</b></span> - At this stage you have the go ahead of the project, however only have vague requirements. So, at this stage, you need to get a better understanding of the problem. Some of the steps involved are:
+
+<br />
+<ul>
+<li><span style="background-color: white;">What is it you are actually going to build?</span></li>
+<li><span style="background-color: white;">How are you going to build it?</span></li>
+<li><span style="background-color: white;">What technology are you going to use?&nbsp;</span></li>
+<li><span style="background-color: white;">Gather requirement risks, technological risks, skill risks, political risks etc.</span></li>
+<li><span style="background-color: white;">Develop a domain model, use case model and a design model. The UML techniques can be used for the model diagrams (e.g. class diagrams, sequence diagrams etc).</span></li>
+</ul>
+An important result of the elaboration phase is that you have a<b> baseline architecture</b>. This architecture consists of:<br />
+<ul>
+<li><span style="background-color: white;">A list of use cases depicting the requirements.</span></li>
+<li><span style="background-color: white;">The domain model, which captures your understanding of the domain with the help of the <b>class diagrams</b>.</span></li>
+<li><span style="background-color: white;">Selection of key implementation technology and how they fit together. For example: Java/JEE with Spring, JSF, Hibernate, XML, etc.</span></li>
+</ul>
+<br />
+<b>What key question do you ask at the end of this phase?</b>&nbsp;Do you have a baseline architecture to be able to build the system?<br />
+<br />
+<span style="font-size: large;"><b>Construction </b></span>- In this phase, you will be building the system in a series of iterations. Each iteration is a mini project. You will be performing analysis, detailed design, unit testing, coding, system testing, and integration testing for the use cases assigned to each iteration. The iterations within the construction phase are <b>incremental </b>and <b>iterative</b>. Each iteration builds on the use cases developed in the previous iterations. The each iteration will involve code rewrite, refactoring, use of design patterns, etc.<br />
+<br /></td>
+
+The basic documentation required during the construction phase is:<br />
+<ul>
+<li><span style="background-color: white;">A <b>class diagram </b>and a <b>sequence diagram</b>.</span></li>
+<li><span style="background-color: white;">Some text to pull the diagrams together.</span></li>
+<li><span style="background-color: white;">If a class has complex life cycle behavior then a <b>state diagram </b>is required.&nbsp;</span></li>
+<li><span style="background-color: white;">If a class has a complex computation then an <b>activity diagram</b> is required.&nbsp;</span></li>
+</ul>
+<br />
+<br />
+<b>The fundamental question you ask at the end of this phase:</b> &nbsp;do you have a developed product?<br />
+<br />
+<span style="font-size: large;"><b>Transition </b></span>- During this phase, you will be delivering the finished code regularly. During this phase there is no coding to add functionality unless it is small and essential. There will be bug fixes, code optimization, etc during this phase. An example of a transition phase is that the time between the beta release and the final release of a product. The hand over documentation and training manuals need to be produced.<br />
+<br />
+<br />
+<b>What key question do you ask at the end of this phase?</b>&nbsp;Has the customer taken ownership of the developed product or system?<br />
+<b>Q.</b> What are the key underlying principles of RUP?<br />
+<b>A.&nbsp;</b><span style="background-color: white;">RUP is based on a few important philosophies and principles:</span><br />
+<ul>
+<li><span style="background-color: white;">A software project team should plan ahead.</span></li>
+<li><span style="background-color: white;">It should know where it is going.</span></li>
+<li><span style="background-color: white;">It should capture project knowledge in a storable and extensible form.</span></li>
+</ul>
+The<b> best practices </b>of RUP involve the following major 5 properties:<br />
+<ul>
+<li><span style="background-color: white;"><b>Use case driven:</b> Interaction between the users and the system.&nbsp;</span></li>
+<li><span style="background-color: white;"><b>Architecture centric</b>:&nbsp;</span><span style="background-color: white;">based on architecture with clear relationships between architectural components.</span></li>
+<li><span style="background-color: white;"><b>Iterative:</b> the problem and the solution are divided into more manageable smaller pieces, where each iteration will be addressing one of those pieces.&nbsp;</span></li>
+<li><span style="background-color: white;"><b>Incremental: </b>each iteration builds incrementally on the foundation built in the previous iteration.&nbsp;</span></li>
+<li><span style="background-color: white;"><b>Controlled</b>:&nbsp;</span><span style="background-color: white;">with respect to process means you always know what to do next; control with respect to management means that all&nbsp;deliverables, artifacts, and code are under configuration management.&nbsp;</span></li>
+</ul>
+<div>
+<br /></div>
+<div>
+<div>
+<b>Q:</b>&nbsp;Why is UML diagrams important?&nbsp;</div>
+<div>
+<b>A:&nbsp;</b>The more complicated the underlying system, the more critical the communication among everyone involved in developing and deploying the software. UML is a software blueprint language for analysts, designers and developers. UML provides a common vocabulary for the business analysts, architects, developers etc.&nbsp;</div>
+<div>
+<br /></div>
+<div>
+UML is applicable to the Object Oriented problem solving. UML begins with a model; A model is an abstraction of the underlying problem. The domain is the actual world from which the problem comes. The model consists of objects. The objects interact with each other by sending and receiving messages. The objects are characterized by attributes and operations (behaviors). The values of an object’s attributes determine its state. The classes are the blueprints (or like templates) for objects. A class wraps attributes and methods into a single distinct entity. The objects are the instances of classes.</div>
+</div>
+<div>
+<br /></div>
+<div>
+<div>
+<b>Q:</b> Where can you use RUP?&nbsp;</div>
+<div>
+<b>A: </b>Principles of RUP can also be used as an agile (i.e. lightweight) process for smaller teams of 20-30 people, or as a heavy weight process for larger teams of 50-100 people. Extreme Programming (XP) can be considered as a subset of RUP. The agile (i.e lightweight) software development process is more popular across organizations. Several methodologies fit under this agile development methodology banner. All these methodologies share many characteristics like <b>iterative and incremental development</b>, <b>test driven development</b>, <b>daily stand up meetings to improve communication</b>, <b>automatic testing, build and continuous integration of code</b>, etc. <span style="font-size: large;">The best software development process is what works best for your organization</span>. Organizations that are still using the waterfall approach make use of some of the agile practices like stand up meetings to improve communication, automatic testing, build and continuous integration of code, etc.</div>
+</div>
+<div>
+Many organizations make use of the<b> hybrid approach </b>by cherry picking the practices that work well for them. <span style="background-color: white;">It basically requires the right processes, tools, and culture in place to build quality software by managing complexities <b>more effectively </b>NOT<b> just efficiently</b>. There is a big difference between being efficient and effective.</span><br />
+<ul>
+<li><span style="background-color: white;">Being efficient is the process of staying busy without idle moments -- e.g. working overtime, throwing more resources, etc.</span></li>
+<li><span style="background-color: white;">Being effective is the process of producing the maximum results in the minimum time, with the minimum effort -- e.g. having the right people, process, and the culture.</span></li>
+</ul>
+<span style="background-color: white;">&nbsp;So, if you see that the software development process can be improved in your organization, take the initiative to drive the necessary changes. Become a change agent by championing "environment improvement" or "process improvement" programs.</span><br />
+<br />
+<span style="background-color: white;">Organizations that are passionate about their agile development process may grill you on this very topic. Here are some external links that I found useful.</span><br />
+<br />
+<ul>
+<li><a href="http://agileconsulting.blogspot.com.au/2009/01/agile-over-rup-my-preferred-development.html" target="_blank">Agile over RUP</a></li>
+<li><a href="http://www.ambysoft.com/essays/agileLifecycle.html" target="_blank">Agile SDLC</a></li>
+<li><a href="http://agilewarrior.wordpress.com/articles/" target="_blank">The Agile Warrior</a></li>
+</ul>
+<br />
+<br /></div>
+<br />
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+/* Leader -- Bottom */
+google_ad_slot = "0221266263";
+google_ad_width = 728;
+google_ad_height = 90;
+//</script>
+<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript">
+</script>
+<br />
+<br /><div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/RUP">RUP</a>, <a rel='tag' href="http://java-success.blogspot.com/search/label/UML">UML</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2013/03/rup-interview-questions-and-answers.html" title="permanent link"> 3/26/2013 09:44:00 AM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=7071005789357084224" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=7071005789357084224&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>0 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=7071005789357084224'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/7071005789357084224/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2013/03/java-design-pattern-interview-questions.html">Java design pattern interview questions and answer...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/03/agile-software-development-methodology.html">Agile software development methodology questions a...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/03/power-of-html-css-and-jquery.html">Power of HTML, CSS and jQuery -- collapsible CSS T...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/03/spring-mvc-test-testing-spring-mvc.html">Spring MVC Test -- Testing the Spring MVC Controll...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/03/apache-camel-for-asynchronous-processing.html">Apache Camel for asynchronous processing</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/03/logging-in-java-with-logback-and-mdc.html">Logging in Java with Logback and MDC</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/03/spring-mvc-view-resolvers.html">Spring MVC View Resolvers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/02/javascript-coding-questions-and-answers.html">JavaScript Coding Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/02/handling-concurrent-modifications-in.html">Handling Concurrent modifications in Java</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/02/spring-jdbc-template-examples-calling.html">Spring JDBC Template examples -- calling stored pr...</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>
