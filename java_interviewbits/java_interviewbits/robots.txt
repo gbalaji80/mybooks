@@ -1,9 +1,0 @@
-User-agent: Mediapartners-Google
-Disallow: 
-
-User-agent: *
-Disallow: /search
-Allow: /
-
-Sitemap: http://java-success.blogspot.com/sitemap.xml
-
