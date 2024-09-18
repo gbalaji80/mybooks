@@ -1,0 +1,1173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Selenium and Web Driver Interview Questions and Answers</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/5134046475052896283/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Oct 24, 2011</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="5134046475052896283"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Selenium and Web Driver Interview Questions and Answers
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><b>Q.</b> What is Selenium?<br />
+<b>A.</b> Selenium is a suite of tools for browser automation (i.e. automated Web testing). It is composed of <br />
+<br />
+<ul>
+<li><b>Selenium IDE</b>: A tool for recording and playing back. This is a Fire-fox plugin.</li>
+<li><b>WebDriver </b>and <b>RC </b>provide the APIs for a variety of languages like Java, .NET, PHP, etc. A Java example is shown below. The WebDriver and RC work with most browsers. </li>
+<li><b>Grid </b>transparently distribute your tests on multiple machines so that you can run your tests in parallel, cutting down the time required for running in-browser test suites.<b>&nbsp; </b></li>
+</ul>
+<br />
+<br />
+<!-- INFOLINKS_OFF-->
+
+<b>Q.</b> How would you go about using selenium for your web testing?<br />
+<b>A.</b> The example below shows the steps involved in testing a simple login page with selenium + Web Driver. The pages have HTML snippets as shown below<br />
+<br />
+<b>Login page:</b>
+<br />
+<pre class="brush: csharp">...
+
+&lt;form method="POST" action="some/url"&gt;
+
+   &lt;input type="text" name="username"/&gt;
+
+   &lt;input type="text" name="password" /&gt; 
+
+&lt;/form&gt;
+
+
+...
+
+</pre>
+<br />
+<b>Login response page</b><br />
+<br />
+<pre class="brush: csharp">...
+&lt;table&gt;
+     &lt;tr&gt;
+    &lt;td&gt;John&lt;/td&gt;&lt;
+  /tr&gt;
+&lt;/table&gt;
+... 
+</pre>
+<br />
+<br />
+<b>STEP 1: </b>Configure your Maven to include the required jar file selenium-java-x.x.x.jar. <br />
+<br />
+<pre class="brush: csharp">&lt;properties&gt;
+ &lt;junit.version&gt;4.4&lt;/junit.version&gt;
+ &lt;selenium.version&gt;2.7.0&lt;/selenium.version&gt;
+ &lt;slf4j.version&gt;1.5.2&lt;/slf4j.version&gt;
+&lt;/properties&gt;
+
+&lt;dependencies&gt;
+ &lt;dependency&gt;
+  &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+  &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;
+  &lt;version&gt;${selenium.version}&lt;/version&gt;
+ &lt;/dependency&gt;
+ &lt;dependency&gt;
+  &lt;groupId&gt;junit&lt;/groupId&gt;
+  &lt;artifactId&gt;junit&lt;/artifactId&gt;
+  &lt;version&gt;${junit.version}&lt;/version&gt;
+ &lt;/dependency&gt;
+ &lt;dependency&gt;
+  &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+  &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+  &lt;version&gt;${slf4j.version}&lt;/version&gt;
+ &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</pre>
+<br />
+The selenium-java-x.x.x.jar will transitively bring in the other relevant driver jars for different browsers.<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-DAmmpT6sjP8/TqTZfV3fjaI/AAAAAAAAALo/7XTd9KCFyE0/s1600/selenium-dependencies.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-DAmmpT6sjP8/TqTZfV3fjaI/AAAAAAAAALo/7XTd9KCFyE0/s400/selenium-dependencies.JPG" height="219" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<b>STEP 2:</b> It is a best practice to have separate page objects as these page objects can be shared by multiple JUnit test cases. If a particular page element changes, you will have to change it only in one place, which is page object, and not in all JUnit test cases where a paricular element is used. The JUnit test cases will depend on the page objects and should not refer to the page elements directly.<br />
+<br />
+<br />
+<pre class="brush: csharp">package myapp.systemtest;
+
+import org.openqa.selenium.WebDriver;
+
+public class SystemTestPage {
+    
+    protected WebDriver driver;
+
+    protected SystemTestPage(WebDriver driver) {
+        this.driver = driver;
+    }
+} 
+</pre>
+<br />
+<br />
+You can have your page objects extend the above generic SystemTestPage class.<br />
+<br />
+<pre class="brush: csharp">package com.systemtest.page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+
+import myapp.systemtest.SystemTestPage;
+
+
+public class LoginPage extends SystemTestPage {
+       
+    @FindBy(name = "username")
+    @CacheLookup
+    private WebElement userNameInput;
+ 
+ @FindBy(name = "password")
+    @CacheLookup
+    private WebElement passwordInput;
+
+    @FindBy(xpath ="//input[@type=\"submit\"]")
+    @CacheLookup
+    private WebElement submitButton;
+    
+    public LoginPage(WebDriver driver){
+        super(driver);
+    }
+    
+    public void login(String userName, String password) { 
+        userNameInput.sendKeys(userName);
+  userNameInput.sendKeys(password);
+        submitButton.submit();
+    }
+    
+    public String getUserName(String userName) { 
+        WebElement element = driver.findElement(By.xpath("//td[text()=" + userName + "]"));
+        return element.getText();
+    }
+}
+
+</pre>
+<br />
+<b>STEP 3:</b> Write the JUnit class using the page objects defined above and assert the results. These JUnit test cases can be run to test your web pages.<br />
+<br />
+<pre class="brush: csharp">package com.unittests;
+
+import junit.framework.Assert;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.systemtest.page.LoginPage;
+
+public class LoginTest {
+    
+    private static final String BASE_URL = "http://localhost:7001/login/login.htm";
+    private static final String USER_NAME = "John";
+ private static final String PASSWORD = "aa44"
+    
+    private WebDriver driver;
+    private WebDriverWait wait;
+    private LoginPage loginPage; // the page object
+    
+    @Before
+    public void setUp() {
+        driver = new FirefoxDriver();
+        wait = new WebDriverWait(driver, 5);
+        driver.get(BASE_URL);
+        loginPage = PageFactory.initElements(driver, LoginPage.class);
+    }
+    
+    @Test
+    public void testLogin() throws Exception {
+        loginPage.login(USER_NAME, PASSWORD);
+        Assert.assertEquals(MAC, loginPage.getUserName(USER_NAME));
+    }
+
+    @After
+    public void tearDown() {
+        driver.quit();
+    }
+}
+
+</pre>
+<br />
+<br />
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Center - Leader board -->
+<br />
+<ins class="adsbygoogle" data-ad-client="ca-pub-3764234023451771" data-ad-slot="5678244596" style="display: inline-block; height: 90px; width: 728px;"></ins><script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<br />
+<b>Q.</b> What are selenium locators? What tools do you use to locate them?<br />
+<b>A.</b> Selenium Locators are the way of finding the HTML element on the page to perform a Selenium action on. The example above has a line asshown below to extract the username element from the Login response page. This uses an XPath expression to locate the element.<br />
+<br />
+<pre class="brush: csharp">public String getUserName(String userName) { 
+    WebElement element = driver.findElement(By.xpath("//td[text()=" + userName + "]"));
+    return element.getText();
+}
+</pre>
+<br />
+The XPath expression will be something like //td[[text()=John] which looks for a td element with text value "John".<br />
+<br />
+The annotation in the above example is also a locator by name as shown below<br />
+<br />
+<pre class="brush: csharp">@FindBy(name = "username")
+@CacheLookup
+private WebElement userNameInput;   
+</pre>
+<br />
+This will match the HTML snippet<br />
+<br />
+<pre class="brush: csharp">&lt;input type="text" name="username"&gt;
+</pre>
+<br />
+You could also find by tagName, id, css, etc.<br />
+<br />
+<br />
+There are handy tools to identify the HTML elements or locators.<br />
+<br />
+<ul>
+<li> Selenium IDE, which is a Firefox plugin useful in identifying the locators, debugging, etc.</li>
+</ul>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://4.bp.blogspot.com/-ZZvCYFxInio/TqTjFI30-ZI/AAAAAAAAAL4/5hPimQokOgs/s1600/selenium-ide-locators.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-ZZvCYFxInio/TqTjFI30-ZI/AAAAAAAAAL4/5hPimQokOgs/s640/selenium-ide-locators.JPG" height="412" width="640" /></a></div>
+<br />
+<ul>
+<li>The Fire-bug plugin, which allows you to inspect the elements by right clicking on the page and then selecting "Inspect Element". Google chrome provides a similar functionality to inspect element out of the box.&nbsp;</li>
+</ul>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-WhFgAjrpSDw/TqTjXaE1mbI/AAAAAAAAAMA/uQyyxnIR0ac/s1600/firebug-html-locator.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-WhFgAjrpSDw/TqTjXaE1mbI/AAAAAAAAAMA/uQyyxnIR0ac/s640/firebug-html-locator.JPG" height="505" width="640" /></a></div>
+<br />
+<br />
+<b>Q.</b> In your experience, what are some of the challenges with Selenium?<br />
+<b>A. </b>In general, badly written test cases whether junit tests or web tests, the biggest complaint is about writing test cases that are not maintainable. Unmaintainable automated test cases can take more time than manual tests. So, it is important to write quality test cases by clearly separting the page objects from the test cases as demonstrated&nbsp; in the Q&amp;A above. The use of the locators need to be carefully thought through. For example, some frameworks like JSF dynamically generate HTML element IDs. So, if IDs are used in your tests, then the test cases may fail if the IDs have changed. The solution to this problem is to use XPath to find the relevant HTML elements. The ClickAndWait action will not work for AJAX calls, and use "waitForElement" instead. <br />
+<br />
+<br />
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Center - Leader board -->
+<br />
+<ins class="adsbygoogle" data-ad-client="ca-pub-3764234023451771" data-ad-slot="5678244596" style="display: inline-block; height: 90px; width: 728px;"></ins><script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Testing">Testing</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2011/10/selenium-web-driver-interview-questions.html" title="permanent link"> 10/24/2011 04:07:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=5134046475052896283" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=5134046475052896283&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>22 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c7264907421714954013"><a name="c7264907421714954013"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/03608513328583267798" rel="nofollow">raju</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thanks for the very clear question and answers, very helpful<br />Raj</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1342189598517#c7264907421714954013" title="comment permalink">12:26 AM, July 14, 2012</a>
+	  <span class="item-control blog-admin pid-346092565"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=7264907421714954013" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c5546531377701134654"><a name="c5546531377701134654"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Glad that you found it useful.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1342230531018#c5546531377701134654" title="comment permalink">11:48 AM, July 14, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=5546531377701134654" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c4012127908976444798"><a name="c4012127908976444798"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Very useful<br /><br />Many thanks!</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1343148543593#c4012127908976444798" title="comment permalink">2:49 AM, July 25, 2012</a>
+	  <span class="item-control blog-admin pid-22958412"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=4012127908976444798" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c2517121282765838327"><a name="c2517121282765838327"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Very precise and informative.<br /><br />Thanks a lot</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1343826005458#c2517121282765838327" title="comment permalink">11:00 PM, August 01, 2012</a>
+	  <span class="item-control blog-admin pid-1682001172"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2517121282765838327" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c810291831607617513"><a name="c810291831607617513"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Very Nice.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1344582294820#c810291831607617513" title="comment permalink">5:04 PM, August 10, 2012</a>
+	  <span class="item-control blog-admin pid-1240385967"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=810291831607617513" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3556675898812300058"><a name="c3556675898812300058"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://testinginterviewquestionsandanswers.com/" rel="nofollow">Testing interview questions</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>This is really a great blog, might you be involved in doing an interview about how you created it? If so e-mail me!</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1345223960728#c3556675898812300058" title="comment permalink">3:19 AM, August 18, 2012</a>
+	  <span class="item-control blog-admin pid-1756020517"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3556675898812300058" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c1251100669116069022"><a name="c1251100669116069022"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>This questions and answers are very useful for us Thanks for providing these....</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1345697990568#c1251100669116069022" title="comment permalink">2:59 PM, August 23, 2012</a>
+	  <span class="item-control blog-admin pid-2004948595"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=1251100669116069022" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c19326683103021299"><a name="c19326683103021299"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/05031881026659056811" rel="nofollow">Satishvegi</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Given date is clear but need little more information regarding selenium RC with functions, frame work and web driver too.<br />If you can explain your frame work it will be more helpful </p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1345722523103#c19326683103021299" title="comment permalink">9:48 PM, August 23, 2012</a>
+	  <span class="item-control blog-admin pid-1401687798"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=19326683103021299" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c1640427353741761027"><a name="c1640427353741761027"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Very clear. How would the page objects be used with a properties file that would contain the user name and password?</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1346767351835#c1640427353741761027" title="comment permalink">12:02 AM, September 05, 2012</a>
+	  <span class="item-control blog-admin pid-2047620936"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=1640427353741761027" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3766588230389188977"><a name="c3766588230389188977"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/07868349556714374030" rel="nofollow">Anil Reddy</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Good .. keep posting some more questions</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1347542302264#c3766588230389188977" title="comment permalink">11:18 PM, September 13, 2012</a>
+	  <span class="item-control blog-admin pid-1753664437"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3766588230389188977" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3322803246052280462"><a name="c3322803246052280462"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>good<br /></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1350391288681#c3322803246052280462" title="comment permalink">11:41 PM, October 16, 2012</a>
+	  <span class="item-control blog-admin pid-1195497138"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3322803246052280462" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c4650160845989641087"><a name="c4650160845989641087"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/02227522041024794199" rel="nofollow">alapati Sudha</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Can anyone help me to write a framework to test : Searching for a particular string by iterating thorugh result page.Once found &#39;CLICK&#39; on the link and verify the resulting page .<br /><br />For this a framework has to be set in SELEINIUM either by PHP scripts or JAVA.One should PAGE OBJECTS MODEL, USE DIFFERNT LEVELS OF ABSTRACTION, to represnt actions, locators, data and TEST.<br /><br />Kindly help me ASAP.<br /><br />Regards<br /></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1352986847109#c4650160845989641087" title="comment permalink">12:40 AM, November 16, 2012</a>
+	  <span class="item-control blog-admin pid-1881284936"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=4650160845989641087" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c6212004136112214815"><a name="c6212004136112214815"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>thank you So much..i am sure this wil be really helpful</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1374447586288#c6212004136112214815" title="comment permalink">8:59 AM, July 22, 2013</a>
+	  <span class="item-control blog-admin pid-432668616"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=6212004136112214815" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c970798933765667020"><a name="c970798933765667020"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>It is very helpful. Thank you.<br /><br />Isn&#39;t it  passwordInput.sendKeys(password);  at line number 32 of LoginPage class?<br /><br /></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1382284622279#c970798933765667020" title="comment permalink">2:57 AM, October 21, 2013</a>
+	  <span class="item-control blog-admin pid-1761181974"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=970798933765667020" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c2996087357185892943"><a name="c2996087357185892943"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/09082073585503042579" rel="nofollow">Art stiv</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thanks for sharing the valuable information,This is useful information for online learners<br /><br /><a href="http://biginfosys.com/selenium-online-training.html" rel="nofollow">Selenium Online Training</a></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1385457407373#c2996087357185892943" title="comment permalink">8:16 PM, November 26, 2013</a>
+	  <span class="item-control blog-admin pid-526353724"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2996087357185892943" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c4590848222150644542"><a name="c4590848222150644542"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/13653060042700514653" rel="nofollow">ruchi goyal</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>for more selenium interview questions ans answers.<br />please visit-http://www.studyselenium.com/2013/12/100-selenium-interview-questions.html</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1390635591673#c4590848222150644542" title="comment permalink">6:39 PM, January 25, 2014</a>
+	  <span class="item-control blog-admin pid-55686600"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=4590848222150644542" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3629502761183064218"><a name="c3629502761183064218"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/15201985180167517825" rel="nofollow">Gopal b</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>For more Selenium interview questions please visit http://seleniumrocking.com/interview-questions</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1399095877373#c3629502761183064218" title="comment permalink">3:44 PM, May 03, 2014</a>
+	  <span class="item-control blog-admin pid-129160608"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3629502761183064218" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c6245659230207512702"><a name="c6245659230207512702"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/10689443036523413246" rel="nofollow">Sravan Chowdary</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Hi friends for more selenium interview questions/programs please go through this blog<br /><br />http://selenium4freshers.blogspot.in/<br /></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1399223815881#c6245659230207512702" title="comment permalink">3:16 AM, May 05, 2014</a>
+	  <span class="item-control blog-admin pid-282264128"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=6245659230207512702" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c6445520777740990705"><a name="c6445520777740990705"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/17734574882708806389" rel="nofollow">naveen kumar</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thank you provide valuable informations and iam seacrching same informations,and saved my time <a href="http://www.onlinesastrainings.com/" rel="nofollow">SAS Online Training</a></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1401511878037#c6445520777740990705" title="comment permalink">2:51 PM, May 31, 2014</a>
+	  <span class="item-control blog-admin pid-1217587835"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=6445520777740990705" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8098126580985481412"><a name="c8098126580985481412"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/01600947463625694000" rel="nofollow">Deepu Gottimukkula's</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>thanku for informing ruchi goyal .it is very usefull for us</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1412010350978#c8098126580985481412" title="comment permalink">3:05 AM, September 30, 2014</a>
+	  <span class="item-control blog-admin pid-1517737955"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8098126580985481412" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8397097150402915418"><a name="c8397097150402915418"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/12954585617461726629" rel="nofollow">Daniel Mason</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>I was totally amazed when i saw this website <a href="http://www.best-online-training.com/" rel="nofollow">Best testing tools Online Training</a>  first time i thought this is what i am looking for from a long time i am very thankful to you for helping not only me but to all those guys who are new to this IT SECTOR and who wants to make a career in this sector.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1412089116340#c8397097150402915418" title="comment permalink">12:58 AM, October 01, 2014</a>
+	  <span class="item-control blog-admin pid-400848222"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8397097150402915418" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8018174948195041757"><a name="c8018174948195041757"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Though these are useful, they are not enough to crack an automation testing interview, they ask questions for few scenarios, like ... how will u sort in a table, how will you write a forloop for a particular scenario, annotations, methods,these days interviews are based on concepts and coding.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/selenium-web-driver-interview-questions.html?showComment=1414097921404#c8018174948195041757" title="comment permalink">7:58 AM, October 24, 2014</a>
+	  <span class="item-control blog-admin pid-1766659886"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8018174948195041757" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=5134046475052896283'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/5134046475052896283/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2011/10/jmeter-interview-questions-and-answers.html">JMeter Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/java-interview-questions-and-answers-on_18.html">Java Interview Questions and Answers on tools</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/java-interview-questions-and-answers-on.html">Java Interview Questions and Answers on Software A...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/judging-java-experience-questions-and.html">Java interview questions and answers on code quali...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/jsp-interview-questions-and-answers.html">JSP Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/sql-interview-questions-and-answers.html">SQL Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/spring-interview-questions-and-answers.html">20+ Spring Interview Questions and Answers: Overvi...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/jsf-interview-questions-and-answers.html">JSF Interview Questions and Answers: Overview</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/maven-interview-questions-and-answers.html">Maven interview questions and answers - inheritanc...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/servlets-interview-questions-and.html">Servlets interview questions and answers</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

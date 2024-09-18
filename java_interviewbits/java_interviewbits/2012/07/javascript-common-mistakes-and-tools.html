@@ -1,0 +1,1074 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: JavaScript common mistakes and  tools</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/3933548985837828378/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Jul 27, 2012</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="3933548985837828378"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 JavaScript common mistakes and  tools
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div>If you are writing Java Script code, it is worth using code quality tools like <b>JSLint </b>and <b>JSHint&nbsp; </b>to avoid any pitfalls like<br />
+<br />
+<ul>
+<li>using global variables</li>
+<li>leaving trailing commas in object declarations</li>
+<li>not understanding the difference between closures and functions</li>
+<li>forgetting to declare a var</li>
+<li>naming a variable with the same name as an HTML id, etc.</li>
+</ul>
+<br />
+It is also essential to use JavaScript testing frameworks like <b>Jasmine</b>, <b>Selenium + WebDriver</b>, <b>QUnit</b>, and <b>TestSwarm</b>. QUnit is an easy-to-use, JavaScript test suite that was developed by the jQuery project to test its code and plugins, but is capable of testing any generic JavaScript code. One of the challenges of JavaScript rich application is testing it for <b>cross&nbsp; browser compatibility</b>. The primary goal of TestSwarm is to simplify the complicated, and time-consuming process of running JavaScript test suites in multiple browsers. It provides all the tools necessary for creating a continuous integration work-flow for your JavaScript rich application. <b>Debugging JavaScripts </b>can be a painful part of web development. There are handy browser plugins, built-ins and external tools to make your life easier. Here are a few such tools.<br />
+<br />
+<ul>
+<li><b>Cross-browser</b> (Firebug Lite, JS Shell, Fiddler, Blackbird Javascript Debug helper, NitobiBug, DOM Inspector (aka DOMi), Wireshark / Ethereal) </li>
+<li><b>Firefox </b>(JavaScript Console, Firebug, Venkman, DOM Inspector, Web Developer Extension, Tamper Data, Fasterfox, etc)</li>
+<li><b>Internet Explorer</b> (JavaScript Console, Microsoft Windows Script Debugger, Microsoft Script Editor, Visual Web Developer, Developer Toolbar, JScript Profiler, JavaScript Memory Leak Detector)</li>
+<li><b>Opera </b>(JavaScript Console, Developer Console, DOM Snapshot, etc)</li>
+<li><b>Safari </b>("Debug" menu, JavaScript Console, Drosera - Webkit, etc)</li>
+<li><b>Google Chrome </b>(JavaScript Console and Developer Tools)</li>
+</ul>
+<div>
+<br /></div>
+<div>
+<b>Q.</b> What are the common JavaScript errors or bad practices that you have noticed</div>
+<div>
+<b>A.</b></div>
+<div>
+<span style="background-color: white;"><br /></span></div>
+<div>
+<span style="background-color: white;"><b>1. </b>Not using the </span><b style="background-color: white;">var </b><span style="background-color: white;">to declare your variables. If you don't use "var", your variable will become global. Your code will work with global variables, but it can create strange errors that are harder to debug and fix. It is also imperative to define proper namespaces and declare variables within the scope of that namespace.</span></div>
+<br />
+<br />
+Here is an example of global window scope and a neatly packaged "name" variable and "greet" function into an object literal. You can also note that the value of 'this' is changed to the containing object, which is no longer the global "window" object. This is quite useful as you can keep a set of variables and functions abstracted into one namespace without any potential conflicts of names.
+
+
+<br />
+<br />
+<pre class="brush: csharp">&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+
+
+&lt;script type="text/javascript"&gt;
+
+    //bad - global variable and function
+
+    window.name= "window-global-scope";   //global scope
+
+    var greet = function(greeting) {
+     console.log(greeting + " " + this.name);
+   }
+
+   //good: encapsulated variable and function
+   object = {
+        name: "object-scope",
+        
+     greet: function(greeting) {
+      console.log(greeting + " " + this.name);
+        }
+    }
+
+
+&lt;/script&gt;
+
+&lt;/head&gt;
+&lt;body onload="greet('hello');object.greet('howdy')"&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<br />
+<br />
+<b>Note</b>: It is a best practice to define your HTML and Javascript in separate files. The above code snippet is for illustration purpose only.<br />
+<br />
+<b>The output will be</b>
+<br />
+<br />
+hello window-global-scope<br />
+howdy object-scope
+<br />
+<br />
+<div>
+<span style="background-color: white;"><br /></span></div>
+<div>
+<span style="background-color: white;"><b>2.</b> Not understanding the difference between "==" operator and "===" operator.&nbsp;</span></div>
+<div>
+<div>
+<div>
+<ul>
+<li><span style="background-color: white;">== &nbsp;operator compare the values but it doesn’t compare the data type of operands.&nbsp;</span></li>
+<li><span style="background-color: white;">=== operator in JavaScript compare not only the value of operands, but also the </span><b style="background-color: white;">data type</b><span style="background-color: white;">. If the data type of operands is different, it will always return false.</span></li>
+</ul>
+<div>
+<b>3.</b> Not de-referencing a variable once it has been used. Setting a variable to null once it has been used will allow the garbage collector of the js engine to reclaim that object.&nbsp;</div>
+</div>
+</div>
+</div>
+<div>
+<br /></div>
+<div>
+<b>4. </b>Not understanding the difference between <b>innerText </b>and <b>innerHTML.&nbsp;</b><span style="background-color: white;">The innerHTML gets the html code inside the element and innerText gets the text inside the element. So, if you had &lt;p&gt; Some text &lt;/p&gt; the innerText will only return "Some text" without the element &lt;p&gt;, and innerHTML will return&nbsp;
+&lt;p&gt; Some text &lt;/p&gt;&nbsp;&nbsp;</span><br />
+<br />
+<span style="background-color: white;"><b>5.&nbsp;</b> Not understanding what the implicit scope "this" refers to. For example,</span><br />
+<span style="background-color: white;"><br /></span><br />
+<pre class="brush: csharp">function  Account(balance) {
+ this.balance = balance;
+ this.getTenPercentOfbalance = function() {
+      return balance * 0.10;
+ };
+}
+
+
+var mortgageAccount = new Account(10000.00);
+mortgageAccount.getTenPercentOfbalance(); // returns 1000.00
+
+</pre>
+<br/>
+Now, if you try
+
+<br />
+<br />
+<pre class="brush: csharp">var tenPercentMethod = mortgageAccount.getTenPercentOfbalance();
+tenPercentMethod();  // throws an error
+</pre>
+<br />
+<br/>
+Why did it throw an error?
+<br/>
+<br/>
+The implicit "this" points to the global Window object, and the Window object does not have the function  getTenPercentOfbalance( ).
+
+<br />
+<br/>
+The above two lines can be written with the JavaScript <b>head</b> object '<b>window</b>' as shown below.
+<br/>
+<br/>
+
+<pre class="brush: csharp">
+  var window.tenPercentMethod = window.mortgageAccount.getTenPercentOfbalance();
+  window.tenPercentMethod();  // throws an error
+</pre>
+
+<br/>
+<br/>
+<b>Important</b>: The value of <b>this</b>, passed to all functions, is based on the context in which the function is called at runtime. 
+
+<br/>
+<br/>
+
+
+You can fix this by 
+
+<br />
+<br />
+<pre class="brush: csharp">tenPercentMethod.apply(mortgageAccount); // now it uses this == mortgageAccount
+</pre>
+<br />
+<br />
+
+When invoking constructors with the 'new' keyword,  'this' refers to the “object that is to be” when the constructor function is invoked using the new keyword. Had we not used the new keyword above, the value of this would be the context in which Account is invoked — in this case the 'window' head object. 
+
+
+<br/>
+<br/>
+
+<pre class="brush: csharp">
+var mortgageAccount =  Account(10000.00); // without new key word. this is passed to the constructor as 'window'.  
+console.log(mortgageAccount.balance); // undefined, the value is actually set at window.balance
+</pre>
+
+<br/>
+<br/>
+<b>'this' in nested functions</b>
+<br/>
+<br/>
+You might be wondering what happens to 'this' when it is used inside of a function that is contained inside of another function. The bad news is in ECMA 3, this loses its way and refers to the head object (window object in browsers), instead of the object within which the function is defined. The good news is that this will be fixed in ECMAScript 5.
+<br/>
+<br/>
+<b>Here is another example on this reference and scope:</b>&nbsp;In JavaScript, scope is resolved during execution of functions. If you have nested functions, once you have executed a function nested within a function, JavaScript has lost your scope and is defaulting to the best thing it can get, window (i.e. global). To get your scope back, JavaScript offers you two useful functions, <b>call </b>and <b>apply</b>.<br />
+<br />
+<br />
+<pre class="brush: csharp">&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+
+
+&lt;script type="text/javascript"&gt;
+   object = {
+        name: "object-scope",
+        
+     greet: function() {
+      nestedGreet =  function(greeting) {
+           console.log(greeting + " " + this.name);
+            }
+   
+      
+      //scope is resolved during execution of functions
+            nestedGreet('hello');                 //hello window-global-scope
+                                                  //loses its scope and defaults to window
+            nestedGreet.call(this, 'hello');      //hello object-scope 
+            nestedGreet.apply(this, ['hello']);   //hello object-scope
+            
+     }
+   }
+
+
+&lt;/script&gt;
+
+&lt;/head&gt;
+&lt;body onload="object.greet()"&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<br />
+<br />
+<b>6.</b> Not understanding <b>getting the function back</b> versus <b>invoking the function</b>, especially when used in callback functions. The callback functions are not invoked directly. They are iether  invoked asynchronously after a certain event like button click or after a certain timeout.
+<br />
+<br />
+<pre class="brush: csharp">function sayHello(){
+    return "Hello caller";
+}
+</pre>
+<br />
+<br />
+Now, if you do the following, you only get the function back.
+<br />
+<br />
+<pre class="brush: csharp">var  varFunction = sayHello;  // stores the function to the variable varFunction
+setTimeout(sayHello, 1000)    // can also pass it to other functions. 
+                              // This is a callback function  
+                              // Will call sayHello a second later.
+
+window.load = sayHello;       // Can attach to objects. Will call sayHello when the page loads 
+                              // This is a callback function 
+
+</pre>
+<br />
+<br />
+But if you add '( )' to it as shown below, you will be actually invoking the function.
+<br />
+<br />
+<pre class="brush: csharp">sayHello();    //invoke the function
+varFunction(); //invoke the function
+</pre>
+<br />
+<br />
+So, the addition of paranthese to the right invokes the function. So, incorrectly assigning like shown below will callback the function immediately.
+<br />
+<br />
+<b>Wrong:
+</b><br />
+<br />
+<pre class="brush: csharp">setTimeout(sayHello(), 1000); // won't wait for a second 
+
+&lt;input id="mybutton" onclick="sayHello();return false;" type="button" value="clickMe" /&gt; //invokes it straight a way without waiting for onclick event.
+</pre>
+<br />
+<br />
+<b>Correct:
+</b><br />
+<br />
+<pre class="brush: csharp">setTimeout(sayHello, 1000); // waits for a second
+//jQuery to the rescue
+$('#mybutton').click(function(){
+    return  "Hello caller";
+})
+
+</pre>
+<span style="background-color: white;">So, it is a best practice to favor using proven JavaScript frameworks to avoid potential pitfalls.</span><br />
+<span style="background-color: white;"><b><br /></b></span><br />
+<span style="background-color: white;"><b>7. Not understanding JavaScript scopes.&nbsp;</b></span>Javascript only has global and function scopes, and does not have block scopes as in other languages like Java. In JavaScript, functions are values that can be assigned to a variable, including arrays. In the example below, the above correct code fragment uses a powerful feature of Javascript known as first order functions. In every iteration the variable item is declared that contains the current element from the array. The function that is generated on the fly contains a reference to "item" and will therefore be part of its closure. Logically, this means that in the first function captures the value &nbsp;{'id': 'fname', 'help': 'Entr your first name'}, and the second function captures the value {'id': 'lname', 'help': 'Enter your surname'}, and so on. The incorrect function is also showed to understand the difference.<br />
+<pre class="brush: csharp">&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+
+&lt;script type="text/javascript"&gt;
+   
+    function showHelp(help) {
+   document.getElementById('help').innerHTML = help;
+ }
+ 
+ function initializeHelpWrongly() {
+   var helpText = [
+       {'id': 'fname', 'help': 'Entr your first name'},
+       {'id': 'lname', 'help': 'Enter your surname'} 
+     ];
+
+    
+   for (var i = 0; i &lt; helpText.length; i++) {
+     var item = helpText[i];
+  //Wrong: by the time this function is executed the for loop would have been completed
+  //and the value of the item would be the last item in the array, which is id: lname
+     document.getElementById(item.id).onfocus = function() {
+      console.log(item.help);
+      showHelp(item.help)  
+  }
+   }
+ }
+
+ function initializeHelpCorrectly() {
+   var helpText = [
+       {'id': 'fname', 'help': 'Entr your first name'},
+       {'id': 'lname', 'help': 'Enter your surname'} 
+     ];
+
+   for (var i = 0; i &lt; helpText.length; i++) {
+     var item = helpText[i];
+  //In every iteration a new function is created on the fly, which contains 
+  //a reference to current item being processed in the loop
+  //and will therefore be part of its closure. Logically, this means that in the 
+  //first function captures id: fname, and second function captures id:lname so on.
+     document.getElementById(item.id).onfocus = function(item) {
+       return function() {
+        console.log(item.help);
+        showHelp(item.help)   
+       };  
+     }(item);
+   }
+ }
+ 
+&lt;/script&gt;
+
+&lt;/head&gt;
+
+&lt;!-- try substituting initializeHelpWrongly()--&gt;
+&lt;body onload="initializeHelpCorrectly();"&gt;
+
+&lt;p id="help"&gt;Help text appear here&lt;/p&gt;  
+&lt;p&gt;fname: &lt;input type="text" id="fname" name="fname"&gt;&lt;/p&gt;  
+&lt;p&gt;lname: &lt;input type="text" id="lname" name="lname"&gt;&lt;/p&gt; 
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+</pre>
+<br />
+<br />
+<span style="background-color: white;"><b>8. </b>Not testing the&nbsp; JavaScript code for cross browser compatibility.</span><br />
+<span style="background-color: white;"><br /></span><br />
+<span style="background-color: white;"><b>9. </b>Trying to reinvent the wheel by writing substandard functions as opposed to reusing functions from proven frameworks and libraries.</span></div>
+<div>
+<span style="background-color: white;"><br /></span></div>
+<div>
+<span style="background-color: white;"><br /></span></div>
+<div>
+<span style="background-color: white;"><b>Q.</b> What tips would you give to someone requiring to perform computation intensive task using JavaScript?</span></div>
+<div>
+<span style="background-color: white;"><b>A.</b>&nbsp;Computation intensive JavaScript tasks, for example, in a loop can make a browser unresponsive. Here are some tips to consider.</span></div>
+<div>
+<span style="background-color: white;"><br /></span></div>
+<div>
+<span style="background-color: white;"><b>1.</b> Try and optimize the loop so that it completes within say 150 ~ 200 milli seconds. Anything over this value can affect the user experience.</span></div>
+<div>
+<span style="background-color: white;"><br /></span></div>
+<div>
+<span style="background-color: white;"><b>2.</b> Redesign the functionality by offloading the processing to a back end server.</span></div>
+<div>
+<span style="background-color: white;"><br /></span></div>
+<div>
+<span style="background-color: white;"><b>3.</b> The HTML 5 supports Web Worker and it brings multithreading to JavaScript.&nbsp;</span><span style="background-color: white;">Prior to Web Worker, &nbsp;developers &nbsp;were creating asynchronous processing by using techniques like setTimeout(), setInterval(), <i>XMLHttpRequest</i>, and event handlers.&nbsp;</span><span style="background-color: white;">The Web Workers specification defines an API for spawning background scripts in your web application. Web Workers allow you to do things like fire up long-running scripts to handle computationally intensive tasks, but without blocking the UI or other scripts to handle user interactions.&nbsp;</span></div>
+<div>
+<br /></div>
+<div>
+<span style="background-color: white;"><b>4.</b> If you are not on HTML 5 yet,&nbsp;</span><span style="background-color: white;">put a wait inside the body of the loop so as to let the browser breath. Don't use sleep(5); Instead use setTimeout(..) function, which uses the non-blocking I/O paradigm.&nbsp;</span></div>
+<div>
+<br /></div>
+<pre class="brush: csharp">for (var i = 0, len = items.length; i &lt; len; i++){
+    setTimeout(function(){
+        processItem(items[i])
+    }, 5)  
+}
+</pre>
+<br />
+<b>Note</b>: The above code can be further improved with a queue, dynamic batch sizes, and eliminating the need for a for loop.<br />
+<br /><div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/JavaScript">JavaScript</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2012/07/javascript-common-mistakes-and-tools.html" title="permanent link"> 7/27/2012 02:42:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=3933548985837828378" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=3933548985837828378&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>1 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c1027488708668884719"><a name="c1027488708668884719"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://cyrusholiday.info/" rel="nofollow">open source developer</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thanks for sharing. Its good to see fresh content always.<br /></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/07/javascript-common-mistakes-and-tools.html?showComment=1350117268934#c1027488708668884719" title="comment permalink">7:34 PM, October 13, 2012</a>
+	  <span class="item-control blog-admin pid-1735464802"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=1027488708668884719" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=3933548985837828378'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/3933548985837828378/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2012/07/sql-interview-questions-and-answers.html">SQL Interview Questions and Answers: storing a tre...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/uml-diagrams-interview-questions-and.html">UML diagrams interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/java-coding-question-on-popular.html">Java coding question on the popular Fibonacci sequ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/can-you-write-code-by-asking-right.html">Can you write Java code by asking the right questi...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/xml-interview-questions-and-answers.html">XML interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/java-coding-questions-frequently-asked.html">Java coding questions frequently asked in technica...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/service-versus-component-and-soa-versus.html">Service versus component and SOA versus CBA?</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/why-good-api-design-matters.html">Why does good API design matter?</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/java-coding-question-and-answer-on.html">Java coding question and answer on multi-threading...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/06/reviewing-given-java-code-in-job.html">Reviewing a given Java code in job interviews and ...</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

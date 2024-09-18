@@ -1,0 +1,962 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Java logical thinking and coding questions and answers</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/709483703353081968/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Aug 8, 2012</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="709483703353081968"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Java logical thinking and coding questions and answers
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-3764234023451771";
+/* Leader board image and text */
+google_ad_slot = "4890304945";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_channel ="4262872872";
+google_page_url = "http://java-success.blogspot.com.au/p/core-java-q.html";
+//</script>
+<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript">
+</script>
+<br/>
+<br/>
+
+When coding, the logical operators like &amp;&amp;, ||, and ! can be confucing. Here is an example that will evaluate a candidate's ability to process logic.<br />
+<br />
+<b>Q.</b> What is the opposite of (score &lt; 100) ?<br />
+<b>A.</b> Some might think it is (score &gt; 100), but that is wrong. The correct answer is (score &gt;= 100). The opposite of &lt; is &gt;=, and the opposite of &gt; is &lt;=.<br />
+<br />
+<b>Q. </b>What will be the output of the following code snippet if the score is 120?<br />
+<br />
+<pre class="brush: csharp">if (! (score &lt; 100) ) { 
+   System.out.println("The score is greater than 100");
+}
+else{
+    System.out.println("The score is less than 100");
+}
+</pre>
+<b><br />A.&nbsp;</b>Prints "The score is greater than 100".<br />
+<br />
+<b>Q.</b> In the code snippet below, how will you go about implementing the validate logic so that the validation fails (i.e returns false) when the security is<br />
+<ul>
+<li>Included and</li>
+<li>SecurityType == OTHER and&nbsp;</li>
+<li>SecuritySubType == OTHER</li>
+</ul>
+Show <b>with </b>and <b>without </b>using the not (i.e. !) operator<br />
+<br />
+<br />
+<pre class="brush: csharp">public class LogicalThinking1 {
+
+ public static class Security {
+
+  enum SecurityType {
+   WARRANT, OPTION, OTHER
+  }
+
+  enum SecuritySubType {
+   INVESTMENT, MARGINLENDING, OTHER
+  }
+
+  private boolean excluded;
+  private SecurityType type;
+  private SecuritySubType subType;
+
+  public Security(boolean excluded, SecurityType type, SecuritySubType subType) {
+   this.excluded = excluded;
+   this.type = type;
+   this.subType = subType;
+  }
+
+  // getters/setters, equals/hashCode and equals methods are omitted for
+  // brevity
+
+  public boolean validate() {
+   //logic goes here
+  }
+
+ }
+}
+
+</pre>
+<br />
+<b>A</b>.&nbsp;The validate method must return false when the security is &nbsp;included, and of type OTHER and of subType OTHER. Under all other conditions, it must return true (i.e validation succeeds)<br />
+<br />
+<b>Approach-1: </b>Using the ! operator.<br />
+<br />
+<br />
+<pre class="brush: csharp">    public boolean validate() {
+      //use of &amp;&amp; and ! operators
+      return !(!excluded &amp;&amp; SecurityType.OTHER == this.type &amp;&amp;&nbsp;</pre>
+<pre class="brush: csharp">                SecuritySubType.OTHER == this.subType) ;
+    }
+</pre>
+<br />
+The above code basically constructs the condition which returns "true" within the paranthesis and puts the not outside because it must return "false" (i.e the validation should fail) if the given condition is satisfied.<br />
+<br />
+<b>Approach-2:</b> Now, the tricky bit is to achieve the same results without the the ! operator.<br />
+<br />
+<br />
+<pre class="brush: csharp">    public boolean validate() {
+       return excluded || SecurityType.OTHER != this.type ||&nbsp;</pre>
+<pre class="brush: csharp">              SecuritySubType.OTHER != this.subType ;
+ }
+</pre>
+<br />
+It is achieved by using the reverse of the conditions shown within the paranthesis in the approach 1 with the 'or' operator instead of 'and'.
+
+<br />
+<br />
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3764234023451771";
+/* Main Leader board - Text only */
+google_ad_slot = "5678244596";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_channel="2755834745";
+//-->
+</script>
+<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript">
+</script>
+
+<br />
+<br />
+Here is the full code that you can experiment with
+
+<br />
+<br />
+<pre class="brush: csharp">public class LogicalThinking1 {
+
+ public static class Security {
+
+  enum SecurityType {
+   WARRANT, OPTION, OTHER
+  }
+
+  enum SecuritySubType {
+   INVESTMENT, MARGINLENDING, OTHER
+  }
+
+  private boolean excluded;
+  private SecurityType type;
+  private SecuritySubType subType;
+
+  public Security(boolean excluded, SecurityType type, SecuritySubType subType) {
+   this.excluded = excluded;
+   this.type = type;
+   this.subType = subType;
+  }
+
+  // getters/setters and equals/hashCode and equals are omitted for
+  // brevity
+
+  public boolean validate() {
+   //return !(!excluded &amp;&amp; SecurityType.OTHER == this.type &amp;&amp; SecuritySubType.OTHER == this.subType) ;
+   return excluded || SecurityType.OTHER != this.type || SecuritySubType.OTHER != this.subType ;
+  }
+
+ }
+
+ public static void main(String[] args) {
+  //example only, need to cater for different input arguments like
+  //false, OTHER, OTHER --&gt; false
+  //true, OTHER, OTHER  --&gt; true
+  //false, WARRANT, OTHER --&gt; true
+  //true, WARRANT, OTHER --&gt; true
+  //true, WARRANT, INVESTMENT --&gt; true
+  //false, WARRANT, INVENSTMENT --&gt; true, etc. Basically 2 * 3 * 3 = 18 combinations are possible
+  LogicalThinking1.Security security = new LogicalThinking1.Security(Boolean.FALSE, 
+                                  LogicalThinking1.Security.SecurityType.WARRANT, 
+                                  LogicalThinking1.Security.SecuritySubType.INVESTMENT);
+  
+  System.out.println("Validation:" + security.validate());
+  
+ }
+
+}
+</pre>
+<br />
+<b>Note: </b>So, true &amp;&amp; true &amp;&amp; true is equivalent to<b> !</b>(false || false || false).<br />
+<b><br /></b>
+<br />
+<b>Q. </b>Can you give a real life scenario where you may have to use the second form?<br />
+<span style="font-weight: bold;">A.</span> A typical real life scenario would be to implement the business validation rules. Some validation rules do change frequently due to legislative changes, etc and hard coding those rules within code is not a good idea. A more flexible approach would be to use a business rules engine like Drools or custom write your validation engine by storing the validation rules and relevant error messages in a database. This will enable the validation rules to be modified as it changes due to legislative changes or other business drivers. A very simplified database schema will look like<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-gaIGXuRDEwc/UE01DKKas6I/AAAAAAAAAw0/i80uj3FnI88/s1600/validation-rules-schema.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="114" src="http://3.bp.blogspot.com/-gaIGXuRDEwc/UE01DKKas6I/AAAAAAAAAw0/i80uj3FnI88/s640/validation-rules-schema.jpg" width="640" /></a></div>
+The rules are comma separated and the logical operator joining the rules is determined by the join_type. The join type can be either OR or AND.&nbsp;&nbsp;The validation error message is displayed if the validation rule returns false.&nbsp;This means, &nbsp;if the portfolio is not <i>authorized </i>and the <i>cashAvailable </i>is less than the <i>cashDepletion </i>then display the validation error message "There are insufficient funds". The <i>cashAvailable</i>, <i>cashDepletion</i>, and <i>authorized </i>are fields with corresponding getter methods in the bean "<i>Portfolio</i>". The <b>version </b>flag is important because you might be working in multiple streams of development sharing the same development database and you don't want a new rule that was added in one of the development streams to break the other streams. The validation engine will have code something similar to<br />
+<br />
+<br />
+<pre class="brush: csharp">boolean ruleResult = evaluateRule( .....);
+if(!ruleResult) {
+     displayValidationErrorMsg(....);
+}
+</pre>
+<br />
+<b><br /></b>
+<b>Q.</b> Can you write code that will check if a given string input is a numeric?<br />
+<b>A.</b> You could use exception handling for this. If it throws an exception, it is not a numeric value.
+
+<br />
+<br />
+<pre class="brush: csharp">public boolean isInteger( String input )  
+{  
+   try  
+   {  
+      Integer.parseInt(input);  
+      return true;  
+   }  
+   catch(Exception e)  
+   {  
+      return false;  
+   }  
+}  
+</pre>
+<br />
+Alternatively, you could use <b>regex (</b>i.e. Regular Expressions<b>)</b><br />
+<b><br /></b>
+<br />
+<pre class="brush: csharp">public boolean isInteger( String input ) {
+    if(input == null || input.length() == 0) {
+    return false;
+ }
+
+ //using regex and conditional operator. '\d' means digit. Additional '\' to escape '\'.
+    return if(input.replaceAll("\\d+","").length() &gt; 0) ? false : true;
+}
+</pre>
+<br />
+<br /><div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Coding">Coding</a>, <a rel='tag' href="http://java-success.blogspot.com/search/label/Core%20Java">Core Java</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2012/08/java-logical-thinking-code-example.html" title="permanent link"> 8/08/2012 06:45:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=709483703353081968" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=709483703353081968&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>2 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c3254141548575573849"><a name="c3254141548575573849"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.dhung.com/job-interview-questions-answers/" rel="nofollow">Dhung</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>This section focuses on types of interview questions asked by the employers which are based on behavioral and technical questions.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/08/java-logical-thinking-code-example.html?showComment=1344424856873#c3254141548575573849" title="comment permalink">9:20 PM, August 08, 2012</a>
+	  <span class="item-control blog-admin pid-1550382466"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3254141548575573849" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3358797885699330475"><a name="c3358797885699330475"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/18342857050440391909" rel="nofollow">javablog</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>I want more logical questions in java</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/08/java-logical-thinking-code-example.html?showComment=1370878400447#c3358797885699330475" title="comment permalink">1:33 AM, June 11, 2013</a>
+	  <span class="item-control blog-admin pid-2015499116"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3358797885699330475" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=709483703353081968'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/709483703353081968/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+    <a name="links"></a><h4>Links to this post:</h4>
+    <dl id="comments-block">
+    <script type="text/javascript" src="https://www.blogger.com/dyn-js/backlink.js?blogID=35897879&postID=709483703353081968" charset="utf-8" defer="true">
+</script>
+<noscript><a href="http://blogsearch.google.com/?ui=blg&q=link:http://java-success.blogspot.com/2012/08/java-logical-thinking-code-example.html">See links to this post</a></noscript>
+<div id="blogger-dcom-block" style="display:none">
+        <dt class="comment-title">
+        <span class="comment-toggler">&nbsp;</span>
+        <a href="<$BlogBacklinkURL$>" rel="nofollow"><$BlogBacklinkTitle$></a> <span class="item-control blog-admin"><a style="border:none;" href="https://www.blogger.com/delete-backlink.g?blogID=35897879&amp;postID=709483703353081968&amp;backlinkURL=%3C$BlogBacklinkURLEscaped$%3E" title="Remove Link" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+        </dt>
+        <dd class="comment-body"><$BlogBacklinkSnippet$>
+        <br />
+        <span class="comment-poster">
+        <em><$I18NPostedByBacklinkAuthor$> @ <$BlogBacklinkDateTime$></em>
+        </span>
+        </dd>
+    </div>
+<script type="text/javascript">if (typeof BL_addOnLoadEvent == 'function') { BL_addOnLoadEvent(function() { BL_writeBacklinks(); }); }</script>
+
+    </dl>
+    <p class="comment-timestamp"><script type="text/javascript">function BlogThis() {
+Q=''; x=document; y=window;
+if(x.selection) {
+  Q=x.selection.createRange().text;
+} else if (y.getSelection) {
+  Q=y.getSelection();
+} else if (x.getSelection) {
+  Q=x.getSelection();
+}
+popw = y.open('https://www.blogger.com/blog-this.g?t=' +
+  escape(Q) + '&u=' + escape(location.href) + '&n=' +
+  escape(document.title),'bloggerForm',
+  'scrollbars=no,width=475,height=300,top=175,left=75,status=yes,resizable=yes');
+void(0);
+}
+</script>
+<a class="comment-link" href="javascript:BlogThis();" id="b-backlink">Create a Link</a></p>
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2012/08/how-to-standout-from-other-javajee.html">How to standout from other Java/JEE professionals?...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/08/html-and-css-interview-questions-and.html">HTML and CSS Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/javascript-common-mistakes-and-tools.html">JavaScript common mistakes and  tools</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/sql-interview-questions-and-answers.html">SQL Interview Questions and Answers: storing a tre...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/uml-diagrams-interview-questions-and.html">UML diagrams interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/java-coding-question-on-popular.html">Java coding question on the popular Fibonacci sequ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/can-you-write-code-by-asking-right.html">Can you write Java code by asking the right questi...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/xml-interview-questions-and-answers.html">XML interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/java-coding-questions-frequently-asked.html">Java coding questions frequently asked in technica...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/07/service-versus-component-and-soa-versus.html">Service versus component and SOA versus CBA?</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

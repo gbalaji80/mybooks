@@ -1,0 +1,789 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Top 11 mistakes or slackness that can come back and bite you as an experienced software developer or software architect</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/8299054565414049025/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Jul 9, 2014</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="8299054565414049025"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Top 11 mistakes or slackness that can come back and bite you as an experienced software developer or software architect
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div>Production issues seek the attention of middle and top level management. Here are a few things that you must pay attention as a software developer or architect to prevent any future embarrassments.<br />
+<br />
+<b><span style="font-size: large;">#1</span>: &nbsp;Not externalizing configuration values in .properties or XML files</b>. For example, not making the number of threads used in a batch job configurable in a <i>.properties</i> file. You may have a batch job that worked well &nbsp;in &nbsp;DEV to UAT (user acceptance) environments, but when deployed to PROD, due difference in the JDBC driver version or issue discussed in the <b>#2 </b>was throwing an <i>IOException</i> when run as multi-threaded &nbsp;over larger data sets. If the number of threads are configured in a <i>.properties</i> file, it can be easily made a single threaded application by changing the <i>.properties</i> file without having to redeploy and retest the application until a proper fix is made. This applies to all URLs, server and port numbers, etc.<br />
+<br />
+<b><span style="font-size: large;">#2</span>: Not testing the application with the right volume of data</b>. For example, testing your application with 1 to 3 accounts instead of 1000 to 2000 accounts, which is the typical scenario in the production environment. The performance tests need to be conducted with the real life data, and not cut down data. Not adhering to real life performance test scenarios can cause unexpected performance, scalability, and multi-threading issues. It is imperative that you test your application for larger volume of data to ensure that it works as expected and meets the SLAs &nbsp;(i.e. <b>S</b>ervice <b>L</b>evel <b>A</b>greements) in the non-functional specification.<br />
+<br />
+<b><span style="font-size: large;">#3</span>: Naively assuming that external or other internal services that are invoked from your application is going to be reliable and always available</b>. Not allowing for proper service invocations <u>timeouts </u>and <u>retries </u>can adversely impact the stability and performance of your application. Proper outage testings need to be carried out. This is very crucial because the modern applications are distributed and service oriented with lots of web services. Indefinitely trying for a service that is not available can adversely impact your application. The load balancers need to be properly tested to ensure that they are functioning as expected by bringing each balanced node down.<br />
+<br />
+<b><span style="font-size: large;">#4</span>: &nbsp;Not adhering to the bare minimum security requirements</b>. As mentioned above, web services are everywhere, and web services can be easily exploited by the hackers for the denial of service attack. So, use of &nbsp;SSL layer, basic authentication, and penetration testing with tools like Google skipfish are mandatory. Unsecured applications can not only adversely impact stability of an application, but also can tarnish an organization's reputation due to data integrity issues like customer "A" being able to view customer "B's" data.<br />
+<br />
+<b><span style="font-size: large;">#5</span>: Not performing cross browser compatibility testing</b>. Modern web applications are rich single page applications making use of JavaScript code and frameworks like angularjs. The sites you build need to use responsive designs to work well across devices and browsers. It is imperative that proper <u>cross-browser and device compatibility </u>testing is performed to ensure it works in all of them.<br />
+<br />
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Center - Leader board -->
+<br />
+<ins class="adsbygoogle" data-ad-client="ca-pub-3764234023451771" data-ad-slot="5678244596" style="display: inline-block; height: 90px; width: 728px;"></ins><script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<br />
+<br />
+<b><span style="font-size: large;">#6</span>: Not externalizing business rules that are likely to change often</b>. For example, tax laws, government or industry compliance requirements, classification laws, etc. Use business rules engines like Drools that allow you to externalize rules into database tables and excel spreadsheets. The business can take ownership of these rules, and can react quickly to changes to tax laws or compliance requirements with minimal changes and testing. <br />
+<br />
+<b><span style="font-size: large;">#7</span>: Not having proper documentation in the form of</b><br />
+<ol>
+<li>Unit tests with proper code coverage.&nbsp;</li>
+<li>Integration tests.</li>
+<li>A confluence or wiki page listing all the software artifacts like classes, scripts, configuration files that have been modified or newly created.</li>
+<li>High level conceptual diagrams depicting all the components, interactions, and structures.</li>
+<li>Basic documentation for developers on &nbsp;"how to set up the DEV environment with data source &nbsp;details.</li>
+</ol>
+Points 1 and &nbsp;2 are the primary form of documentation in an<b> agile project</b> in addition to the COS (<b>C</b>ondition <b>O</b>f <b>S</b>atisfaction) created via tools like <i>MindMap</i>.<br />
+<br />
+<b><span style="font-size: large;">#8</span>: Not having proper disaster recovery plans, system monitoring and archival strategies in place</b>. It is easy to get missed on these activities in a rush to get the application deployed to meet the tight deadlines. Not having proper system monitoring through Nagios and Splunk can not only impact the stability of the application, but also can hinder current diagnostics and future improvements. <br />
+<br />
+<span style="font-size: large;"><b>#9</b></span>:&nbsp;<b>Not designing Database tables with proper house keeping columns</b> like created_datetm, update_datetm, created_by, updated_by and timestamp, &nbsp;and provision to logically delete records with columns like 'deleted' with 'Y' or 'N' values or record_status like 'Active' or 'Inactive'. <br />
+<br />
+<span style="font-size: large;"><b>#10</b></span>: <b>Not having proper system backout plan</b> to restore the system to its stable state before deployment if anything goes wrong. This plan needs to be properly reviewed and signed-off by the relevant teams. This includes backing out to previous versions of software artifacts, any data inserted into the database, properties file entries, etc.<br />
+<br />
+<b><span style="font-size: large;">#11</span></b>: <b>Not performing proper capacity planning</b> at the beginning of the project.&nbsp; Its no longer sufficient to simply say that you “need a Unix box, an Oracle database server and a JBoss application server" when specifying your platform. You need to be really precise about the<br />
+<ul>
+<li>specific versions of operating systems, JVMs, etc</li>
+<li>how much memory (including physical memory, JVM heap size, JVM stack size, and JVM perm gen space)</li>
+<li>CPU (number of cores)</li>
+<li>load balancer, number of nodes required, node types like active/active or active/passive and clustering requirements.&nbsp; </li>
+<li>file system requirements, for example, your application may archive generated reports and keep it for a year before archiving them. So, you need to have enough hard disk space. Some applications require to generate data extract files to be generated and temporarily stored to be picked up by the other system processes or data warehouse systems for multi dimensional reporting. Some data files are SFTP'ed from other internal or external systems, and need to be kept for a period like 12 to 36 months before archived.</li>
+</ul>
+<div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Java%20Architect">Java Architect</a>, <a rel='tag' href="http://java-success.blogspot.com/search/label/Java%20career">Java career</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2014/07/top-11-mistakes-or-slackness-that-can.html" title="permanent link"> 7/09/2014 06:21:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=8299054565414049025" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=8299054565414049025&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>2 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c8384098374403629625"><a name="c8384098374403629625"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="https://www.google.com" rel="nofollow">gwen</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>good</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2014/07/top-11-mistakes-or-slackness-that-can.html?showComment=1404907349337#c8384098374403629625" title="comment permalink">10:02 PM, July 09, 2014</a>
+	  <span class="item-control blog-admin pid-890283553"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8384098374403629625" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c2018866946741741640"><a name="c2018866946741741640"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thanks </p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2014/07/top-11-mistakes-or-slackness-that-can.html?showComment=1404965005771#c2018866946741741640" title="comment permalink">2:03 PM, July 10, 2014</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2018866946741741640" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=8299054565414049025'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/8299054565414049025/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+    <a name="links"></a><h4>Links to this post:</h4>
+    <dl id="comments-block">
+    <script type="text/javascript" src="https://www.blogger.com/dyn-js/backlink.js?blogID=35897879&postID=8299054565414049025" charset="utf-8" defer="true">
+</script>
+<noscript><a href="http://blogsearch.google.com/?ui=blg&q=link:http://java-success.blogspot.com/2014/07/top-11-mistakes-or-slackness-that-can.html">See links to this post</a></noscript>
+<div id="blogger-dcom-block" style="display:none">
+        <dt class="comment-title">
+        <span class="comment-toggler">&nbsp;</span>
+        <a href="<$BlogBacklinkURL$>" rel="nofollow"><$BlogBacklinkTitle$></a> <span class="item-control blog-admin"><a style="border:none;" href="https://www.blogger.com/delete-backlink.g?blogID=35897879&amp;postID=8299054565414049025&amp;backlinkURL=%3C$BlogBacklinkURLEscaped$%3E" title="Remove Link" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+        </dt>
+        <dd class="comment-body"><$BlogBacklinkSnippet$>
+        <br />
+        <span class="comment-poster">
+        <em><$I18NPostedByBacklinkAuthor$> @ <$BlogBacklinkDateTime$></em>
+        </span>
+        </dd>
+    </div>
+<script type="text/javascript">if (typeof BL_addOnLoadEvent == 'function') { BL_addOnLoadEvent(function() { BL_writeBacklinks(); }); }</script>
+
+    </dl>
+    <p class="comment-timestamp"><script type="text/javascript">function BlogThis() {
+Q=''; x=document; y=window;
+if(x.selection) {
+  Q=x.selection.createRange().text;
+} else if (y.getSelection) {
+  Q=y.getSelection();
+} else if (x.getSelection) {
+  Q=x.getSelection();
+}
+popw = y.open('https://www.blogger.com/blog-this.g?t=' +
+  escape(Q) + '&u=' + escape(location.href) + '&n=' +
+  escape(document.title),'bloggerForm',
+  'scrollbars=no,width=475,height=300,top=175,left=75,status=yes,resizable=yes');
+void(0);
+}
+</script>
+<a class="comment-link" href="javascript:BlogThis();" id="b-backlink">Create a Link</a></p>
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2014/07/can-you-explain-java-class-loaders-how.html">Can you explain Java class loaders? How is the ver...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/top-50-core-java-interview-questions_5.html">Top 50 Core Java Interview questions you can&#39;t aff...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/java-executor-service-to-run_5.html">Java Executor service to run concurrently and sequ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/java-executor-service-to-run.html">Java Executor service to run concurrently and sequ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/fizz-buzz-java-coding-example.html">Fizz Buzz Java coding example</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/java-executor-service-examples-to-run.html">Java Executor service examples to run concurrently...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/07/top-50-core-java-interview-questions.html">Top 50 Core Java Interview questions you can&#39;t aff...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/top-50-core-java-interview-questions.html">Top 50 Core Java Interview questions you can&#39;t aff...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/can-you-write-abstract-java-comparator.html">Can you write an abstract Java comparator that wil...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/working-with-java-bigdecimal-class-for.html">Working with Java BigDecimal class for monetary va...</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

@@ -1,0 +1,878 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: XML processing in Java and reading XML data with a Stax Reader</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/2966533127508627603/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Jan 8, 2013</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="2966533127508627603"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 XML processing in Java and reading XML data with a Stax Reader
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-3764234023451771";
+/* Leader board image and text */
+google_ad_slot = "4890304945";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_channel ="4262872872";
+google_page_url = "http://java-success.blogspot.com.au/p/core-java-q.html";
+//--&gt
+</script>
+<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript">
+</script>
+
+<br />
+<br />
+<b>Q. </b>What APIs do Java provide to process XML? What are the pros and cons of each, and when to use what?<b></b><br />
+<b>A</b><b>.&nbsp;</b><br />
+<b><br /></b>
+<b>SAX: Pros</b>: Memory efficient and faster than the DOM parser. Good for very large files. Supports schema validation.<br />
+<b>SAX: Cons: </b>You can use it for reading only. It does not have xpath support. You have to write more code to get things done as there is no object model mapping and you have to tap into the events and create your self.<br />
+<br />
+<b>DOM: Pros: </b>Simple to use, bi-directional(read &amp; write) and supports schema validation. The read XML is kept in memory allowing XML manipulation and preserves element order. Supports CRUD operation.<br />
+<b>DOM: Cons: </b>Not suited for large XML files as it consumes more memory. You will have to map to your object model as it supports generic model incorporating nodes.<br />
+<br />
+<b>Stax: Pros:&nbsp;</b> Gives you the best of SAX (i.e. memory efficient) and DOM (i.e. ease of use). Supports both reading and writing. Very efficient processing as it can read multiple documents same time in one single thread, and also can process XML in parallel on multiple threads. If you need speed, using a Stax parser is the best way.<br />
+<b>Stax: Cons:&nbsp; </b>You have to write more code to get things done and you have to get used to process xml in streams.<br />
+<b>&nbsp; <br />JAXB: Pros: </b>Allows you to access and process XML data without having to know XML by binding Java objects to XML through annotations. Supports both reading &amp; writing and more memory efficient than a DOM (as DOM is a generic model)<br />
+<b>JAXB: Cons: </b>It can only parse valid XML documents.<br />
+<br />
+SAX, DOM, Stax, and JAXB are just specifications. There are many open source and commercial implementations of these specifications. For example, the JAXB API has implementations like <b>Metro </b>(The reference implementation, included in Java SE 6), <b>EclipseLink MOXy</b>, and <b>JaxMe</b>.<br />
+<br />
+There are other XML to object mapping frameworks like <b>xtream </b>from thoughtworks and <b>JiBX </b>(very efficient and uses byte code injection).
+<br />
+<br />
+The StAX has the following implementation libraries&nbsp; --&nbsp;<b> </b>The reference implementation (i.e.<b> </b>http://stax.codehaus.org), the <b>Woodstox</b> implementation (i.e. http://woodstox.codehaus.org), and Sun's <b>SJSXP </b>implementation (https://sjsxp.dev.java.net/).<br />
+<br />
+If you want to transform XML from one format to another, then use a <b>TrAX</b>. TrAX is based on XSLT, which is a rule-based language. A TrAX source document may be created via SAX or DOM. TrAX needs both <b>Java </b>and <b>XSLT </b>knowledge.<b><br /></b><br />
+<b><br /></b>
+<br />
+<b>Q.</b> What is the main difference between a StAX and SAX API ?<br />
+<b>A. </b><span class="st">The main differences between the <i>StAX</i> and SAX API's are</span><br />
+<span class="st"><i></i></span><br />
+<ul>
+<li><span class="st"><i>StAX</i> is a "pull" API. SAX is a "push" API.&nbsp;</span></li>
+<li><span class="st"><i>StAX</i> can do both XML <i>reading</i> and writing. SAX can only do reading.</span></li>
+</ul>
+<br />
+<b>SAX is a push style </b>API, which means SAX parser iterates through the XML and calls methods on the handler object provided by you. For instance, when the SAX parser encounters the beginning of an XML element, it calls the startElement on your handler object. It "pushes" the information from the XML into your object. Hence the name "push" style API. This is also referred to as an "event driven" API.<br />
+<br />
+<b>StAX is a pull style API</b>, which means that you have to move the StAX parser from item to item in the XML file yourself, just like you do with a standard Iterator or JDBC ResultSet. You can then access the XML information via the StAX parser for each such "item" encountered in the XML file . <br />
+<br />
+<b>Q. Why do you need StAX when you alread have SAX and DOM?</b><br />
+<br />
+<b>A.</b> The primary goal of the StAX API is to give "parsing control to the programmer by exposing a simple iterator based API. This allows the programmer to ask for the next event (pull the event) and allows state to be stored in procedural fashion." StAX was created to address limitations in the two most prevalent parsing APIs, SAX and DOM. <br />
+<br />
+<b>Q.</b> What is the issue with the DOM parser?<br />
+<b>A</b>. The DOM model involves creating in-memory objects representing an entire document tree and the complete data set&nbsp; state for an XML document. Once in memory, DOM trees can be navigated freely and parsed arbitrarily, and as such provide maximum flexibility for developers. However the cost of this flexibility is a potentially large memory footprint and significant processor requirements, as the entire representation of the document must be held in memory as objects for the duration of the document processing. So, this approach will not be suited for larger XML documents.<br />
+<br />
+<br />
+<b>Q. </b>What is the issue with a "push" parser?<br />
+<b>A</b>. Pull parsing provides several advantages over push parsing when working with XML streams:<br />
+<ul>
+<li>With pull parsing, the invoking application controls the application thread, and can call methods on the parser when needed. By contrast, with push processing, the parser controls the application thread, and the client can only accept invocations from the parser.</li>
+<li>Pull parsing libraries can be much smaller and the client code to interact with those libraries much simpler than with push libraries, even for more complex documents.</li>
+<li>Pull clients can read multiple documents at one time with a single thread.</li>
+<li>A StAX pull parser can filter XML documents such that elements unnecessary to the client can be ignored, and it can support XML views of non-XML data.</li>
+</ul>
+<br />
+<br />
+<span class="st">Now that you know why a StAX parser is more useful. here is an example of using the StAX API to read an XML snippet. The XML snippet is as shown below:&nbsp;</span><br />
+<br />
+<pre class="brush: csharp"> 
+&lt;metadata BatchJobId='17232674' ParentBatchJobId='17232675' BatchCode='SOME_JOB_NAME' /&gt;
+
+</pre>
+<br />
+Now the StAX parser code
+
+<br />
+<br />
+<pre class="brush: csharp">package com.myapp.item.reader;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Iterator;
+
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.Attribute;
+import javax.xml.stream.events.StartElement;
+import javax.xml.stream.events.XMLEvent;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.myapp.model.BatchJobMeta;
+
+public class CashForecastJobMetaStaxReader {
+
+ private final static Logger logger = LoggerFactory.getLogger(CashForecastJobMetaStaxReader.class);
+
+ private static final String BATCH_JOB_ID = "BatchJobId";
+ private static final String PARENT_BATCH_JOB_ID = "ParentBatchJobId";
+ private static final String BATCH_CODE = "BatchCode";
+ 
+
+ public BatchJobMeta readBatchJobMetaInfo(String input) {
+
+  //First create a new XMLInputFactory
+  XMLInputFactory inputFactory = XMLInputFactory.newInstance();
+  InputStream in = new ByteArrayInputStream(input.getBytes());
+  BatchJobMeta item = null;
+  try {
+   XMLEventReader eventReader = inputFactory.createXMLEventReader(in);
+   item = new BatchJobMeta();
+
+   while (eventReader.hasNext()) {
+    XMLEvent event = eventReader.nextEvent();
+
+    if (event.isStartElement()) {
+     StartElement startElement = event.asStartElement();
+     @SuppressWarnings("unchecked")
+     Iterator&lt;Attribute&gt; attributes = startElement.getAttributes();
+     while (attributes.hasNext()) {
+      @SuppressWarnings("unused")
+      Attribute attribute = attributes.next();
+      if (attribute.getName().toString().equals(BATCH_JOB_ID)) {
+       item.setBatchJobId(Long.valueOf(attribute.getValue()));
+      }
+
+      if (attribute.getName().toString().equals(PARENT_BATCH_JOB_ID)) {
+       item.setParentBatchJobId(Long.valueOf(attribute.getValue()));
+      }
+
+      if (attribute.getName().toString().equals(BATCH_CODE)) {
+       item.setBatchCode(attribute.getValue());
+      }
+     }
+    }
+   }
+
+  } catch (XMLStreamException e) {
+   logger.error("", e);
+  }
+
+  return item;
+
+ }
+
+}
+
+</pre>
+<br />
+<br />
+Finally, the JUnit test class that tests the above XML reader code.
+
+
+<br />
+<br />
+<pre class="brush: csharp"> 
+
+package com.myapp.item.reader;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import com.myapp.model.BatchJobMeta;
+
+public class CashForecastJobMetaStaxReaderTest {
+ private static final String META_SNIPPET = "&lt;metadata batchcode="CSHFR" batchjobid="17232674" parentbatchjobid="17232675"&gt;";
+
+ @Test
+ public void testReadBatchJobMetaInfo() {
+  CashForecastJobMetaStaxReader staxReader = new CashForecastJobMetaStaxReader();
+  BatchJobMeta readBatchJobMetaInfo = staxReader.readBatchJobMetaInfo(META_SNIPPET);
+
+  Assert.assertNotNull(readBatchJobMetaInfo);
+
+  Assert.assertEquals("Failed on Job Id", 17232674L, readBatchJobMetaInfo.getBatchJobId());
+  Assert.assertEquals("Failed on Parent Job Id", 17232675L, readBatchJobMetaInfo.getParentBatchJobId());
+  Assert.assertEquals("Failed on batch code", "CSHFR", readBatchJobMetaInfo.getBatchCode());
+ }
+
+}
+
+</pre>
+<br />
+<b>You may also like</b>:<br />
+<br />
+<ul>
+<li><a href="http://java-success.blogspot.com.au/2013/10/jaxb-interview-questions-and-answers.html">JAXB Interview Questions and Answers - Unmarshalling</a></li>
+<li><a href="http://java-success.blogspot.com.au/2013/11/jaxb-interview-questions-and-answers.html">JAXB Interview Questions and Answers: Marshalling</a></li>
+<li><a href="http://java-success.blogspot.com.au/2014/01/jaxb-interview-questions-and-answers.html">JAXB Interview Questions and Answers -- power of MOXy</a></li>
+</ul>
+<div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/XML">XML</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2013/01/xml-processing-in-java-and-reading-xml.html" title="permanent link"> 1/08/2013 12:00:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=2966533127508627603" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=2966533127508627603&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>0 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=2966533127508627603'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/2966533127508627603/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2013/01/working-with-java-calendar-and-dates.html">Working with Java Calendar and Dates - coding Q&amp;A</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/01/spring-integration-polling-for-file-and.html">Spring Integration -- polling for a file and proce...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2013/01/java-writing-code-compare-two-csv-files.html">Java writing code -- compare two CSV files in Java...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/12/technical-blogging-tips-1-million-page.html">Technical Blogging Tips -- 1 million page views an...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/12/spring-batch-advanced-tutorial-writing.html">Spring batch advanced tutorial -- writing your own...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/12/the-pre-java-interview-online-written.html">The pre Java Interview online written test questio...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/12/drools-tutorial-with-maven.html">Drools tutorial with Maven</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/12/unit-testing-spring-mvc-controllers-for.html">Unit testing Spring MVC controllers for web and RE...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/12/jdbc-interview-questions-and-answers.html">JDBC Interview Questions and Answers with code exa...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/11/cors-and-jquery-with-spring-mvc-restful.html">CORS and jQuery with Spring MVC, RESTful Web Servi...</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

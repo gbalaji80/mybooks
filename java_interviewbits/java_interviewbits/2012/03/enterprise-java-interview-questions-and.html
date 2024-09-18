@@ -1,0 +1,913 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Enterprise Java Interview Questions and Answers: What is new in JEE 6?</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/8762366784212257197/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Mar 7, 2012</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="8762366784212257197"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Enterprise Java Interview Questions and Answers: What is new in JEE 6?
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div>It is imperative to keep track of the&nbsp; key enhancements and improvements to JEE<b>. </b>If you are interested in JEE basics the try&nbsp;<a href="http://java-success.blogspot.com.au/2011/09/enterprise-java-interview-questions-and.html">Enterprise Java frequently asked questions and answers</a>. <b><br />
+</b><br />
+<br />
+<b>Q.</b> What is new in the Java EE 6&nbsp; (JEE 6) compared to Java EE 5 (JEE 5)?<br />
+<b>A.</b> <br />
+<br />
+<ul><li>JEE 6 provides <b>more extensibility points</b> and service provider interfaces to plug into for the service providers. For example, "Java Authentication Service Provider interface Containers" provides a mechanism for the authentication providers to integrate with the containers. </li>
+<li>JEE 5 favored convention over configuration by replacing XML with annotations and POJOs. The JEE 6 extended POJOs with dependency injection (i.e JSR 299 -- Context and Dependency Injection - <b>CDI</b>). This enables a JSF managed bean component to interact with an enterprise Java bean (i.e. EJB) component model to simplify development. It is about time all various types of managed beans are unified. In Java EE 6, the CDI builds on a new concept called "<b>managed beans</b>", which is managed by the enterprise edition container. In CDI, a managed bean is a Java EE component that can be injected into other components. The specification also provides a set of services like <b>resource injection</b>, <b>lifecycle</b> <b>callbacks</b>, and <b>interceptors</b>. &nbsp;&nbsp;</li>
+<li>Any CDI managed component may <b>produce </b>and <b>consume <u>events</u></b>. This allows beans to interact in a completely decoupled fashion. Beans consume events by registering for a particular event type and qualifier. </li>
+<li>The JAX-WS stack was overhauled to be an integrated stack with JAX-WS 2.x, JAXB 2.x, SAAJ 1.x, <b>JAX-RS</b> 1.x (<span style="color: red;">new </span>RESTful) and <b>JAXR </b>1.x. (<span style="color: red;">new </span>pull-parsing API).&nbsp; </li>
+<li>Servlet 3.0 spec introduced the Async Servlet, file uploading functionality, and annotations based configuration.The web.xml file is optional.</li>
+<li>Singleton EJBs&nbsp; (i.e. one EJB per container) and asynchronous session beans&nbsp; were introduced. The EJB was streamlined&nbsp; with fewer classes, interfaces, and simpler object to relational mapping by taking advantage of the JPA.</li>
+<li>Bean based validation framework was introduced to avoid duplication.</li>
+<li>Enterprise Java Beans (i.e EJBs) can be packaged directly into a WAR file. No longer required to be packaged as JAR and then included into an EAR.</li>
+<li>The JSF 2.0 simplifies the development of UI components.The JSF 2.0 has integrated Ajax and CDI support. &nbsp; </li>
+</ul><b>Note</b>: "<b>Convention over configuration</b>" is a design paradigm, which seeks to standardize, simplify, and decrease the number of decisions that developers need to make without compromising on flexibility. For example, ANT build tool allowed you to come up with any project structure, whereas Maven is strict on convention as to how the project is structured.<br />
+<br />
+<b>Q.</b> How does the new bean validation framework avoid duplication?<br />
+<b>A.</b> Developers often code the same validation logic in multiple layers of an application, which is time consuming and error-prone. At times they put the validation logic in their data model, cluttering it with what is essentially metadata. JEE 6 Improves validation and duplication with a much improved annotation based bean validation. Bean Validation offers a framework for validating Java classes written according to JavaBeans conventions. You use annotations to specify constraints on a JavaBean. For example,<br />
+<br />
+The JavaBean is defined below<br />
+<br />
+<pre class="brush: csharp">public class Contact {
+
+    @NotEmpty @Size(max=100)
+    private String firstName;
+
+    @NotEmpty @Size(max=100)
+    private String surname;
+    
+    @NotEmpty @Pattern("[a-zA-Z]+")
+    private String category;
+    
+    @ShortName
+    private String shortName; //custom validation 
+
+    ...
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    ...
+}
+</pre><br />
+Custom validators can be defined by defining an annotation and relevant implementation<br />
+<br />
+<pre class="brush: csharp">@ConstraintValidator(ShortNameValidator.class)
+@Documented
+@Target({ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE})
+@Retention(RUNTIME)
+public @interface ShortName {
+       String message() default "Wrong name";
+       String[] groups() default {};
+}
+
+</pre><br />
+<br />
+Next the validation implementation class<br />
+<br />
+<pre class="brush: csharp">public class ShortNameValidator implements ConstraintValidator &lt;Contact, String&gt; {
+
+    private final static Pattern SHORTNAME_PATTERN = Pattern.compile("[a-zA-Z]{5,30}");
+
+    public void initialize(Contact constraintAnnotation) {
+        // nothing to initialize
+    }
+ 
+ 
+ public boolean isValid(String value, ConstraintValidatorContext context) {
+        return SHORTNAME_PATTERN.matcher(value).matches();
+    }
+
+} 
+
+</pre><br />
+You could use the validator as shown below<br />
+<br />
+<pre class="brush: csharp">Contact contact = new Contact();
+conatct.setFirstName("Peter");
+//.... set other values
+
+ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+Validator validator = validatorFactory.getValidator();
+ 
+Set&lt;ConstraintViolation&lt;Contact&gt;&gt; violations = validator.validate(Contact);
+
+</pre><br />
+<br />
+<b>Q. </b>What are the benefits of the asynchronous processing support that was introduced in Servlet 3.0 in JEE 6?<br />
+<b>A. </b><br />
+<br />
+<b>1.</b> If you are building an online chess game or a chat application, the client browser needs to be periodically refreshed to reflect the changes. This used to be achieved via a technique known as the <b>server-polling </b>(aka <b>client pull </b>or <b>client refresh</b>). You can use the HTML  tag &lt;META&gt; for polling the server. This tag tells the client  it must  refresh the page after a number of seconds.  <br />
+<br />
+<pre class="brush: csharp">&lt;META http-equiv="Refresh" content="10"; url="newPage.html" /&gt;
+</pre><br />
+The URL newPage.html will be refreshed every 10 seconds. This approach has the downside of wasting network bandwidth and server resources. With the  introduction of this asynchronous support, the data can be sent via the mechanism known as the <b>server push </b>as opposed to server polling. So, the client waits for the server to push the updates as opposed to frequently polling the server.<br />
+<br />
+<br />
+<br />
+<b>2.</b> The Ajax calls are integral part of any web development as it provides richer user experience. This also means that with Ajax, the clients (i.e. browsers) interact more frequently with the server compared to the page-by-page request model. If an Ajax request needs to tap into server side calls that are very time consuming (e.g. report generation), the synchronous processing of these Ajax  requests can degrade the overall performance of the application because these threads will be blocked as the servers generally use a thread pool with <u>finite number of threads</u> to service concurrent requests. The asynchronous processing will allow these time consuming requests to be throttled via a queue, and the same thread(s) to be recycled to process queued requests without having to chew up the other threads from the server thread-pool. This approach can be used for non Ajax requests as well.<br />
+<br />
+<br />
+<b>Note</b>: In JEE 6, The EJB 3.1 can also specify a Session Bean to be asynchronous.<br />
+<br />
+<br />
+<br />
+<b>Q.</b> What are benefits of web fragements introduced in Servelt 3.0 spec? <br />
+<b>A.</b> Web applications use frameworks like JSF, Struts, Spring MVC, Tapestry, etc. These frameworks normally bootsrap (i.e register) via the web.xml file using the &lt;servlet&gt; and &lt;listener&gt; tags. For example<br />
+<br />
+<br />
+The <b>web.xml </b>file<br />
+<br />
+<pre class="brush: csharp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;web-app version="2.5" 
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"&gt;
+
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;My JSFServlet&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;javax.faces.webapp.FacesServlet&lt;/servlet-class&gt;
+        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;/servlet&gt;
+
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;My JSFServlet&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/faces/*&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+
+&lt;/web-app&gt;
+</pre><br />
+If a particular application uses more than one framework, the above approach is not modular as you will have to bootstrap all the frameworks within the same web.xml file, making it large and difficult to isolate framework specific descriptors. The Servlet 3.0 specification addresses this issue by introducing web fragments. A web fragment can be considered as one of the segment of the whole web.xml and it can be thought of as  one or more web fragments constituting a single web.xml file. The fragment files are stored under /META-INF/web-fragment.xml, and it is the responsibility of the container to scan the fragement files during the server start-up.<br />
+<br />
+The<b> web-fragment.xml </b>file<br />
+<br />
+<pre class="brush: csharp">&lt;web-fragment&gt;
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;myFrameworkSpecificServlet&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;myFramework.myFrameworkServlet &lt;/servlet-class&gt;
+    &lt;/servlet&gt;
+
+    &lt;listener&gt;
+        &lt;listener-class&gt;myFramework.myFrameworkListener&lt;/listener-class&gt;
+    &lt;/listener&gt;
+&lt;/web-fragment&gt;
+</pre><br />
+<br />
+<b>Note</b>: The Servlet 3.0 specification also provides enhanced pluggability by providing an option to add servlets, filters, servlet mappings and filter mappings during the run time.<br />
+<br />
+<br />
+<b>Q.</b> What do you understand by the term "Web profile" in Java EE 6?<br />
+<b>A.</b> Java EE 6 introduces the concept of <b>profiles </b>as a way to slimming the footprint of the Java EE platform and better target it for specific audiences. Profiles are configurations of the Java EE platform that are designed for specific classes of applications. For example, the required elements for a Web profile are<br />
+<br />
+<ul><li>Java EE 6 (JSR-316)</li>
+<li>Common Annotations for Java Platform 1.1 (JSR-250)</li>
+<li>Dependency Injection for Java 1.0 (JSR-330)</li>
+<li>Contexts and Dependency Injection for Java EE platform 1.0 (JSR-299)</li>
+<li>Servlet 3.0 (JSR-315)</li>
+<li>JavaServer Pages (JSP) 2.2 (JSR-245)</li>
+<li>Expression Language (EL) 2.2 (JSR-245)</li>
+<li>Debugging Support for Other Languages 1.0 (JSR-45)</li>
+<li>Standard Tag Library for JavaServer Pages (JSTL) 1.2 (JSR-52)</li>
+<li>JavaServer Faces (JSF) 2.0 (JSR-314)</li>
+<li>Enterprise JavaBeans (EJB) 3.1 Lite (JSR-318)</li>
+<li>Java Transaction API (JTA) 1.1 (JSR-907)</li>
+<li>Java Persistence API (JPA) 2.0 (JSR-317)</li>
+<li>Bean Validation 1.0 (JSR-303)</li>
+<li>Managed Beans 1.0 (JSR-316)</li>
+<li>Interceptors 1.1 (JSR-318)</li>
+</ul><br />
+<br />
+The JEE 6 has also introduced the concept known as "<b>pruning</b>" to manage complexities. This is similar to the concept introduced in Java SE 6. Pruning is performed as a multistep process where a candidate is declared in one release but may be relegated to an optional component in the next release, depending on community reaction. For example, JAX-RPC will be pruned and replaced by JAX-WS. However, if Java EE application server vendors do include a pruned technology, they must do so in a compatible way, such that existing applications will keep running. The profiles and pruning are debatable topics and only time will tell if they work or not.<br />
+<br />
+More relevant JEE questions and&nbsp; answers:<br />
+<br />
+<ul><li><a href="http://java-success.blogspot.com.au/2011/09/enterprise-java-interview-questions-and.html">Enterprise Java interview questions and answers -- overview</a></li>
+</ul><div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Java%20EE">Java EE</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2012/03/enterprise-java-interview-questions-and.html" title="permanent link"> 3/07/2012 05:42:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=8762366784212257197" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=8762366784212257197&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>1 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c163367168235793035"><a name="c163367168235793035"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/09906329483609034159" rel="nofollow">john son</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Wonderful blog &amp; good post.Its really helpful for me, awaiting for more new post. Keep Blogging!<br /><br /><a href="http://www.javatrainingchennai.co.in/" rel="nofollow">JAVA Training in Chennai</a><br /><br /></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/03/enterprise-java-interview-questions-and.html?showComment=1408530951667#c163367168235793035" title="comment permalink">8:35 PM, August 20, 2014</a>
+	  <span class="item-control blog-admin pid-825654593"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=163367168235793035" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=8762366784212257197'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/8762366784212257197/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+    <a name="links"></a><h4>Links to this post:</h4>
+    <dl id="comments-block">
+    <script type="text/javascript" src="https://www.blogger.com/dyn-js/backlink.js?blogID=35897879&postID=8762366784212257197" charset="utf-8" defer="true">
+</script>
+<noscript><a href="http://blogsearch.google.com/?ui=blg&q=link:http://java-success.blogspot.com/2012/03/enterprise-java-interview-questions-and.html">See links to this post</a></noscript>
+<div id="blogger-dcom-block" style="display:none">
+        <dt class="comment-title">
+        <span class="comment-toggler">&nbsp;</span>
+        <a href="<$BlogBacklinkURL$>" rel="nofollow"><$BlogBacklinkTitle$></a> <span class="item-control blog-admin"><a style="border:none;" href="https://www.blogger.com/delete-backlink.g?blogID=35897879&amp;postID=8762366784212257197&amp;backlinkURL=%3C$BlogBacklinkURLEscaped$%3E" title="Remove Link" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+        </dt>
+        <dd class="comment-body"><$BlogBacklinkSnippet$>
+        <br />
+        <span class="comment-poster">
+        <em><$I18NPostedByBacklinkAuthor$> @ <$BlogBacklinkDateTime$></em>
+        </span>
+        </dd>
+    </div>
+<script type="text/javascript">if (typeof BL_addOnLoadEvent == 'function') { BL_addOnLoadEvent(function() { BL_writeBacklinks(); }); }</script>
+
+    </dl>
+    <p class="comment-timestamp"><script type="text/javascript">function BlogThis() {
+Q=''; x=document; y=window;
+if(x.selection) {
+  Q=x.selection.createRange().text;
+} else if (y.getSelection) {
+  Q=y.getSelection();
+} else if (x.getSelection) {
+  Q=x.getSelection();
+}
+popw = y.open('https://www.blogger.com/blog-this.g?t=' +
+  escape(Q) + '&u=' + escape(location.href) + '&n=' +
+  escape(document.title),'bloggerForm',
+  'scrollbars=no,width=475,height=300,top=175,left=75,status=yes,resizable=yes');
+void(0);
+}
+</script>
+<a class="comment-link" href="javascript:BlogThis();" id="b-backlink">Create a Link</a></p>
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2012/02/database-interview-questions-and.html">Database interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/java-web-services-interview-questions_20.html">Java Web Services Interview Questions and Answers:...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/web-services-interview-questions-and.html">Web Services Interview Questions and Answers - RES...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/java-web-services-interview-questions.html">Java Web Services Interview Questions and Answers:...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/hibernate-interview-questions-and.html">Hibernate Interview Questions and Answers: integra...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/02/spring-and-hibernate-interview.html">Spring and Hibernate Interview Questions and Answe...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/hibernate-interview-q-with-annotations.html">Hibernate Interview Questions and Answers: with an...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/javascript-interview-questions-and_26.html">JavaScript Interview Questions and Answers: Coding...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/unix-interview-questions-and-answers.html">UNIX Interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/01/javascript-interview-questions-and_8681.html">JavaScript Interview Questions and Answers: Functi...</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

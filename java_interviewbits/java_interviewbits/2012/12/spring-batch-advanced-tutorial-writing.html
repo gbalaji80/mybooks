@@ -1,0 +1,1169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Spring batch advanced tutorial -- writing your own reader </title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/4496827714627595131/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Dec 20, 2012</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="4496827714627595131"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Spring batch advanced tutorial -- writing your own reader 
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><br />
+<table>
+<tbody>
+<tr>
+
+<td width="50%"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-3764234023451771";
+/* LHS - Medium Rectangle */
+google_ad_slot = "1728948974";
+google_ad_width = 336;
+google_ad_height = 280;
+google_ad_channel ="6353655268";
+google_page_url = "http://java-success.blogspot.com.au/2011/09/java-multi-threading-interview.html";
+//-->
+</script>
+<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript">
+</script>
+</td>
+<td>
+My previous <a href="http://java-success.blogspot.com.au/2012/06/batch-processing-in-java-with-spring.html">3 part spring batch tutorial</a> covered a high level overview with examples. This tutorial demonstrates how to wrap your own File Reader&nbsp; with the <b>FileItemReader </b>to peek the data and group them the way you wanted to provide some customization. For example, if you have a CSV file like shown below where<br />
+<br />
+<ol>
+<li>The first line is the header with the<b> portfolio name</b>, <b>transaction from date</b> and <b>transaction to date</b>. </li>
+<li>The remaining rows are transaction detail records grouped by account code. The detail records contain portfolio code, account code, transaction type, and transaction amount.</li>
+<li>When you read the records we need to read them by account grouping and process them. in other words, we have 2 groups in the csv feed shown below. The records 2- 5 is one group, and records 6 -8 is another group. In other words starting from the transaction type "OPENBAL" to the record before the next "OPENBAL" is one group</li>
+</ol>
+
+
+</td></tr>
+</tbody></table>
+
+<!-- INFOLINKS_OFF -->
+<br />
+<br />
+<pre class="brush: csharp">"Portfolio1","29/02/2012","11/03/2012",
+"Portfolio1","Account1","OPENBAL", 2000.00
+"Portfolio1  ","Account1","PURCHASE",1000.00
+"Portfolio1  ","Account1","EXPENSE",500.00
+"Portfolio1  ","Account1","ADJUSTMENT ", 200.00
+"Portfolio1","Account1","OPENBAL ", 12000.00
+"Portfolio1  ","Account2","PURCHASE",1000.00
+"Portfolio1  ","Account3","ADJUSTMENT",1000.00
+</pre>
+<br />
+<br />
+So, wee need to write a custom file reader that can peek into the next record before reading it.<br />
+<br />
+<b>Step 1</b>: Snippets of the spring batch context configuration file.E..g.<b>applicationContext-myapp.xml</b>.<br />
+<br />
+<pre class="brush: csharp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
+ xmlns:task="http://www.springframework.org/schema/task" xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+ xmlns:int="http://www.springframework.org/schema/integration"
+ xmlns:file="http://www.springframework.org/schema/integration/file"
+ xmlns:util="http://www.springframework.org/schema/util"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+ http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+ http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
+ http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd
+ http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+ http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-2.0.xsd
+ http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file-2.0.xsd
+ http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+ http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"&gt;
+
+     &lt;!-- load properties file--&gt;
+ &lt;context:property-placeholder location="classpath:myapp.properties" /&gt;
+ &lt;!-- annotation driven injection --&gt;
+ &lt;tx:annotation-driven /&gt;
+
+ &lt;!-- define the job that reads from a CSV file and write to a database--&gt;
+ &lt;job id="myAppJob" xmlns="http://www.springframework.org/schema/batch"&gt;
+  &lt;listeners&gt;
+   &lt;listener ref="myAppJobExecutionListener" /&gt;
+  &lt;/listeners&gt;
+
+  &lt;step id="loadMyAppFeedData"&gt;
+   &lt;tasklet transaction-manager="transactionManager"&gt;
+    &lt;listeners&gt;
+     &lt;listener ref="stepExecutionListener" /&gt;
+    &lt;/listeners&gt;
+
+    &lt;chunk reader="groupMyAppDetailsReader" writer="myAppFileItemWriter" commit-interval="10" /&gt;
+   &lt;/tasklet&gt;
+  &lt;/step&gt;
+  
+ &lt;/job&gt;
+
+ 
+    &lt;!-- Spring supplied File Item Reader that reads CSV file line by line--&gt; 
+ &lt;bean id="myAppFileItemReader" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step"&gt;
+  &lt;property name="resource" value="#{jobParameters['dataFileName']}" /&gt;
+  &lt;property name="lineMapper"&gt;
+   &lt;bean class="org.springframework.batch.item.file.mapping.DefaultLineMapper"&gt;
+    &lt;property name="lineTokenizer"&gt;
+     &lt;bean
+      class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer"&gt;
+      &lt;property name="names"
+       value="portfolioCd,accountCd,transactionType, Amount" /&gt;
+     &lt;/bean&gt;
+    &lt;/property&gt;
+    &lt;property name="fieldSetMapper"&gt;
+     &lt;bean
+      class="com.myapp.mapper.MyAppFieldSetMapper" /&gt;
+    &lt;/property&gt;
+   &lt;/bean&gt;
+  &lt;/property&gt;
+  &lt;property name="linesToSkip" value="1" /&gt;
+  &lt;property name="skippedLinesCallback" ref="myAppFileHeaderLineCallbackHandler" /&gt;
+ &lt;/bean&gt;
+
+    &lt;!-- My custom CSV file Reader that groups data but it internally makes use of the Spring's FileItemReader--&gt;
+ &lt;bean id="groupMyAppDetailsReader"  class="com.myapp.item.reader.myAppItemReader"&gt;
+  &lt;property name="delegate" ref="myAppFileItemReader" /&gt;
+ &lt;/bean&gt;
+
+ &lt;!-- My custome File Item Writer --&gt;
+ &lt;bean id="myAppFileItemWriter" class="com.myapp.item.writer.MyAppItemWriter" /&gt;
+
+    &lt;!-- The Step execution context listener that can be injected to propagate step values --&gt;
+ &lt;bean id="stepExecutionListener" class="com.myapp.StepExecutionListenerCtxInjecter" /&gt;
+
+
+&lt;/beans&gt;
+</pre>
+<br />
+<br />
+<b>Step 2</b>: The custom reader can be implemented as shown below. The key here is that&nbsp; peeking the next record to enable grouping and making use of the Spring provided <i>FileItemReader </i>as a delegate to read each CSV line.<br />
+<br />
+<pre class="brush: csharp">package com.myapp.item.reader;
+
+import java.util.ArrayList;
+
+import org.springframework.batch.item.ExecutionContext;
+import org.springframework.batch.item.ItemStreamException;
+import org.springframework.batch.item.ItemStreamReader;
+import org.springframework.batch.item.ParseException;
+import org.springframework.batch.item.UnexpectedInputException;
+
+import com.myapp.model.TransactionDetail;
+import com.myapp.model.MyAppPortfolioParent;
+
+public class MyAppFileItemReader implements ItemStreamReader&lt;MyAppPortfolioParent&gt; {
+
+ private ItemStreamReader&lt;TransactionDetail&gt; delegate;
+ private TransactionDetail curItem = null;
+
+ @Override
+ public MyAppPortfolioParent read() {
+  MyAppPortfolioParent parent = null;
+  try {
+
+   if (curItem == null) {
+    curItem = delegate.read();
+   }
+
+   if (curItem != null) {
+    parent = new MyAppPortfolioParent();
+    parent.setBalanceDetail(curItem);
+   }
+
+   curItem = null;
+
+   if (parent != null) {
+    parent.setTxnDetails(new ArrayList&lt;TransactionDetail&gt;());
+    TransactionDetail detail = peek();
+    while (detail != null &amp;&amp; !"OPENBAL".equalsIgnoreCase(peek().getTxnCd())) {
+     parent.getTxnDetails().add(curItem);
+     curItem = null;
+     detail = peek();
+    }
+   }
+
+  }
+
+  catch (Exception e) {
+   e.printStackTrace();
+  }
+
+  return parent;
+ }
+
+ public TransactionDetail peek() throws Exception, UnexpectedInputException, ParseException {
+  if (curItem == null) {
+   curItem = delegate.read();
+  }
+
+  return curItem;
+ }
+
+ @Override
+ public void close() throws ItemStreamException {
+  delegate.close();
+ }
+
+ @Override
+ public void open(ExecutionContext arg0) throws ItemStreamException {
+  delegate.open(arg0);
+ }
+
+ @Override
+ public void update(ExecutionContext arg0) throws ItemStreamException {
+  delegate.update(arg0);
+
+ }
+
+ public void setDelegate(ItemStreamReader&lt;TransactionDetail&gt; delegate) {
+  this.delegate = delegate;
+ }
+}
+
+</pre>
+<br />
+<br />
+<b>Step 3:</b> The utility class that can be used to inject the step and job execution contexts into your reader, processor, or writer classes.<br />
+<br />
+<pre class="brush: csharp">package com.myapp.util;
+
+import org.springframework.batch.core.StepExecution;
+import org.springframework.batch.core.annotation.BeforeStep;
+import org.springframework.batch.item.ExecutionContext;
+
+
+public class StepExecutionListenerCtxInjecter
+{
+    private ExecutionContext stepExecutionCtx;
+    
+    private ExecutionContext jobExecutionCtx;
+    
+    @BeforeStep
+    public void beforeStep(StepExecution stepExecution)
+    {
+        stepExecutionCtx = stepExecution.getExecutionContext();
+        jobExecutionCtx = stepExecution.getJobExecution().getExecutionContext();
+    }
+
+
+    public ExecutionContext getStepExecutionCtx()
+    {
+        return stepExecutionCtx;
+    }
+
+    public ExecutionContext getJobExecutionCtx()
+    {
+        return jobExecutionCtx;
+    }
+}
+
+</pre>
+<br />
+<b>Step 4</b>: As you could see in the spring config file that we are skipping the first record, which is the header record and defined a <i><b>LineCallBackHandler </b></i>to handle the header records. Here is the implementation of this handler.<br />
+<br />
+<pre class="brush: csharp">package com.myapp.handler;
+
+import javax.annotation.Resource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.batch.item.file.LineCallbackHandler;
+import org.springframework.stereotype.Component;
+
+import com.myapp.dao.MyAppingDao;
+import com.myapp.model.MyAppMeta;
+import com.myapp.util.CashforecastingUtil;
+import com.myapp.util.StepExecutionListenerCtxInjecter;
+
+@Component(value = "myAppFileHeaderLineCallbackHandler")
+public class MyAppFileHeaderCallbackHandler implements LineCallbackHandler {
+
+ private static final Logger LOGGER = LoggerFactory.getLogger(MyAppFileHeaderCallbackHandler.class);
+
+ public static final String FEED_HEADER_DATA = "feedHeaderData";
+
+ @Resource(name = "myappFeedDao")
+ private MyAppDao myappDao;
+
+ @Resource(name = "stepExecutionListener")
+ private StepExecutionListenerCtxInjecter stepExecutionListener;
+
+ @Override
+ public void handleLine(String headerLine) {
+  LOGGER.debug("header line: {}", headerLine);
+  //convert CSV data into 
+  MyAppMeta cfMeta = MyAppUtil.getMyAppMetaFromHeader(headerLine, null);
+
+  // logical delete current records
+  int noOfRecordsLogicallyDeleted = myappDao.logicallyDelete(cfMeta);
+  LOGGER.info("No of records logically deleted: " + noOfRecordsLogicallyDeleted);
+
+  //save it in the job execution context
+  stepExecutionListener.getJobExecutionCtx().put(FEED_HEADER_DATA, cfMeta);
+ }
+}
+
+</pre>
+<br />
+<br />
+
+<b>Step 5</b>: The <i>FileItemReader <b></b></i>has a mapper defined to map each row to an object. We need to define this object that gets invoked when each CSV line item is read to convert each field to an object as shown below.
+
+<br/>
+<br/>
+
+
+
+package com.myapp.mapper;
+
+<pre class="brush: csharp">
+import java.math.BigDecimal;
+import java.text.ParseException;
+
+import org.apache.commons.lang.time.DateUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.batch.item.file.mapping.FieldSetMapper;
+import org.springframework.batch.item.file.transform.FieldSet;
+import org.springframework.validation.BindException;
+
+import com.myapp.model.MyAppDetail;
+
+
+public class MyAppFieldSetMapper implements FieldSetMapper&lt;MyAppDetail&gt; {
+ 
+ private final static Logger logger = LoggerFactory.getLogger(CashForecastFieldSetMapper.class);
+ 
+ 
+ @Override
+ public MyAppDetail mapFieldSet(FieldSet fs) throws BindException {
+
+  if (fs == null) {
+   return null;
+  }
+  
+  MyAppDetail detail = new MyAppDetail();
+  detail.setPortfolioCd(fs.readString("portfolioCd"));
+  detail.setAccountCd(fs.readString("accountCd"));
+  detail.setTxnCd(fs.readString("txnCd"));
+  
+  BigDecimal cashValue = fs.readBigDecimal("cashValue");
+  detail.setCashValue(cashValue != null ? cashValue : BigDecimal.ZERO);
+  
+  
+  return detail;
+
+ }
+}
+
+</pre>
+
+
+
+<br/>
+<br/>
+<b>Step 6:</b> The writer class that is responsible for writing a group of items (i.e. parent and children records)&nbsp; to the database.&nbsp; <br />
+<br />
+<pre class="brush: csharp">package com.myapp.item.writer;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.batch.item.ItemWriter;
+
+import com.myapp.dao.myappingDao;
+import com.myapp.handler.myappFileHeaderCallbackHandler;
+import com.myapp.model.myappDetail;
+import com.myapp.model.myappMeta;
+import com.myapp.model.myappParent;
+import com.myapp.util.StepExecutionListenerCtxInjecter;
+
+public class MyAppItemWriter implements ItemWriter&lt;MyAppParent&gt; {
+
+ @Resource(name = "stepExecutionListener")
+ private StepExecutionListenerCtxInjecter stepExecutionListener; // to get the step and job contexts
+
+ @Resource(name = "myappFeedDao")
+ private myappingDao myappDao;   //dao class for saving records into database
+
+ private final static Logger logger = LoggerFactory.getLogger(MyappItemWriter.class);
+
+ @Override
+ public void write(List portfolioDetails) {
+
+     //retrieving previously stored data from the job context
+  myappMeta pfMeta = (myappMeta) stepExecutionListener.getJobExecutionCtx().get(
+    MyAppFileHeaderCallbackHandler.FEED_HEADER_DATA);
+
+  int batchJobId = -1;
+
+   //retrieving previously stored data from the job context
+  if (stepExecutionListener.getJobExecutionCtx().get("batchJobId") != null) {
+   batchJobId = stepExecutionListener.getJobExecutionCtx().getInt("batchJobId");
+  }
+  pfMeta.setBatchJobId(batchJobId);
+
+  try {
+   for (myappParent cfp : portfolioDetails) {
+
+    MyappDetail bd = cfp.getBalanceDetail();
+
+    // save cash forcasting balances
+    int noOfRecords = myappDao.saveMyappBalance(bd, pfMeta);
+    logger.info("No of cashforcast balance records inserted " + noOfRecords);
+
+    int syntheticId = myappDao.getmyappId(bd, pfMeta);
+
+    // save myapping transaction records
+    List&lt;Myappdetail&gt; txnDetails = cfp.getTxnDetails();
+    for (myappDetail txd : txnDetails) {
+     myappDao.saveMyappDetail(txd, syntheticId);
+    }
+
+   }
+
+  } catch (Exception e) {
+   logger.error("myappItemWriter error", e);
+   throw new RuntimeException(e);
+  }
+
+  if (logger.isDebugEnabled()) {
+   logger.debug("Commiting chunks to the database ...... ");
+  }
+
+ }
+}
+
+</pre>
+<br />
+<br /><div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/spring%20batch">spring batch</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2012/12/spring-batch-advanced-tutorial-writing.html" title="permanent link"> 12/20/2012 11:08:00 AM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=4496827714627595131" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=4496827714627595131&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>5 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c66453851547074109"><a name="c66453851547074109"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/08308360825658688572" rel="nofollow">A.K</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thanks a lot to post it, example is really very needful.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/12/spring-batch-advanced-tutorial-writing.html?showComment=1374663695304#c66453851547074109" title="comment permalink">9:01 PM, July 24, 2013</a>
+	  <span class="item-control blog-admin pid-1958191945"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=66453851547074109" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c1960182054886844633"><a name="c1960182054886844633"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/01227797801993051071" rel="nofollow">ModernPhilosopher</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Nicely written example.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/12/spring-batch-advanced-tutorial-writing.html?showComment=1395180682428#c1960182054886844633" title="comment permalink">9:11 AM, March 19, 2014</a>
+	  <span class="item-control blog-admin pid-317741114"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=1960182054886844633" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c2352247893718880489"><a name="c2352247893718880489"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/04950121184937695608" rel="nofollow">Jay Singh</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Hi ,<br />I am reading file from Database and then writing in  fixed line file format (No comma) ,I would like to include Header and Footer  in file.<br />My Header format is prefixed with HD <br />HD-RECORD-TYPE-IDENTIFIER(2)<br />HD-REC-SEQ-NUM(5)  its line number<br />HD-SUBSCRIBER-ID(10)<br />HD-DATE-TIME-STAMP(10)<br />HD-REJECT-CODE(10)<br />FILLER<br />Body detail format is as below and  prefixed with (DT)<br />HD-RECORD-TYPE-IDENTIFIER(2)<br />HD-REC-SEQ-NUM(5)<br />DT-CREDIT-CARD-NUMBER<br />DT-PAN-SEQ-NUMBER<br />DT-CUSTOMER-NUMBER<br />DT-EXPIRY-DATE<br />DT-SE-NUM<br />DT-DECISION-INDICATOR<br /> similary footer format is  and prefixed with &#39;FT&#39;<br />FOOTER FT-RECORD-TYPE-IDENTIFIER(2)<br />FOOTER FT-REC-SEQ-NUM(5)<br />FOOTER FT-NO-OF-RECORDS<br />HD0000100011000220111212022424<br />DT000020002376000390521009<br />FT000030034000000052<br /></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/12/spring-batch-advanced-tutorial-writing.html?showComment=1396640951824#c2352247893718880489" title="comment permalink">6:49 AM, April 05, 2014</a>
+	  <span class="item-control blog-admin pid-225871613"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2352247893718880489" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c4529410899415067124"><a name="c4529410899415067124"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Refer Spring batch doco where fixed file format is described.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/12/spring-batch-advanced-tutorial-writing.html?showComment=1396871908057#c4529410899415067124" title="comment permalink">9:58 PM, April 07, 2014</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=4529410899415067124" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c3286408333439828976"><a name="c3286408333439828976"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/12187348589076125743" rel="nofollow">Rajesh Kommuri</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>can you post an example to use ItemReader and HibernateItemWriter in SpringBatch....<br /><br />Thanks In Advance</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/12/spring-batch-advanced-tutorial-writing.html?showComment=1399463709534#c3286408333439828976" title="comment permalink">9:55 PM, May 07, 2014</a>
+	  <span class="item-control blog-admin pid-1076466062"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=3286408333439828976" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=4496827714627595131'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/4496827714627595131/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2012/12/the-pre-java-interview-online-written.html">The pre Java Interview online written test questio...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/12/drools-tutorial-with-maven.html">Drools tutorial with Maven</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/12/unit-testing-spring-mvc-controllers-for.html">Unit testing Spring MVC controllers for web and RE...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/12/jdbc-interview-questions-and-answers.html">JDBC Interview Questions and Answers with code exa...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/11/cors-and-jquery-with-spring-mvc-restful.html">CORS and jQuery with Spring MVC, RESTful Web Servi...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/11/jsonp-and-jquery-with-spring-mvc.html">JSONP and jQuery with Spring MVC, RESTful Web Serv...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/11/can-you-write-program-in-java-for.html">Can you write a program in Java?  for beginner to ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/11/soap-versus-restful-web-service.html">SOAP versus RESTful Web service -- comparison</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/11/coding-in-java-working-with-list.html">Coding in Java -- working with a List</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/11/overseas-work-opportunity-luck-or-skill.html">Overseas work opportunity, luck or skill?</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

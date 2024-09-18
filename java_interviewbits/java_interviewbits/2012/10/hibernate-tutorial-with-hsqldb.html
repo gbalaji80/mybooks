@@ -1,0 +1,1111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Hibernate tutorial with HSQLDB</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/6535107194049293140/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Oct 10, 2012</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="6535107194049293140"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Hibernate tutorial with HSQLDB
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div>This tutorial is basically an extension to the<a href="http://java-success.blogspot.com.au/p/java-jee-tutorials.html" target="_blank"> "simple" Java</a> and <a href="http://java-success.blogspot.com.au/2012/10/jdbc-tutorial-with-hsqldb.html" target="_blank">JDBC tutorials</a>. Hibernate is an ORM (Object to Relational Mapping) tool.<br />
+<br />
+<!-- INFOLINKS_OFF -->
+
+<b>Step 1</b>: &nbsp;First step is to bring in the relevant <b>Hibernate </b>framework jar files like <b>hibernate-xxx.jar</b>, <b>hibernate-annotations-xxxx.jar</b>, and other dependent jar files that are transitively brought in from hibernate framework's pom.xml file. Here is the pom.xml file for simple Java project extended for hibernate.<br />
+<br />
+<pre class="brush: csharp">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+ &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+ &lt;groupId&gt;com.mytutorial&lt;/groupId&gt;
+ &lt;artifactId&gt;simple&lt;/artifactId&gt;
+ &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+ &lt;packaging&gt;jar&lt;/packaging&gt;
+
+ &lt;name&gt;simple&lt;/name&gt;
+ &lt;url&gt;http://maven.apache.org&lt;/url&gt;
+
+ &lt;properties&gt;
+  &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+ &lt;/properties&gt;
+
+ &lt;dependencies&gt;
+  &lt;dependency&gt;
+   &lt;groupId&gt;junit&lt;/groupId&gt;
+   &lt;artifactId&gt;junit&lt;/artifactId&gt;
+   &lt;version&gt;3.8.1&lt;/version&gt;
+   &lt;scope&gt;test&lt;/scope&gt;
+  &lt;/dependency&gt;
+
+        &lt;!-- jar that contains the HSQLDB driver class  --&gt;
+  &lt;dependency&gt;
+   &lt;groupId&gt;org.hsqldb&lt;/groupId&gt;
+   &lt;artifactId&gt;hsqldb&lt;/artifactId&gt;
+   &lt;version&gt;2.2.8&lt;/version&gt;
+  &lt;/dependency&gt;
+
+        &lt;!--  GA means General Availability --&gt;
+        &lt;!--  Hibernate framework JARS--&gt;
+  &lt;dependency&gt;
+   &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+   &lt;artifactId&gt;hibernate&lt;/artifactId&gt;
+   &lt;version&gt;3.2.6.GA&lt;/version&gt;
+  &lt;/dependency&gt;
+
+  &lt;dependency&gt;
+   &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+   &lt;artifactId&gt;hibernate-annotations&lt;/artifactId&gt;
+   &lt;version&gt;3.3.1.GA&lt;/version&gt;
+  &lt;/dependency&gt;
+
+
+ &lt;/dependencies&gt;
+&lt;/project&gt;
+
+</pre>
+Now, if you select the "simple" project and then right-mouse-click and select "<b>Maven --&gt; Update Dependencies</b>".<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://4.bp.blogspot.com/-NC6N9KHbCSY/UHNo5BM7d-I/AAAAAAAABD4/4H_N4-EVFns/s1600/hibernate-tutorial-pom.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-NC6N9KHbCSY/UHNo5BM7d-I/AAAAAAAABD4/4H_N4-EVFns/s640/hibernate-tutorial-pom.jpg" height="432" width="640" /></a></div>
+<br />
+<br />
+<b>Step 2</b>: Hibernate uses the <b>hibernate.cfg.xml</b>&nbsp;file to configure the session factory with the database connectivity details and define your domain classes that map to to the relational database tables. This file needs to be defined in the <b>src/main/resources</b> folder and be in the classpath.<br />
+<br />
+Create a new folder named "<b>resources</b>" under the "<b>src/main"</b> folder and then right-mouse-click on "resources" folder and then select "<b>Build Path --&gt; Use as Source Folder</b>".<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://4.bp.blogspot.com/-nl41Voc_mfs/UHNqps4iw5I/AAAAAAAABEA/AxhJRzhLYns/s1600/hibernate-tutorial-cfg-xml.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-nl41Voc_mfs/UHNqps4iw5I/AAAAAAAABEA/AxhJRzhLYns/s400/hibernate-tutorial-cfg-xml.jpg" height="400" width="298" /></a></div>
+<br />
+<br />
+The contents of the&nbsp;<b>hibernate.cfg.xml </b>will include configuring the session factory to connect to the HSQLDB that we set up in the "SQL tutorial with HSQDB" tutorial.<br />
+<br />
+<pre class="brush: csharp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"&gt;
+  
+&lt;hibernate-configuration&gt;
+    &lt;session-factory&gt;
+        &lt;!-- Database connection settings --&gt;
+        &lt;property name="connection.driver_class"&gt;org.hsqldb.jdbcDriver&lt;/property&gt;
+        &lt;property name="connection.url"&gt;jdbc:hsqldb:hsql://localhost/mytestdb&lt;/property&gt;
+        &lt;property name="connection.username"&gt;sa&lt;/property&gt;
+        &lt;property name="connection.password"&gt;&lt;/property&gt;
+         
+        &lt;!-- JDBC connection pool (use the built-in) --&gt;
+        &lt;property name="connection.pool_size"&gt;1&lt;/property&gt;
+         
+        &lt;!-- SQL dialect --&gt;
+        &lt;property name="dialect"&gt;org.hibernate.dialect.HSQLDialect&lt;/property&gt;
+ 
+        &lt;!-- Enable Hibernate's automatic session context management --&gt;
+        &lt;property name="current_session_context_class"&gt;thread&lt;/property&gt;
+ 
+        &lt;!-- Disable the second-level cache  --&gt;
+        &lt;property name="cache.provider_class"&gt;org.hibernate.cache.NoCacheProvider&lt;/property&gt;
+         
+        &lt;!-- Echo all executed SQL to stdout useful for debugging if set to true--&gt;
+        &lt;property name="show_sql"&gt;false&lt;/property&gt;
+         
+        &lt;property name="hbm2ddl.auto"&gt;validate&lt;/property&gt;
+  
+        &lt;mapping class="com.mytutorial.domain.Course"/&gt;
+         
+          
+    &lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;
+
+</pre>
+<br />
+<b>Step 3</b>: The next step is to define the <b>HibernateUtil </b>class that bootstraps the hibernate by loading the <i>SessionFactory </i>via &nbsp;the&nbsp;<b>hibernate.cfg.xml.</b><br />
+<br />
+<pre class="brush: csharp">import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+
+public class HibernateUtil {
+ 
+ 
+ private static final SessionFactory sessionFactory = buildSessionFactory();
+   
+    private static SessionFactory buildSessionFactory() {
+        try {
+            // Create the SessionFactory from hibernate.cfg.xml file
+         return new AnnotationConfiguration().configure().buildSessionFactory();
+        } catch (Throwable ex) {
+            ex.printStackTrace();
+            throw new ExceptionInInitializerError(ex);
+        }
+        
+    }
+  
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
+}
+
+</pre>
+<b>Step 4</b>: Next step is to define the domain <b><i>Course </i></b>class that maps to the "Course" database &nbsp;table that was created in the "SQL &nbsp;with HSQLDB" tutorial. Annotations are used for the object to relational mapping<br />
+<br />
+<pre class="brush: csharp">package com.mytutorial.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="Course")
+public class Course {
+ 
+ @Id
+ @GeneratedValue
+ @Column(name="course_id")
+ private Integer id;
+ 
+ @Column(name="name")
+ private String name;
+ 
+ @Column(name="course")
+ private String course;
+ 
+ public Course() {}
+
+ public Integer getId() {
+  return id;
+ }
+
+ public void setId(Integer id) {
+  this.id = id;
+ }
+
+ public String getName() {
+  return name;
+ }
+
+ public void setName(String name) {
+  this.name = name;
+ }
+
+ public String getCourse() {
+  return course;
+ }
+
+ public void setCourse(String course) {
+  this.course = course;
+ }
+}
+
+
+</pre>
+<b>Step 5</b>: Define the data access layer interface and the implementation class. The<i>&nbsp;<b>CourseDao</b></i> is the interface and <b><i>CourseDaoImpl </i></b>is the implementation class that retrieves data from the database.<br />
+<br />
+<br />
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Center - Leader board -->
+<br />
+<ins class="adsbygoogle" data-ad-client="ca-pub-3764234023451771" data-ad-slot="5678244596" style="display: inline-block; height: 90px; width: 728px;"></ins><script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<br />
+<b>Define the interface.</b><br />
+<br />
+<pre class="brush: csharp">package com.mytutorial.dao;
+
+public interface CourseDao {
+ 
+ abstract void readAllCourses();
+
+}
+
+</pre>
+<br />
+<b>Define the implementation class.</b><br />
+<br />
+<pre class="brush: csharp">package com.mytutorial.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.mytutorial.HibernateUtil;
+import com.mytutorial.domain.Course;
+
+public class CourseDaoImpl implements CourseDao {
+
+ public void readAllCourses() {
+  SessionFactory sf = HibernateUtil.getSessionFactory();
+  Session session = sf.openSession();
+  Query q = session.createQuery("from Course");
+  @SuppressWarnings("unchecked")
+  List&lt;Course&gt; courses = q.list();
+  
+  for (Course course : courses) {
+   System.out.println(course.getName() + " - " + course.getCourse());
+  }
+
+ }
+
+}
+
+</pre>
+<br />
+<b>Step 6</b>: This step is to define a class with a main method that makes use of the <b>CourseDao</b>.<br />
+<br />
+<pre class="brush: csharp">package com.mytutorial;
+
+import com.mytutorial.dao.CourseDaoImpl;
+import com.mytutorial.dao.CourseDao;
+
+public class HibernateTutorial {
+ 
+ 
+ public static void main(String[] args) {
+  CourseDao cDao = new CourseDaoImpl();
+  cDao.readAllCourses();
+ }
+
+}
+
+</pre>
+You should now have the required Java files defined.<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-TWixgLnJFJQ/UHNwa6UsG3I/AAAAAAAABEk/HtrU0qA1BIE/s1600/Hibernate-tutorial-java-files.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-TWixgLnJFJQ/UHNwa6UsG3I/AAAAAAAABEk/HtrU0qA1BIE/s640/Hibernate-tutorial-java-files.jpg" height="640" width="332" /></a></div>
+<br />
+<br />
+<b>Step 7</b>: Before you can run the <i>HibernateTutorial.java</i>, you need to make sure that the HSQL database is running with the Course database as demonstrated in the "SQL tutorial with HSQLDB".<br />
+<br />
+<pre class="brush: csharp">c:\Tools\hsqldb-2.2.9\hsqldb&gt;java -cp ./lib/hsqldb.jar org.hsqldb.server.Server</pre>
+<pre class="brush: csharp">[Server@79616c7]: [Thread[main,5,main]]: checkRunning(false) entered
+[Server@79616c7]: [Thread[main,5,main]]: checkRunning(false) exited
+[Server@79616c7]: Startup sequence initiated from main() method
+[Server@79616c7]: Loaded properties from [C:\Tools\hsqldb-2.2.9\hsqldb\server.properties]
+[Server@79616c7]: Initiating startup sequence...
+[Server@79616c7]: Server socket opened successfully in 198 ms.
+[Server@79616c7]: Database [index=0, id=0, db=file:mydatabases/tutorialdb, alias=mytestdb] opened sucessfully in 1073 ms
+.
+[Server@79616c7]: Startup sequence completed in 1277 ms.
+[Server@79616c7]: 2012-10-09 11:35:07.347 HSQLDB server 2.2.9 is online on port 9001
+[Server@79616c7]: To close normally, connect and execute SHUTDOWN SQL
+[Server@79616c7]: From command line, use [Ctrl]+[C] to abort abruptly
+
+</pre>
+<br />
+<b>Step 8</b>: The final step is to right-mouse-click on <b><i>HibernateTutorial.java</i></b> and then select "<b>Run As --&gt; Java Application</b>".<br />
+<br />
+<u>You should get an output like:</u><br />
+<br />
+<pre class="brush: csharp">Sam - Java
+peter - J2EE
+paul - JSF
+jonathan - Hibernate
+james - Spring
+Lewis - JDBC
+
+</pre>
+You should also see, hibernate logs as shown below<br />
+<br />
+<pre class="brush: csharp">INFO: configuring from resource: /hibernate.cfg.xml
+...
+INFO: autocommit mode: false
+09/10/2012 11:37:30 AM org.hibernate.connection.DriverManagerConnectionProvider configure
+INFO: using driver: org.hsqldb.jdbcDriver at URL: jdbc:hsqldb:hsql://localhost/mytestdb
+09/10/2012 11:37:30 AM org.hibernate.connection.DriverManagerConnectionProvider configure
+INFO: connection properties: {user=sa, password=****}
+....
+INFO: Using dialect: org.hibernate.dialect.HSQLDialect
+09/10/2012 11:37:31 AM org.hibernate.transaction.TransactionFactoryFactory buildTransactionFactory
+INFO: Using default transaction strategy (direct JDBC transactions)
+....
+INFO: fetching database metadata
+09/10/2012 11:37:31 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+INFO: table found: PUBLIC.PUBLIC.COURSE
+09/10/2012 11:37:31 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+INFO: columns: [course, name, course_id]
+
+</pre>
+<br />
+In the Spring 3.0 tutorial, I will extend this tutorial to show how we can use Spring to inject <i>CourseDao </i>into <i>HibernateTutorial</i>.<div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Hibernate%20Tutorial">Hibernate Tutorial</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2012/10/hibernate-tutorial-with-hsqldb.html" title="permanent link"> 10/10/2012 01:29:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=6535107194049293140" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=6535107194049293140&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>6 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c2777509215912115369"><a name="c2777509215912115369"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Does not work, maven update complains that hibernate 3.2.6.ga does not exist</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/10/hibernate-tutorial-with-hsqldb.html?showComment=1350687750359#c2777509215912115369" title="comment permalink">10:02 AM, October 20, 2012</a>
+	  <span class="item-control blog-admin pid-72327370"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=2777509215912115369" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c7410132265311820637"><a name="c7410132265311820637"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Pck a version that is available at the Maven 2 repository. http://download.java.net/maven/2<br /><br /></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/10/hibernate-tutorial-with-hsqldb.html?showComment=1350716204427#c7410132265311820637" title="comment permalink">5:56 PM, October 20, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=7410132265311820637" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8724705244754604424"><a name="c8724705244754604424"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Try the repository http://search.maven.org/ for the relevant version number. In your settings.xml file you can configure additionalmrepositories. </p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/10/hibernate-tutorial-with-hsqldb.html?showComment=1350716919592#c8724705244754604424" title="comment permalink">6:08 PM, October 20, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8724705244754604424" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c4237158797124077269"><a name="c4237158797124077269"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Try 3.2.3.GA.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/10/hibernate-tutorial-with-hsqldb.html?showComment=1350717026272#c4237158797124077269" title="comment permalink">6:10 PM, October 20, 2012</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=4237158797124077269" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8410798458039501109"><a name="c8410798458039501109"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://sunstore.in/vehicles/used-cars" rel="nofollow">arf</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thanks for your posting.It was very easy to understand.<br />Can you post some material that throws some light on drawback of hibernate as compared to JPA. Also how can we achieve loose coupling without using spring.<br />Thanks in advance</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/10/hibernate-tutorial-with-hsqldb.html?showComment=1380463613313#c8410798458039501109" title="comment permalink">12:06 AM, September 30, 2013</a>
+	  <span class="item-control blog-admin pid-1037173681"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8410798458039501109" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8022299071036803288"><a name="c8022299071036803288"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://grails.asia/" rel="nofollow">beginner</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>great for helping people learn hibernate quickly.  love tutorials with snippets code</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2012/10/hibernate-tutorial-with-hsqldb.html?showComment=1391729953212#c8022299071036803288" title="comment permalink">10:39 AM, February 07, 2014</a>
+	  <span class="item-control blog-admin pid-1451763491"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8022299071036803288" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=6535107194049293140'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/6535107194049293140/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+    <a name="links"></a><h4>Links to this post:</h4>
+    <dl id="comments-block">
+    <script type="text/javascript" src="https://www.blogger.com/dyn-js/backlink.js?blogID=35897879&postID=6535107194049293140" charset="utf-8" defer="true">
+</script>
+<noscript><a href="http://blogsearch.google.com/?ui=blg&q=link:http://java-success.blogspot.com/2012/10/hibernate-tutorial-with-hsqldb.html">See links to this post</a></noscript>
+<div id="blogger-dcom-block" style="display:none">
+        <dt class="comment-title">
+        <span class="comment-toggler">&nbsp;</span>
+        <a href="<$BlogBacklinkURL$>" rel="nofollow"><$BlogBacklinkTitle$></a> <span class="item-control blog-admin"><a style="border:none;" href="https://www.blogger.com/delete-backlink.g?blogID=35897879&amp;postID=6535107194049293140&amp;backlinkURL=%3C$BlogBacklinkURLEscaped$%3E" title="Remove Link" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+        </dt>
+        <dd class="comment-body"><$BlogBacklinkSnippet$>
+        <br />
+        <span class="comment-poster">
+        <em><$I18NPostedByBacklinkAuthor$> @ <$BlogBacklinkDateTime$></em>
+        </span>
+        </dd>
+    </div>
+<script type="text/javascript">if (typeof BL_addOnLoadEvent == 'function') { BL_addOnLoadEvent(function() { BL_writeBacklinks(); }); }</script>
+
+    </dl>
+    <p class="comment-timestamp"><script type="text/javascript">function BlogThis() {
+Q=''; x=document; y=window;
+if(x.selection) {
+  Q=x.selection.createRange().text;
+} else if (y.getSelection) {
+  Q=y.getSelection();
+} else if (x.getSelection) {
+  Q=x.getSelection();
+}
+popw = y.open('https://www.blogger.com/blog-this.g?t=' +
+  escape(Q) + '&u=' + escape(location.href) + '&n=' +
+  escape(document.title),'bloggerForm',
+  'scrollbars=no,width=475,height=300,top=175,left=75,status=yes,resizable=yes');
+void(0);
+}
+</script>
+<a class="comment-link" href="javascript:BlogThis();" id="b-backlink">Create a Link</a></p>
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2012/10/jdbc-tutorial-with-hsqldb.html">JDBC Tutorial with HSQLDB</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/10/sql-tutorial-with-hsqldb.html">SQL Tutorial with HSQLDB</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/10/agile-methodology-or-practices.html">Agile methodology or practices interview questions...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/09/jsf-tutorial-using-jsf-20-eclipse-and.html">JSF Tutorial: Using JSF 2.0, eclipse, and maven</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/09/java-tutorial-create-simple-web-app.html">Java tutorial: Create a simple Web app using JEE</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/09/java-tutorial-setting-up-java-maven-and.html">Java Tutorial: Setting up Java, Maven, and eclipse...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/09/interview-questions-and-answers-on-sdlc.html">Interview questions and answers on SDLC (Software ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/09/understanding-hibernate-proxy-objects.html">Understanding Hibernate proxy objects and avoiding...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/09/java-coding-to-compare-and-sort-objects.html">Java coding to compare and sort objects</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2012/08/article-scenarios-and-solutions-for_28.html">Article: Scenarios and solutions for better concur...</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

@@ -1,0 +1,890 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Build tools (Maven and Ant)  interview questions and answers</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/1201158101732892772/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Sep 30, 2011</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="1201158101732892772"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Build tools (Maven and Ant)  interview questions and answers
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div>Related links:<br />
+<ul>
+<li><a href="http://java-success.blogspot.com.au/2013/04/maven-setting-up-profiles-and.html">Maven - setting up profiles and tokenizing properties file</a> </li>
+<li><a href="http://java-success.blogspot.com.au/2012/09/java-tutorial-setting-up-java-maven-and.html">Java Tutorial: Setting up Java, Maven, and eclipse</a></li>
+<li><a href="http://java-success.blogspot.com/2011/10/maven-interview-questions-and-answers.html">Maven interview questions and answers - inheritance versus aggregatio</a> </li>
+</ul>
+<br />
+In my view, open ended interview questions on tools help interviewer&nbsp; assess a candidate's experience.<b> </b>A typical question would be to ask, <b>what tools would you require to get your job down? </b><br />
+<br />
+<b>Q.</b> What Java build tools are you experienced with? Which tool will you choose?<br />
+<b>A. Ant + Ivy</b> and <b>Maven </b>are the ones have been around for a while now.&nbsp; <b>Gradle </b>is a less matured build tool that takes a hybrid approach of both Ant and Maven, but looks very promising. <b>Buildr </b>is a build system for Java-based applications, including support for Scala, Groovy and a growing number of JVM languages and tools. <br />
+<br />
+<ul>
+<li><span style="font-size: large;"><b style="color: #660000;">Ant </b></span>is more like a <b>build language</b> offering great flexibility as to how you build. You can write elegant and modular builds with it, but the main problem with this flexibility is that many don't write good build programs. For any non-trivial projects, over time it can lead to duplication of configuration between builds if proper care is not taken. If you need great flexibility in builds or you are working with some legacy code base where you have no control over the convention that Maven expects, then go for Ant. Ant is used for defining and executing the build steps. If you need dependency management to be integrated with Ant, then use Ivy as the dependency manager.&nbsp;</li>
+</ul>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-_XQJEdRn4sQ/ToVecRNmDUI/AAAAAAAAAE8/9jqX0kNrttE/s1600/ivy_cycle.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-_XQJEdRn4sQ/ToVecRNmDUI/AAAAAAAAAE8/9jqX0kNrttE/s400/ivy_cycle.JPG" height="341" width="400" /></a></div>
+<br />
+<br />
+<ul>
+<li><span style="color: #660000; font-size: large;"><b>Maven </b></span>is a <b>build framework</b>. Maven takes the opposite approach to Ant and expects you to completely integrate with the Maven lifecycle. Maven's philosophy is&nbsp; "Ant With Convention Over Configuration". For example conventions like the "Standard Directory Layout"&nbsp; (e.g. src/main/java, src/main/resources, src/test/java, src/test/resources, etc) , build cycles, and phases. The Maven plugin mechanism allows for very powerful build configurations, and the inheritance model allows you to define a small set of parent POMs encapsulating your build configurations for the whole enterprise, and individual projects can inherit those configurations, leaving them lightweight. If you want to do anything that is "not the Maven way" you have to write a plugin or use the Ant integration.&nbsp; Maven also has great tool support with IDEs like eclipse, NetBeans, and IntelliJ. Maven is very handy working with multiple-module projects&nbsp; and in scenarios where your project consists of several teams working on dependent modules. These modules can be automatically versioned and composed in to the application regularly. </li>
+</ul>
+<ul>
+<li><span style="color: #660000; font-size: large;"><b>Gradle </b></span>is more of a <b>build language</b> like Ant that incorporates some of the pluses of Maven. Gradle tries to provide a hybrid solution to meet in the middle between Ant and Maven. It uses Ivy's approach for dependency resolution. It allows for convention over configuration but also includes Ant tasks as first class citizens for greater flexibility. It also allows you to use existing Maven/Ivy repositories.</li>
+</ul>
+Gradle looks very promising by providing the best of both worlds, but only time will tell its adoption. There are also other factors to consider when choosing a tool like how comfortable your team is with a particular tool, standards and guidelines already in place from a consistency and governance perspective (especially in larger organizations), etc.<br />
+<br />
+<br />
+<ul></ul>
+<br />
+<table>
+<tbody>
+<tr>
+<td width="25%"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-3764234023451771";
+/* LHS - vertical bar */
+google_ad_slot = "9570018680";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_channel ="9570018680";
+google_page_url = "http://java-success.blogspot.com.au/2012/06/core-java-coding-questions-frequently.html";
+//-->
+</script>
+<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript">
+</script>
+</td>
+<td><br />
+<br />
+<b>Q. </b>What features do you expect in a build tool?<br />
+<b>A. </b><br />
+<ul>
+<li>Compile java code and build jar, war, and ear files for deployment and release.</li>
+<li>Versioning and dependency management of relevant artifacts and modules. </li>
+<li>Execute tests and report test results.</li>
+<li>Run code quality check tools like Sonar, Checkstyle, Findbugs, etc.</li>
+<li>Environment property substitution </li>
+<li>Generation of files (e.g. Java source code from WSDL, AspectJ, XSL transformation, etc)</li>
+<li>Support for cross-platform (UNIX, Windows, etc) and IDEs (e.g eclipse, NetBeans, IntelliJ, etc)</li>
+<li>Proper documentation and support.&nbsp;</li>
+</ul>
+<br />
+<b>Q.</b> What do you understand by Maven's build life cycle?<br />
+<b>A.</b> The build life cycle has a number phases like validate, compile, test, package, integration-test, verify, install, and deploy. Each phase can have 0 or more goals (i.e. tasks). These build phases are executed sequentially to complete the default life cycle. Maven will first validate the project, then will try to compile the sources, run those against the tests, package the binaries (e.g. jar), run integration tests against that package, verify the package, install the verified package to the local repository, then deploy the installed package in a specified environment.<br />
+<br />
+If you want to do all the phases, you only need to call the last build phase to be executed, which is deploy: This is because if you call a build phase, it will execute not only that build phase, but also every build phase prior to the called build phase. <br />
+<br />
+A project specific customization of a build cycle involves binding  specific goals to specific phases beyond the default settings in the  configuration file (i.e. pom.xml). The code snippet below demonstrates how the <b>maven-check-style</b> plugin can be configured in the pom.xml file to execute the "<b>checkstyle</b>" task during the <b>verify</b> phase to evaluate code quality.</td>
+</tr>
+</tbody></table>
+<br />
+<br />
+<pre class="brush: csharp">&lt;plugin&gt;
+   &lt;groupid&gt;org.apache.maven.plugins&lt;/groupid&gt;
+   &lt;artifactid&gt;maven-checkstyle-plugin&lt;/artifactid&gt; 
+   &lt;version&gt;2.2&lt;/version&gt;
+   &lt;configuration&gt;
+      &lt;failonviolation&gt;true&lt;/failonviolation&gt;
+      &lt;failsonerror&gt;true&lt;/failsonerror&gt;
+      &lt;consoleoutput&gt;true&lt;/consoleoutput&gt;
+      &lt;cachefile&gt;true&lt;/cachefile&gt;
+      &lt;configlocation&gt;${project.parent.basedir}/checkstyle.xml&lt;/configlocation&gt;
+      &lt;suppressionslocation&gt;${project.parent.basedir}/checkstyle-suppressions.xml&lt;/suppressionslocation&gt;
+    &lt;/configuration&gt;
+    &lt;executions&gt;
+       &lt;execution&gt;
+           &lt;phase&gt;verify&lt;/phase&gt;
+           &lt;goals&gt;
+              &lt;goal&gt;checkstyle&lt;/goal&gt;
+           &lt;/goals&gt;
+        &lt;/execution&gt;
+     &lt;/executions&gt;
+&lt;/plugin&gt;
+</pre>
+<br />
+<br />
+<b>Q.</b> In your experience, what are some of the challenges you faced with maven, and how do you over come them?<br />
+<b>A.</b>When it works which is 95% of the time it's quite nice, and when it doesn't, it can be a challenge. Some of the challenges can be resolved by keeping some tips in mind.<br />
+<br />
+For example, it might not automatically download a particular artefact from a repository. In this case, you can manually install it to your local repository using the following command.<br />
+<br />
+<pre class="brush: csharp">mvn install:install-file -DgroupId=javax.transaction -DartifactId=jta -Dpackaging=jar -Dversion=1.0.1B -Dfile=c:\Temp\my-commonservices-1.5.5-SNAPSHOT-tests.jar -DgeneratePom=true 
+</pre>
+<br />
+You have no control over, and limited visibility into, the dependencies specified by your dependencies (i.e. transitive dependencies). Builds will break because different copies of Maven will download different artifacts at different times. Your local build can break again in the future when the dependencies of your dependencies accidentally release new, non-backwards compatible changes without remembering to bump their version number. You can use the following commands and tools to check the dependency tree.<br />
+<br />
+<pre class="brush: csharp">mvn dependency:tree
+mvn dependency:analyze
+</pre>
+<br />
+The IDEs do provide very useful graphical tools to display. For example, the diagram below shows the plugin that opens a pom.xml file in eclipse.  <br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-MyL3rPjsGD4/ToV18JhSlYI/AAAAAAAAAFA/DFHRH2d6RN4/s1600/mvn_pom_dependency_tree.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-MyL3rPjsGD4/ToV18JhSlYI/AAAAAAAAAFA/DFHRH2d6RN4/s640/mvn_pom_dependency_tree.JPG" height="324" width="640" /></a></div>
+<br />
+This is also very handy to resolve class loading issues due to jar conflicts. Also keep in mind that the dependencies are loaded in the order in which they are declared in the pom.xml. So look at the effective pom with mvn <b>help:effective-pom</b>.<br />
+<br />
+The following flags are handy for debugging any other maven issues:<br />
+<br />
+The -X flag shows debug logging, and tee it to a file which you then search for clues of what happened. <br />
+<br />
+<pre class="brush: csharp">mvn -X install | tee maven_out.txt 
+</pre>
+<br />
+To show the logical pom.xml or settings.xml being used<br />
+<br />
+<pre class="brush: csharp">mvn help:effective-pom
+mvn help:effective-settings 
+</pre>
+<br />
+Note: options like help:active-profiles and help:all-profiles also come in handy.<br />
+<br />
+To skip tests to resolve any other issues<br />
+<br />
+<pre class="brush: csharp">mvn install -DskipTests             //this will skip running tests, but still compile it. 
+mvn install -Dmaven.test.skip=true  //this will skip compilation and execution of tests
+mvn install -Dtest=FooTest          //runs only FooTest
+mvn -Dmaven.surefire.debug test     //to debug your tests&nbsp;</pre>
+<pre class="brush: csharp">&nbsp;</pre>
+There are other handy options to resume your build from where maven failed in a multi module project. For example, if your build failed at proj-commons, you can run the build from this module by typing:<span class="content"><span class="block" style="margin-left: 0px;"><code class="plain"><br />
+</code></span></span><br />
+<br />
+<pre class="brush: csharp">mvn -rf proj-commons clean install   //Resume from proj-commons
+mvn -pl proj-commons, proj-service clean install  //build only 2 modules
+mvn -nsu clean install            //Don't update the snapshots
+</pre>
+<br />
+To debug maven plugins via your IDE like eclipse,set the MAVEN_OPTS environmental variable as shown below<br />
+<br />
+<pre class="brush: csharp">MAVEN_OPTS="-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000";
+export MAVEN_OPTS
+</pre>
+<br />
+<b>rf</b> --&gt; resume from,&nbsp; <b>pl</b> --&gt; project list, <b>nsu</b> --&gt; no snapshot update, <b>am</b> --&gt; also make (If project list is specified, also build projects required by the list), <b>amd</b> --&gt; also make dependents (If project list is specified, also build projects that depend on projects on the list) <br />
+<br />
+Now, use your IDEs remote debugging option by connecting to port 8000. In eclipse, you do this via Run --&gt; open debug dialog and then select "Remote Java application".<br />
+<br />
+<br />
+You may also find&nbsp; useful:<br />
+<ul>
+<li><a href="http://java-success.blogspot.com.au/2013/04/maven-setting-up-profiles-and.html">Maven - setting up profiles and tokenizing properties file</a> </li>
+<li><a href="http://java-success.blogspot.com.au/2012/09/java-tutorial-setting-up-java-maven-and.html">Java Tutorial: Setting up Java, Maven, and eclipse</a></li>
+<li><a href="http://java-success.blogspot.com/2011/10/maven-interview-questions-and-answers.html">Maven interview questions and answers - inheritance versus aggregation</a>&nbsp;</li>
+</ul>
+<div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Ant">Ant</a>, <a rel='tag' href="http://java-success.blogspot.com/search/label/Tools">Tools</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2011/09/build-tools-maven-and-ant-interview.html" title="permanent link"> 9/30/2011 05:57:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=1201158101732892772" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=1201158101732892772&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>4 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c356126943889028548"><a name="c356126943889028548"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.winder-it.co.uk" rel="nofollow">Neil</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Great. These are really sensible questions. I&#39;ve come up with 15 in a post on my blog. I need to add the suggested answers!</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/build-tools-maven-and-ant-interview.html?showComment=1344329296008#c356126943889028548" title="comment permalink">6:48 PM, August 07, 2012</a>
+	  <span class="item-control blog-admin pid-100535869"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=356126943889028548" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c6485811104855811171"><a name="c6485811104855811171"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/17889587847227536045" rel="nofollow">arif shaik</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>The above information helped me to clear some more doubts regarding the subject....ta</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/build-tools-maven-and-ant-interview.html?showComment=1348308770293#c6485811104855811171" title="comment permalink">8:12 PM, September 22, 2012</a>
+	  <span class="item-control blog-admin pid-341211872"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=6485811104855811171" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c9187253315370849469"><a name="c9187253315370849469"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/06792019902059191475" rel="nofollow">thu</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Hi<br /><br />I read this post 2 times. It is very useful.<br /><br />Pls try to keep posting.<br /><br />Let me show other source that may be good for community.<br /><br />Source: <br /><br />Best regards<br />Jonathan.<br /></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/build-tools-maven-and-ant-interview.html?showComment=1348476021209#c9187253315370849469" title="comment permalink">6:40 PM, September 24, 2012</a>
+	  <span class="item-control blog-admin pid-127744453"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=9187253315370849469" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c6084510148484708368"><a name="c6084510148484708368"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Bhaskar</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thanks for the architecture.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/09/build-tools-maven-and-ant-interview.html?showComment=1389624597521#c6084510148484708368" title="comment permalink">1:49 AM, January 14, 2014</a>
+	  <span class="item-control blog-admin pid-906864980"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=6084510148484708368" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=1201158101732892772'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/1201158101732892772/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2011/09/why-blog-on-java-interview-questions.html">Why train with 650+ Java and JEE Interview Questio...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/enterprise-java-interview-questions-and.html">Enterprise Java interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/java-coding-interview-questions-and.html">Java coding interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/java-oo-interview-questions-and-answers.html">Java OO Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/java-collection-interview-questions-and.html">Java Collection Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/interview-q-user-defined-key-class-q.html">Java Interview Questions &amp; Answers: user defined k...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/core-java-interview-answers-q1.html">Java Interview Questions &amp; Answers: Compile-time v...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/free-book-pdf-downloads-core-java.html">Free Java Interview questions and answers PDFs</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/javajee-resume-companion-book-details.html">Java/JEE Resume Companion Book Details</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/javajee-interview-questions-and-answers.html">Java/J2EE Interview Questions and Answers Book Det...</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

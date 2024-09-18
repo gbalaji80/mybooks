@@ -1,0 +1,1195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Top 50 Core Java Interview questions you can't afford to get wrong</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/1841872320778897246/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Jun 29, 2014</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="1841872320778897246"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Top 50 Core Java Interview questions you can't afford to get wrong
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><h2>
+Core Java Interview Questions and Answers</h2>
+<table bgcolor="#FFFFCC" border="2" cell-padding="10px" style="width: 100%;">
+<tbody>
+<tr>
+<td><a href="http://java-success.blogspot.com/2014/06/top-50-core-java-interview-questions.html"> <span style="font-size: large;"><b>1-10 </b></span>Language Fundamentals every Java developer must know </a> </td>
+
+<td><a href="http://java-success.blogspot.com/2014/07/top-50-core-java-interview-questions.html"><span style="font-size: large;"><b>11-23</b></span> OOP every Java developer must know </a></td>
+
+<td><a href="http://java-success.blogspot.com/2014/07/top-50-core-java-interview-questions_5.html"><span style="font-size: large;"><b>24-36</b></span> interfaces and generics every Java developer must know </a></td>
+
+<td><a href="http://java-success.blogspot.com/2014/07/top-50-core-java-interview-questions_15.html"><span style="font-size: large;"><b>37-42</b></span> garbage collection and pass-by-reference every Java developer must know </a></td>
+
+<td><a href="http://java-success.blogspot.com/2014/07/top-50-core-java-interview-questions_16.html"><span style="font-size: large;"><b>43-54</b></span> maps and objects every Java developer must know </a></td>
+
+</tr>
+</tbody></table>
+<br />
+<b><span style="font-size: large;">Q1</span></b>. What is the difference between “==” and equals in comparing Java String objects? <br />
+<b><span style="font-size: large;">A1</span></b>. Comparing two <b><i>String</i></b> objects using “==” instead of “<i>equals( )</i>”. When you use “==”, you are actually comparing two object references, to see if they point to the same object. For example:<br />
+<br />
+<pre class="java" name="code">public class StringEquals {
+
+ public static void main(String[ ] args) {
+   String s1 = "Hello";
+   String s2 = new String(s1);
+   String s3 = "Hello";
+
+   System.out.println(s1 + " equals " + s2 + " -&gt; " +  
+                                                s1.equals(s2));      //true
+
+   System.out.println(s1 + " == " + s2 + " -&gt; " + (s1 == s2)); //false
+   System.out.println(s1 + " == " + s3+ " -&gt; " + (s1 == s3));  //true  
+ }
+}
+</pre>
+<br />
+The variable <b>s1</b> refers to the String instance created by "Hello". The object referred to by <b>s2</b> is created with s1 as an initializer, thus the contents of the two String objects are identical, but they are distinct objects having distinct references s1 and s2. This means that s1 and s2 do not refer to the same object and are, therefore, not ==, but <i>equals( )</i> as they have the same value "Hello". The s1 == s3 is true, as they both point to the same object due to internal caching.  The references s1 and s3 are <u>interned</u> and points to the same object in the string pool.<br />
+<br />
+<b><span style="font-size: large;">Q2</span></b>. Can you explain how Strings are interned in Java? <br />
+<span style="font-size: large;"><b>A2</b></span>. String class is designed with the <b>Flyweight design pattern</b> in mind. Flyweight is all about re-usability without having to create too many objects in memory. A pool of Strings is maintained by the String class. When the <i>intern( ) </i>method is invoked, <i>equals(..) </i>method is invoked to determine if the String already exist in the pool. If it does then the String from the pool is returned instead of creating a new object. If not already in the string pool, a new String object is added to the pool and a reference to this object is returned. For any two given strings s1 &amp; s2, <i>s1.intern( )</i> == <i>s2.intern( ) </i>only if <i>s1.equals(s2) </i>is true. <br />
+<br />
+Two String objects are created by the code shown below. Hence s1 == s2 returns false.
+<br />
+<br />
+<pre class="java" name="code">//Two new objects are created. Not interned and not recommended.
+String s1 = new String("A");             
+String s2 = new String("A");  
+</pre>
+<br />
+Instead use:<br />
+<br />
+<pre class="java" name="code">String s1 = "A";
+String s2 = "A";   
+</pre>
+<br />
+s1 and s2 point to the same String object in the pool.  Hence s1 == s2 returns true.
+<br />
+<br />
+Since interning is automatic for String literals  String s1 = “A”, the <i>intern( ) </i>method is to be used on Strings constructed with new String(“A”).
+<br />
+<br />
+<b><span style="font-size: large;">Q3</span></b>. Why String class has been made immutable in Java? <br />
+<b><span style="font-size: large;">A3</span></b>.&nbsp; For security and performance. <br />
+<br />
+<b>Security</b>: The main reason for immutability is <u>security</u>. In Java you pass file names, host names, login names, passwords, customer account numbers, etc as a string object. For example, had String been mutable, 'user 1' could log into a Java application using his user-name and password credentials, and then possibly change the name of his password file name, which is a String object from 'password1' to 'password2' before JVM actually places the native OS system call to open the file. This is a serious security breach allowing 'user 1' to open user 2's password file. 
+<br />
+<br />
+<b>Performance</b>: Immutable classes are ideal for representing values of abstract data (i.e. value objects) types like numbers, enumerated types, etc. If you need a different value, create a different object. In Java, <i>Integer</i>, <i>Long</i>, <i>Float</i>, <i>Character</i>, <i>BigInteger</i> and <i>BigDecimal</i> are all immutable objects. Immutable classes are inherently thread-safe, hence they are less error prone and can be used safely in a multi-threaded environment for better scalability. Optimization strategies like caching of hashcode, string pooling, etc can be easily applied to improve performance.<br />
+<br />
+<b><span style="font-size: large;">Q4</span></b>. In Java, what purpose does the key words <b>final</b>, <b>finally</b>, and <b>finalize</b> fulfill?<br />
+<b><span style="font-size: large;">A4</span></b>. '<b>final</b>' makes a variable reference not changeable, makes a method not over-ridable, and makes a class not inheritable.<br />
+<br />
+'<b>finally</b>' is used in a try/catch statement to almost always execute the code. Even when an exception is thrown, the finally block is executed. This is used to close non-memory resources like file handles, sockets, database connections, etc till Java 7. This is is no longer true in Java 7. 
+<br />
+<br />
+Java 7 has introduced the <i>AutoCloseable</i> interface to avoid the unsightly try/catch/finally(within finally try/catch) blocks to close a resource. It also prevents potential resource leaks due to not properly closing a resource.
+<br />
+<br />
+<b>// pre Java 7
+</b><br />
+<br />
+<pre class="java" name="code">  BufferedReader br = null;
+
+  try {
+     File f = new File("c://temp/simple.txt");
+     InputStream is = new FileInputStream(f);
+     InputStreamReader isr = new InputStreamReader(is);
+     br = new BufferedReader(isr);
+
+     String read;
+
+     while ((read = br.readLine()) != null) {
+         System.out.println(read);
+     }
+  } catch (IOException ioe) {
+   ioe.printStackTrace();
+  } finally {
+     //Hmmm another try catch. unsightly
+     try {
+       if (br != null)
+          br.close();
+       } catch (IOException ex) {
+          ex.printStackTrace();
+      }
+ }
+</pre>
+<br />
+<br />
+<b>Java 7</b> – try can have <b><i>AutoCloseble</i></b> types. <i>
+InputStream</i> and <i>OutputStream</i> classes now implements the Autocloseable interface.
+<br />
+<br />
+<pre class="java" name="code">try (InputStream is = new FileInputStream(new File("c://temp/simple.txt"));
+     InputStreamReader isr = new InputStreamReader(is);
+     BufferedReader br2 = new BufferedReader(isr);) {
+
+     String read;
+
+     while ((read = br2.readLine()) != null) {
+  System.out.println(read);
+     }
+}
+
+catch (IOException ioe) {
+ ioe.printStackTrace();
+}
+</pre>
+<br />
+<br />
+try can now have multiple statements in the parenthesis and each statement should create an object which implements the new <i>java.lang.AutoClosable</i> interface. The <i><b>AutoClosable</b></i> interface consists of just one method. void close() throws <i>Exception</i> {}. Each <i>AutoClosable</i> resource created in the try statement will be automatically closed without requiring a finally block. If an exception is thrown in the try block and another Exception is thrown while closing the resource, the first Exception is the one eventually thrown to the caller. Think of the <i>close( ) </i>method as implicitly being called as the last line in the try block.
+<br />
+<br />
+'<b>finalize</b>' is called when an object is garbage collected. You rarely need to override it. It should not be used to release non-memory resources like file handles, sockets, database connections, etc because Java has only a finite number of these resources and you do not know when the garbage collection is going to kick in to release these non-memory resources through the <i>finalize( ) </i>method.
+<br />
+<br />
+So, final and finally are used very frequently in your Java code, but the key word finalize is hardly or never used.
+
+<br />
+<br />
+<b><span style="font-size: large;">Q5</span></b>. What value will the following method return?<br />
+<br />
+<pre class="java" name="code">public static int getSomeNumber( ){  
+   try{         
+ return 2;     
+   } finally {         
+ return 1;     
+   } 
+} 
+</pre>
+<br />
+<br />
+<b><span style="font-size: large;">A5</span></b>. 1 is returned because 'finally' has the right to override any exception/returned value by the try..catch block. It is a bad practice to return from a finally block as it can suppress any exceptions thrown from a try..catch block. For example, the following code will not throw an exception.
+<br />
+<br />
+<pre class="java" name="code">public static int getSomeNumber( ){     
+ try{         
+  throw new RuntimeException( );     
+ } finally {         
+  return 12;     
+ } 
+} 
+</pre>
+<br />
+<br />
+<b><span style="font-size: large;">Q6</span></b>. What can prevent execution of a code in a finally block? <br />
+<b><span style="font-size: large;">A6</span></b>. <b> a)</b> An end-less loop. <br />
+<br />
+<pre class="java" name="code">public static void main(String[ ] args) {
+ try {
+  System.out.println("This line is printed .....");
+  //endless loop
+  while(true){
+   //...
+  }
+ }
+ finally{
+  System.out.println("Finally block is reached."); // won't reach        
+ }
+}
+</pre>
+<br />
+<br />
+<b>b)</b> <i>System.exit(1) </i>statement.<br />
+<br />
+<pre class="java" name="code">public class Temp {
+
+    public static void main(String[ ] args) {
+        try {
+            System.out.println("This line is printed .....");
+            System.exit(1);
+        }
+        finally{
+            System.out.println("Finally block is reached.");// won't reach
+        }
+    }
+}
+</pre>
+<br />
+<b>c)</b> Thread death or turning off the power to CPU.<br />
+<b>d)</b> An exception arising in a finally block itself.<br />
+<b>e)</b> <i>Process p = Runtime.getRuntime( ).exec("</i><o command="" kill="" s=""><i>")</i>;<br />
+<br />
+
+
+If using Java 7 or later editions, use <i>AutoCloseable</i> statements within the try block.</o><br />
+<br />
+<b><span style="font-size: large;">Q7.</span></b> Can you describe “method overloading” versus “method overriding”? Does it happen at compile time or runtime?<br />
+<b><span style="font-size: large;">A7</span></b>. <b>Method overloading</b>: Overloading deals with multiple methods in the same class with the same name but different method signatures. Both the below methods have the same method names but different method signatures, which mean the methods are overloaded. <br />
+<br />
+<pre class="java" name="code">public class {
+     public static void evaluate(String param1);    // method #1
+     public static void evaluate(int param1);       // method #2 
+}
+</pre>
+<br />
+<br />
+This happens at compile-time. This is also called compile-time polymorphism because the compiler must decide how to select which method to run based on the data types of the arguments. If the compiler were to compile the statement:
+<br />
+<br />
+<pre class="java" name="code">evaluate(“My Test Argument passed to param1”);
+</pre>
+<br />
+<br />
+it could see that the argument was a string literal, and generate byte code that called method #1.  
+<br />
+<br />
+Overloading lets you define the <u><b>same operation in different ways for different data</b></u>.
+<br />
+<br />
+<b>Method overriding:</b> Overriding deals with two methods, one in the parent class and the other one in the child class and has the same name and signatures. Both the below methods have the same method names and the signatures but the method in the subclass MyClass overrides the method in the superclass BaseClass.
+<br />
+<br />
+<pre class="java" name="code">public class A {
+   public int compute(int input) {                      //method #3
+        return 3 * input;
+   }        
+}
+</pre>
+<br />
+<br />
+<pre class="java" name="code">public class B extends A {
+   @Override
+   public int compute(int input) {                     //method #4
+        return 4 * input;
+   }        
+}
+</pre>
+<br />
+<br />
+This happens at runtime. This is also called runtime polymorphism because the compiler does not and cannot know which method to call. Instead, the JVM must make the determination while the code is running.
+<br />
+<br />
+The method compute(..) in subclass “B” overrides the method compute(..) in super class “A”. If the compiler has to compile the following method,
+<br />
+<br />
+<pre class="java" name="code">public int evaluate(A reference, int arg2)  {
+     int result = reference.compute(arg2);
+}
+</pre>
+<br />
+<br />
+The compiler would not know whether the input argument 'reference' is of type “A” or  type “B”. This must be determined during runtime whether to call method #3 or method #4 depending on what type of object (i.e. instance of Class A or instance of Class B) is assigned to input variable “reference”.
+<br />
+<br />
+<pre class="java" name="code">A obj1 = new B( );
+A obj2 = new A( );
+evaluate(obj1);     // method #4 is invoked as stored object is of type B
+evaluate(obj2);     // method #3 is invoked as stored object is of type A
+</pre>
+<br />
+<br />
+Overriding lets you define <u><b>the same operation in different ways for different object types</b></u>.
+<br />
+<br />
+<b><span style="font-size: large;">Q8</span></b>. What do you know about class loading? Explain Java class loaders? If you have a class in a package, what do you need to do to run it? Explain dynamic class loading? <br />
+<span style="font-size: large;"><b>A8</b></span>. Class loaders are hierarchical. Classes are introduced into the JVM as they are referenced by name in a class that is already running in the JVM. So, how is the very first class loaded? The very first class is specially loaded with the help of static <i>main( ) </i>method declared in your class. All the subsequently loaded classes are loaded by the classes, which are already loaded and running. A class loader creates a namespace. All JVMs include at least one class loader that is embedded within the JVM called the primordial (or bootstrap) class loader. The JVM has hooks in it to allow user defined class loaders to be used in place of primordial class loader. Let us look at the class loaders created by the JVM.<br />
+<br />
+<style type="text/css">TD P { margin-bottom: 0cm; }P { margin-bottom: 0.21cm; }</style>
+
+
+<br />
+<table border="1" cellpadding="4" cellspacing="0" style="width: 100%px;">
+ <colgroup><col width="45*"></col>
+ <col width="23*"></col>
+ <col width="189*"></col>
+ </colgroup><tbody>
+<tr valign="TOP">
+  <td width="17%"><div align="CENTER" style="background: transparent; page-break-before: auto;">
+<span style="font-family: inherit; font-size: small;"><b>classloader</b></span></div>
+</td>
+  <td width="9%"><div align="CENTER">
+<span style="font-family: inherit; font-size: small;"><b>Reloadable</b></span></div>
+</td>
+  <td width="74%"><div align="CENTER">
+<span style="font-family: inherit; font-size: small;"><b>Explanation</b></span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="17%"><div align="JUSTIFY" style="background: transparent; margin-bottom: 0cm; page-break-before: auto;">
+<span style="font-family: inherit; font-size: small;">Bootstrap</span></div>
+<div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<span style="font-family: inherit; font-size: small;">(primordial)</span></div>
+</td>
+  <td width="9%"><div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<span style="font-family: inherit; font-size: small;">No</span></div>
+</td>
+  <td width="74%"><div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<span style="font-family: inherit; font-size: small;">Loads JDK internal
+   classes, java.* packages as defined by the sun.boot.class.path
+   system property. Typically loads the <b>rt.jar</b> and i18n.jar
+   archives.</span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="17%"><div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<span style="font-family: inherit; font-size: small;">Extensions</span></div>
+</td>
+  <td width="9%"><div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<span style="font-family: inherit; font-size: small;">No</span></div>
+</td>
+  <td width="74%"><div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<span style="font-family: inherit; font-size: small;">Loads jar files from JDK
+   extensions directory as defined by the java.ext.dirs system
+   property. Usually from the lib/ext directory of the JRE.</span></div>
+</td>
+ </tr>
+<tr valign="TOP">
+  <td width="17%"><div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<span style="font-family: inherit; font-size: small;">System</span></div>
+</td>
+  <td width="9%"><div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<span style="font-family: inherit; font-size: small;">No</span></div>
+</td>
+  <td width="74%"><div align="JUSTIFY" style="background: transparent; page-break-before: auto;">
+<span style="font-family: inherit; font-size: small;">Loads classes from the
+   system classpath as defined by the java.class.path property, which
+   is set by the CLASSPATH environment variable or command line
+   options -classpath or -cp as discussed earlier. The developers are
+   responsible for providing the necessary classpath information.</span></div>
+</td>
+ </tr>
+</tbody></table>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-WXMJUqxyxLs/U5V6ZbDqf_I/AAAAAAAACbE/9QjlPkCz-so/s1600/Screen+shot+2014-06-09+at+7.11.23+PM.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-WXMJUqxyxLs/U5V6ZbDqf_I/AAAAAAAACbE/9QjlPkCz-so/s1600/Screen+shot+2014-06-09+at+7.11.23+PM.png" height="218" width="640" /></a></div>
+<br />
+Class loaders are hierarchical and use a delegation model when loading a class. Class loaders request their parent to load the class first before attempting to load it themselves. When a class loader loads a class, the child class loaders in the hierarchy will never reload the class again. Hence uniqueness is maintained. Classes loaded by a child class loader have visibility into classes loaded by its parents up the hierarchy but the reverse is not true as explained in the above diagram.<br />
+<br />
+<br />
+<b><span style="font-size: large;">Q9</span></b>. Explain static vs. dynamic class loading? <br />
+<b><span style="font-size: large;">A9</span></b>. Classes are <b>statically loaded</b> with Java’s “new” operator.
+<br />
+<br />
+<pre class="java" name="code">class MyClass {
+    public static void main(String args[]) {
+       Car c = new Car( );
+    }
+}
+</pre>
+<br />
+<br />
+<b>Dynamic loading</b> is a technique for programmatically invoking the functions of a class loader at run time. Let us look at how to load classes dynamically.
+<br />
+<br />
+<pre class="java" name="code">//static method which returns a Class
+Class.forName (String className); 
+</pre>
+<br />
+<br />
+The above static method returns the class object associated with the class name. The string className can be supplied dynamically at run time. Unlike the static loading, the dynamic loading will decide whether to load the class Car or the class Jeep at runtime based on a properties file and/or other runtime conditions. Once the class is dynamically loaded the following method returns an instance of the loaded class. It’s just like creating a class object with no arguments.
+<br />
+<br />
+<pre class="java" name="code">// A non-static method, which creates an instance of a 
+// class (i.e. creates an object).
+class.newInstance ( ); 
+</pre>
+<br />
+<br />
+Static class loading throws “<b><i>NoClassDefFoundError</i></b>”  if the class is not found  and the dynamic class loading throws “<b><i>ClassNotFoundException</i></b>”  if the class is not found.
+<br />
+<br />
+<b><span style="font-size: large;">Q10</span></b>. What tips would you give to someone who is experiencing a class loading or “Class Not Found” exception? <br />
+<span style="font-size: large;"><b>A10</b></span>. “<i><b>ClassNotFoundException</b></i>” could be quite tricky to troubleshoot. When you get a <i>ClassNotFoundException</i>, it means the JVM has traversed the entire classpath and not found the class you've attempted to reference.<br />
+<br />
+<b>1)</b> Stand alone Java applications use -cp or -classpath to define all the folders and jar files to look for. In windows separated by ";" and in Unix separated by ":".<br />
+<br />
+<pre class="java" name="code">java -classpath "C:/myproject/classes;C:/myproject/lib/my-utility.jar;C:/myproject/lib/my-dep.jar" MyApp
+</pre>
+<br />
+<br />
+<b>2)</b> Determine the jar file that should contain the class file within the classpath -- war/ear archives and application server lib directories. Search recursively for the class.
+<br />
+<br />
+<pre class="java" name="code">$ find . -name "*.jar" -print -exec jar -tf '{}' \; | grep -E  "jar$|String\.class"
+</pre>
+<br />
+<br />
+You can also search for the class at <i>www.jarfinder.com 
+  </i><br />
+<br />
+<b>3)</b> Check the version of the jar in the manifest file MANIFEST.MF, access rights (e.g. read-only) of the jar file, presence of multiple versions of the same jar file and any jar corruption by trying to unjar it with "jar -xvf ...". If the class is dynamically loaded with <span style="font-size: small;"><span style="font-family: inherit;"><code class="plain">Class.forName("com.myapp.Util")</code></span></span>, check if you have spelled the class name correctly.
+<br />
+<br />
+<b>4) </b>Check if the application is running under the right JDK?  Check the JAVA_HOME  environment property
+<br />
+<br />
+<pre class="java" name="code">$  echo $JAVA_HOME 
+</pre>
+<br />
+<br />
+<h2>
+Core Java Interview Questions and Answers</h2>
+<table bgcolor="#FFFFCC" border="2" cell-padding="10px" style="width: 100%;">
+<tbody>
+<tr>
+<td><a href="http://java-success.blogspot.com/2014/06/top-50-core-java-interview-questions.html"> <span style="font-size: large;"><b>1-10 </b></span>Language Fundamentals every Java developer must know </a> </td>
+
+<td><a href="http://java-success.blogspot.com/2014/07/top-50-core-java-interview-questions.html"><span style="font-size: large;"><b>11-23</b></span> OOP every Java developer must know </a></td>
+
+<td><a href="http://java-success.blogspot.com/2014/07/top-50-core-java-interview-questions_5.html"><span style="font-size: large;"><b>24-36</b></span> interfaces and generics every Java developer must know </a></td>
+
+<td><a href="http://java-success.blogspot.com/2014/07/top-50-core-java-interview-questions_15.html"><span style="font-size: large;"><b>37-42</b></span> garbage collection and pass-by-reference every Java developer must know </a></td>
+
+<td><a href="http://java-success.blogspot.com/2014/07/top-50-core-java-interview-questions_16.html"><span style="font-size: large;"><b>43-54</b></span> maps and objects every Java developer must know </a></td>
+
+</tr>
+</tbody></table>
+<div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Core%20Java">Core Java</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2014/06/top-50-core-java-interview-questions.html" title="permanent link"> 6/29/2014 02:50:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=1841872320778897246" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=1841872320778897246&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>4 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c178968580497767359"><a name="c178968580497767359"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thanks.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2014/06/top-50-core-java-interview-questions.html?showComment=1405811576838#c178968580497767359" title="comment permalink">9:12 AM, July 20, 2014</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=178968580497767359" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c9053525867421430663"><a name="c9053525867421430663"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/08490085682141864320" rel="nofollow">Sree</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Awesome explanation for each question. I have a doubt.<br /><br />Is there any difference in object creation for below.<br />A a= new A()  vs Class.forName(A).newInstance()?<br /><br /><br /><br /></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2014/06/top-50-core-java-interview-questions.html?showComment=1406025421649#c9053525867421430663" title="comment permalink">8:37 PM, July 22, 2014</a>
+	  <span class="item-control blog-admin pid-10474185"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=9053525867421430663" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c4466335658281295459"><a name="c4466335658281295459"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>In the A9 it is written that &quot;Static class loading throws “NoClassDefFoundException” if the class is not found&quot;.<br />Instead of this it should be &quot;NoClassDefFoundError&quot;.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2014/06/top-50-core-java-interview-questions.html?showComment=1406401967492#c4466335658281295459" title="comment permalink">5:12 AM, July 27, 2014</a>
+	  <span class="item-control blog-admin pid-493311216"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=4466335658281295459" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8806036432712092697"><a name="c8806036432712092697"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/00869496028596976417" rel="nofollow">Arulkumaran Kumaraswamipillai</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Thanks and fixed.</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2014/06/top-50-core-java-interview-questions.html?showComment=1406421841948#c8806036432712092697" title="comment permalink">10:44 AM, July 27, 2014</a>
+	  <span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8806036432712092697" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=1841872320778897246'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/1841872320778897246/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+    <a name="links"></a><h4>Links to this post:</h4>
+    <dl id="comments-block">
+    <script type="text/javascript" src="https://www.blogger.com/dyn-js/backlink.js?blogID=35897879&postID=1841872320778897246" charset="utf-8" defer="true">
+</script>
+<noscript><a href="http://blogsearch.google.com/?ui=blg&q=link:http://java-success.blogspot.com/2014/06/top-50-core-java-interview-questions.html">See links to this post</a></noscript>
+<div id="blogger-dcom-block" style="display:none">
+        <dt class="comment-title">
+        <span class="comment-toggler">&nbsp;</span>
+        <a href="<$BlogBacklinkURL$>" rel="nofollow"><$BlogBacklinkTitle$></a> <span class="item-control blog-admin"><a style="border:none;" href="https://www.blogger.com/delete-backlink.g?blogID=35897879&amp;postID=1841872320778897246&amp;backlinkURL=%3C$BlogBacklinkURLEscaped$%3E" title="Remove Link" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+        </dt>
+        <dd class="comment-body"><$BlogBacklinkSnippet$>
+        <br />
+        <span class="comment-poster">
+        <em><$I18NPostedByBacklinkAuthor$> @ <$BlogBacklinkDateTime$></em>
+        </span>
+        </dd>
+    </div>
+<script type="text/javascript">if (typeof BL_addOnLoadEvent == 'function') { BL_addOnLoadEvent(function() { BL_writeBacklinks(); }); }</script>
+
+    </dl>
+    <p class="comment-timestamp"><script type="text/javascript">function BlogThis() {
+Q=''; x=document; y=window;
+if(x.selection) {
+  Q=x.selection.createRange().text;
+} else if (y.getSelection) {
+  Q=y.getSelection();
+} else if (x.getSelection) {
+  Q=x.getSelection();
+}
+popw = y.open('https://www.blogger.com/blog-this.g?t=' +
+  escape(Q) + '&u=' + escape(location.href) + '&n=' +
+  escape(document.title),'bloggerForm',
+  'scrollbars=no,width=475,height=300,top=175,left=75,status=yes,resizable=yes');
+void(0);
+}
+</script>
+<a class="comment-link" href="javascript:BlogThis();" id="b-backlink">Create a Link</a></p>
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2014/06/can-you-write-abstract-java-comparator.html">Can you write an abstract Java comparator that wil...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/working-with-java-bigdecimal-class-for.html">Working with Java BigDecimal class for monetary va...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/transaction-management-with-spring-and.html">Transaction management with Spring and JTA intervi...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/what-is-difference-between-strategy-and.html">What is the difference between strategy and comman...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/top-17-unix-commands-java-developers.html">Top 17 Unix commands Java developers use frequentl...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/jndi-and-ldap-interview-questions-and.html">JNDI and LDAP interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/how-to-write-internalized-java.html">How to write internalized Java applications? What ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/jdbc-interview-questions-and-answers.html">JDBC Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/password-based-encryption-and.html">Password based Encryption and decryption example i...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2014/06/maven-interview-questions-and-answers.html">Maven interview questions and answers</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

@@ -1,0 +1,850 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Java Interview Questions and Answers on tools</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/8614669870979643810/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Oct 18, 2011</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="8614669870979643810"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Java Interview Questions and Answers on tools
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><b>Related reads:</b><br />
+<ul>
+<li><a href="http://java-success.blogspot.com.au/2013/05/unix-emulator-ssh-client-and-much-more.html">MobaXterm Unix emulator for FTP, TFTP, HTTP, Telnet, SSH, VNC and even NFS and more plugins.</a></li>
+<li><a href="http://java-success.blogspot.com.au/2012/05/eclipse-debugging-tips-tutorial-style.html">Eclipse debugging tutorial step by step.</a></li>
+<li><a href="http://java-success.blogspot.com.au/2012/05/5-handy-eclipse-tips-you-must-know.html">5 eclipse IDE  tips you must know&nbsp;</a></li>
+</ul>
+In today's enterprise Java development, you will use plethora of tools to make your life easier and more productive. The open-ended questions described below are not to make the Hire/No Hire decision, but to judge your seniority and experience. <br />
+<br />
+<b>Q.</b> Can you describe some real life scenarios in which tools helped you solve issues?<br />
+<b>A.</b> [Hint: The objective is to ascertain, if you are using the right tool for right job. This question can also be phrased differently with How would you go about ....? type of questions like How would you go about fixing a memory or resource leak in a JEE application?, etc ].<br />
+<br />
+<b>1.</b> <b>Debugging:</b> The application and server logs are the first place to turn for any issues in production or during development. It is really worth understanding some of the tools that will help to obtain, analyze and search through the logs.<br />
+<br />
+<ul>
+<li><b>FileZilla</b> or <b>WinSCP</b> to transfer files using FTP, SFTP or SCP protocols. Log files or database extract files can be transferred from a Unix machine to your sandbox (i.e. local machine) using these utilities, and explored further using text editors like <b>Notepad++</b>, <b>UltraEdit</b>, or <b>TextPad</b>. These text editors provide handy features like&nbsp; search text highlighting, REGEX based searches, column formatting,&nbsp; compare files, and many more. Notepad++ has powerful editing features, uses less CPU, and opens larger files.&nbsp;&nbsp;</li>
+</ul>
+<ul>
+<li><b>Cygwin</b>, <a href="http://java-success.blogspot.com.au/2013/05/unix-emulator-ssh-client-and-much-more.html"><b>MobaXterm</b></a> or <b>MSYS</b> to emulate Unix like environment for Windows. Many production systems are Unix/Linux based, and having a Unix/Linux environment on your local environment can make you more productive by harnessing the power of Unix commands.</li>
+</ul>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Search the log files to see if a particular user logged in.<br />
+<pre class="brush: csharp">cat /var/log/server.log | grep "login.jsp" | grep "userid"</pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List all the log files that have a particular search text.<br />
+<pre class="brush: csharp">grep -l "Missing Characteristic Value" *.log*&nbsp;</pre>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You can use regular expression patterns to search.    <br />
+<pre class="brush: csharp">grep -e '^import.*util.regex' *.java</pre>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Find all occurrences of util.* packages except the util.regex package.<br />
+<pre class="brush: csharp">grep -e '^import.*util' *.java | grep -v 'regex' </pre>
+<br />
+<ul>
+<li> <b>Remote debugging</b>: It is increasingly essential with the globalization to be able to debug a Java application that is deployed remotely, in another country or city. You will come across scenarios where an application might be running fine in your sandbox (i.e. local desktop), but might be buggy when running in another environment or country. <br />
+<br />
+Say you want to remotely debug an application called MyApp.jar that is running remotely, you can set up your desktop to be able to  debug it  by enabling the remote debugging as shown below:<br />
+<br />
+<pre class="brush: csharp">
+<br/>
+java -Xdebug -Xrunjdwp:transport=dt_socket,address=888,server=y -jar MyApp.jar
+<br/>
+</pre>
+<br />
+<br />
+The above command tells the MyApp.jar to start a server socket on port 888, and publish the debugging messages using the jdwp, which stands for Java Debug Wire Protocol. The IDEs like eclipse can be configured to tap in to remote debugging as shown below.&nbsp;</li>
+</ul>
+<br />
+&nbsp;In eclipse, select&nbsp; <b>Run </b>--&gt;<b> Debug Configurations</b>. Right click on "Remote Java Application", and select "New". Fill in the config details as shown below and apply the changes. Click on the "Debug" button to start debugging the remote application within eclipse. You will have to attach the source files from within eclipse.<br />
+<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://4.bp.blogspot.com/-82CEDZea8-M/TyX8bAbyv8I/AAAAAAAAASU/pMAVH0O9g4M/s1600/remote_debugging_eclipse.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-82CEDZea8-M/TyX8bAbyv8I/AAAAAAAAASU/pMAVH0O9g4M/s640/remote_debugging_eclipse.JPG" height="596" width="640" /></a></div>
+<br />
+<br />
+The "diagnostic-core" is the project with the source files within eclipse. The "MyApp" is the remote debug configuration that can be stopped and started within eclipse. The connection properties provide information as to where to look for debug messages exposed via jdwp.&nbsp; <br />
+<ul></ul>
+<br />
+<ul>
+<li>Web debugging tools like<b> Fiddler2</b> for IE, <b>Firebug NET</b> tab for Firefox, <b>JMeter</b> HTTP proxy server, <b>Charles </b>web debugging, etc act as a proxy to capture request parameters, request/response content, headers, cookies, etc for debugging purpose.</li>
+</ul>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-Vhc2K0nEZK8/TpzGUZtcsaI/AAAAAAAAAIg/uIsPkpKEUq4/s1600/proxy-servers.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-Vhc2K0nEZK8/TpzGUZtcsaI/AAAAAAAAAIg/uIsPkpKEUq4/s640/proxy-servers.JPG" height="235" width="640" /></a></div>
+<br />
+<ul>
+<li>SQL proxy drivers like<b> P6SPY,</b> <b>log4jdbc</b>, etc to log generated SQL statements, execution times, etc. </li>
+</ul>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-iurOJu8NMFw/TpzIOBNNS-I/AAAAAAAAAIo/cuM59sQLRCE/s1600/proxy-SQL-driver.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-iurOJu8NMFw/TpzIOBNNS-I/AAAAAAAAAIo/cuM59sQLRCE/s640/proxy-SQL-driver.JPG" height="232" width="640" /></a></div>
+<br />
+<ul>
+<li>Network packet sniffing tools like <b>Wireshark</b>, <b>Kismet</b>, <b>tcpdump</b>, etc for analyzing the network protocols &amp; issues. Developing applications that interact with web services presents a unique set of problems like not knowing exactly what message was sent to the server, or what response was received. Some of the most difficult bugs to track down are caused by a disconnect between what you think you are sending to the server, and what is actually going across the wire. These tools are commonly called "packet sniffers" and capture all network packets that move across your network interface. Examining the contents of these packets and the order in which they were sent and received can be a useful debugging technique. </li>
+</ul>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-d7EGwsGmtlc/Tp0Z1ZoatZI/AAAAAAAAAIw/TqD-yQD8EtQ/s1600/packet-sniffers.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-d7EGwsGmtlc/Tp0Z1ZoatZI/AAAAAAAAAIw/TqD-yQD8EtQ/s640/packet-sniffers.JPG" height="192" width="640" /></a></div>
+<br />
+<br />
+<ul></ul>
+<b>2.</b> <b>Integration testing</b>: Most applications built nowadays need to integrate with internal and external systems through SOAP or RESTful web service and messaging (e.g. JMS). There are a number of handy tools/clients to assist in development, testing, and debugging applications that integrate with other systems.<br />
+<br />
+<ul>
+<li><b>HermesJMS </b>is an extensible console that helps you interact with JMS providers making it simple to publish and edit messages, browse or search queues and topics, copy messages around and delete them. </li>
+<li><b>soapUI </b>is a functional testing tool for SOA and Web Service testing. soapUI provides complete test coverage - from SOAP and REST-based Web services, to JMS enterprise messaging layers, databases, Rich Internet Applications, and much more. </li>
+<li><b>Firefox poster plugin</b> is a developer tool for interacting with web services and other web  resources that lets you make HTTP requests, set the entity body, and  content type. For example, you can make RESTful service calls over HTTP by posting XML.&nbsp;</li>
+</ul>
+<br />
+<b>3. Version control: CVS </b>and <b>Subversion </b>are the two most prominent open source version control tools. <b>TortoiseCVS </b>and <b>TortoseSVN </b>let you work with files under CVS and SVN version control systems directly from Windows Explorer. With these tools you can directly check out modules, update, commit and see differences by right clicking on files and folders within Explorer. You can see the state of a file with overlays on top of the normal icons within Explorer. It even works from within the file open dialog. <br />
+<br />
+<b>4. Performance testing</b>: <b>JMeter </b>is a popular performance testing tool for testing web applications, web services (both SOAP and RESTful), and SQL query performance.<a href="http://java-success.blogspot.com/2011/10/jmeter-interview-questions-and-answers.html">JMeter Interview Questions and Answers</a><br />
+<br />
+<b>5. Hot deployment </b>tools like&nbsp; <b>JRebel</b>, improves developer productivity by skipping the build and redeploy phases in your sandbox. JRebel is a&nbsp; JVM agent, which instantly reloads your code upon change without having to restart your application server or redeploy the application. It integrates into your JVM as a classloader extension and enables reloading of classes without requiring to create a new classloader, which is usually the case when redeploying or restarting application servers.<br />
+<br />
+<b>6. Database administration </b>and <b>SQL execution </b>tools such as <b>db-visualizer</b>, <b>SQuirreL SQL</b>,&nbsp; <b>SQL Developer</b>, <b>DBArtisan</b>, and <b>Toad</b>.There are command-line tools like <b>iSQL </b>for Sybase and <b>SQLPlus </b>for Oracle. <b>BCP </b>(stands for <b>B</b>ulk <b>C</b>o<b>P</b>y)<b> </b>and SQL Loader are ETL (i.e. Extract Transform and Load) tools to import data from a flat file into a database and export data from a database into a flat file.<br />
+<br />
+<b>7. Penetration testing or "PEN test" </b>tools like Google's Skipfish, Firefox plugin "tamperdata", etc to identify security holes in your web application.<br />
+<br />
+<br />
+<b>Q. </b>What are some of the frequently used short-cut keys on your favorite IDE?<br />
+<b>A. </b>The less you touch the mouse, the more code you can write. For example, in eclipse, the following short-cut keys are very handy and makes you more productive.<br />
+<br />
+<b>1. CTRL + SHIFT + R </b>to open a resource and <b>CTRL + SHIFT + T </b>for Java type<br />
+<b>2. F4 </b>on highlighting a class or interface to open the type hierarchy.<br />
+<b>3.</b> <b>CTRL + SHIFT + O</b> to organize imports<br />
+<b>4. CTRL + SHIFT + F </b>to format text.<br />
+<b>5. CTRL + D</b> to delete a row<br />
+<b>6. CTRL + SHIFT </b>+ /<b> </b>to comment out code.<br />
+<b>7. CTRL + 1</b> is probably the most useful one. It activates the quick fix. <br />
+<b>8. CTRL + SHIFT + G</b> to generate getters and setters.<br />
+<b>9. CTRL + O</b> to get a snapshot of the class members. You can go directly to a member (method, variable) of a huge class file with this. If you just want to jump from one member to the next (or previous), you can use <b>Ctrl + Shift + downarrow </b>or <b>Ctrl + Shift + uparrow</b>, respectively.<br />
+<b>10. CTRL + L</b> to go to a particular line. Handy when the stack trace says that the error is on line 256.&nbsp; <br />
+<b>11. CTRL + SHIFT + L </b>to get the list of all the currently defined short-cut keys.<br />
+<b>12</b>. Pressing down the <b>CTRL</b> key while hovering over a class, interface or a method with the mouse to invoke the contextual menu to navigate to a particular interface, implementation, or method. Very useful.<br />
+<br />
+<br />
+<b>Q.</b> Name a feature in your favorite IDE that you discovered recently&nbsp; or&nbsp; find it very useful? <br />
+<b>A</b>. In eclipse, the "<b>working sets</b>" are very handy concept to categorize resources across projects into a contextually relevant representation. Working sets are simply, as their name suggests, a sub-set of files, classes, folders or projects with the following benefits.<br />
+<br />
+<ul>
+<li>Categorize multiple projects together that may represent a single application. For example, maven multi-module projects like&nbsp;&nbsp; myproject-core, myproject-web, myproject-batch, myproject-parent, myproject-schedule, etc can be grouped into a single working set named "myproject". </li>
+</ul>
+<br />
+<ul>
+<li>You can search or access resources by working sets. You can even close the whole working set.</li>
+</ul>
+<br />
+<ul>
+<li>If you like, you can also create working sets by layers -- Model, View, Controller, Service, DAO, etc. It is also possible to select particular packages, classes, and folder structures to be included or excluded from a given working set. This allows developers to organize code anyway they want.&nbsp; </li>
+</ul>
+<br />
+<ul>
+<li>Very handy and useful especially in larger projects.</li>
+</ul>
+<br />
+You can get the production support team to email you a stack trace, and then you can <b>copy and paste the stack trace into Eclipse's Console window</b> for further analysis. You can then click on class names in the stack trace as if your own code had generated it. <br />
+<br />
+There are other productivity improving features described above in terms of short-cut keys, especially the <b>ctrl-1</b> for quick fix.<br />
+<br />
+The "<b>templates</b>" are very handy for frequently used code snippets. The window --&gt; preferences --&gt; Java --&gt; Editor --&gt; Templates can be used&nbsp; to add handy code snippets to improve productivity. For example, the following template to declare loggers.<br />
+<br />
+<pre class="brush: csharp">${:import(org.apache.commons.logging.Log, org.apache.commons.logging.LogFactory)}
+private static final Log LOG = LogFactory.getLog(${enclosing_type}.class);
+
+</pre>
+<br />
+You can name the above template snippet as "<b>logger</b>" and when you are inside your class, if you type "logger" and then ctrl+space, eclipse will generates and inserts the required code based on the saved template.<br />
+<br />
+<pre class="brush: csharp">private static final Log LOG = LogFactory.getLog(TestSpring3.class);
+
+</pre>
+<br />
+<br />
+Many other useful templates can be created for productivity.<br />
+<br />
+<br />
+<b>Other similar links:</b><br />
+<ul>
+<li><a href="http://java-success.blogspot.com.au/2013/05/unix-emulator-ssh-client-and-much-more.html">MobaXterm Unix emulator for FTP, TFTP, HTTP, Telnet, SSH, VNC and even NFS and more plugins.</a></li>
+<li><a href="http://java-success.blogspot.com.au/2012/05/eclipse-debugging-tips-tutorial-style.html">Eclipse debugging tutorial step by step.</a></li>
+<li><a href="http://java-success.blogspot.com.au/2012/05/5-handy-eclipse-tips-you-must-know.html">5 eclipse IDE  tips you must know&nbsp;</a> </li>
+</ul>
+<div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Tools">Tools</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2011/10/java-interview-questions-and-answers-on_18.html" title="permanent link"> 10/18/2011 06:40:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=8614669870979643810" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=8614669870979643810&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>1 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c5421951629481506867"><a name="c5421951629481506867"></a>
+        <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="https://img2.blogblog.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Great! thanks for the share!</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/10/java-interview-questions-and-answers-on_18.html?showComment=1321588879277#c5421951629481506867" title="comment permalink">3:01 PM, November 18, 2011</a>
+	  <span class="item-control blog-admin pid-1840459502"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=5421951629481506867" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=8614669870979643810'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/8614669870979643810/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2011/10/java-interview-questions-and-answers-on.html">Java Interview Questions and Answers on Software A...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/judging-java-experience-questions-and.html">Java interview questions and answers on code quali...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/jsp-interview-questions-and-answers.html">JSP Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/sql-interview-questions-and-answers.html">SQL Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/spring-interview-questions-and-answers.html">20+ Spring Interview Questions and Answers: Overvi...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/jsf-interview-questions-and-answers.html">JSF Interview Questions and Answers: Overview</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/maven-interview-questions-and-answers.html">Maven interview questions and answers - inheritanc...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/servlets-interview-questions-and.html">Servlets interview questions and answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/build-tools-maven-and-ant-interview.html">Build tools (Maven and Ant)  interview questions a...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/09/why-blog-on-java-interview-questions.html">Why train with 650+ Java and JEE Interview Questio...</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>

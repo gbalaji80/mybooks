@@ -1,0 +1,873 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Java-Success Blog: Hibernate Interview questions and answers:  cacheing</title>
+
+  <link href='http://www.java-success.com' rel='canonical'/>
+
+  
+
+
+  <script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(l){}};this.tick("start",null,a)}var a,e;window.performance&&(e=(a=window.performance.timing)&&a.responseStart);var h=0<e?new c(e):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_","_wtsrt",
+e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Java-Success Blog - RSS" href="http://java-success.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Java-Success Blog - Atom" href="https://www.blogger.com/feeds/35897879/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Java-Success Blog - Atom" href="http://java-success.blogspot.com/feeds/8808340962300309707/comments/default" />
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.blogger.com/dyn-css/authorization.css?targetBlogID=35897879&zx=32ffd7df-5810-469f-a666-048e5011b3eb"/>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/979395223-backlink.js"></script>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/v-js/4080670514-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "https://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "35897879";</script>
+
+
+  <style type="text/css">
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Harbor
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+body {
+  background:#fff url("http://www.blogblog.com/harbor/rocks.jpg") no-repeat right bottom;
+  background-attachment:fixed;
+  margin:0;
+  padding:0;
+  font:x-small Georgia,Serif;
+  color:#333;
+  font-size/* */:/**/small;
+  font-size: /**/small;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+  body {background-attachment:scroll;}
+  /* End IE5-Mac hack */
+a:link {
+  color:#36a;
+  text-decoration:none;
+  }
+a:visited {
+  color:#764;
+  text-decoration:none;
+  }
+a:hover {
+  color:#933;
+  text-decoration:underline;
+  }
+a img {
+  border-width:0;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+#wrap {
+  background:url("http://www.blogblog.com/harbor/sky.jpg") repeat-x left top;
+  min-width:740px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  }
+#wrap2 {
+  background:url("http://www.blogblog.com/harbor/lighthouse.jpg") no-repeat left top;
+  }
+#wrap3 {
+  background:url("http://www.blogblog.com/harbor/cloud.jpg") no-repeat 100% 75px;
+  }
+#wrap4 {
+  background:url("http://www.blogblog.com/harbor/center_cloud.jpg") no-repeat 50% 0;
+  padding:15px;
+  width:100%;
+  width/* */:/**/auto;
+  width: /**/auto;
+  }
+@media all {
+  #content {
+    max-width:890px;
+    padding:0 30px 50px;
+    width:100%;
+    width/* */:/**/auto;
+    width: /**/auto;
+    }
+  html>body #content {
+    border:3px double #fff;
+    }
+  #main {
+    width:64%;
+    float:right;
+    }
+  #main2 {
+    margin:0;
+    padding:0;
+    }
+  #sidebar {
+    width:32%;
+    float:left;
+    }
+  #sidebar2 {
+    margin:0;
+    padding:170px 0 20px;
+    }
+  }
+@media handheld {
+  #content {
+    width:90%;
+    }
+  #main {
+    width:100%;
+    float:none;
+    }
+  #sidebar {
+    width:100%;
+    float:none;
+    }
+  }
+
+/* Header
+----------------------------------------------- */
+@media all {
+  #header {
+    padding:15px 0 10px 110px;
+    }
+  }
+@media handheld {
+  #header {
+    width:100%;
+    padding:15px 0 10px 0;
+    }
+  }
+#blog-title {
+  margin:0 0 .25em;
+  font-size:270%;
+  font-weight:normal;
+  color:#678;
+  }
+#blog-title a {
+  color:#678;
+  text-decoration:none;
+  }
+#description {
+  margin:0;
+  max-width:700px;
+  font-size:75%;
+  line-height:1.8em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#789;
+  }
+
+
+/* Headings
+----------------------------------------------- */
+h2 {
+  margin:1.5em 0 .75em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+
+
+/* Posts
+----------------------------------------------- */
+.date-header {
+  margin:2em 0 .5em;
+  }
+.post {
+  margin:.5em 0 1.5em;
+  line-height:1.6em;
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title strong {
+  background:url("http://www.blogblog.com/harbor/icon_lighthouse.gif") no-repeat 0 .15em;
+  display:block;
+  padding-left:20px;
+  text-decoration:none;
+  color:#368;
+  font-weight:normal;
+  }
+.post-title strong {
+  background-image:url("http://www.blogblog.com/harbor/icon_lighthouse2.gif");
+  color:#000;
+  }
+.post-title a:hover {
+  color:#933;
+  }
+.post-body {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding-top:12px;
+  }
+.post p {
+  margin:0 0 .75em;
+  }
+p.post-footer {
+  color:#999;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#666;
+  margin-right:.4em;
+  }
+.comment-link strong {
+  font-size:130%;
+  }
+.comment-link {
+  margin-left:.4em;
+  }
+.post img {
+  padding:4px;
+  border:1px solid #cde;
+  }
+
+
+/* Comments
+----------------------------------------------- */
+#comments {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  padding:15px 0 0;
+  }
+#comments h4 {
+  margin:1em 0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:#933;
+  }
+#comments h4 strong {
+  font-size:130%;
+  }
+#comments-block {
+  margin:1em 0 1.5em;
+  line-height:1.4em;
+  }
+#comments-block dt {
+  margin:.5em 0;
+  }
+#comments-block dd {
+  margin:.25em 20px 0;
+  }
+#comments-block dd.comment-timestamp {
+  margin:-.25em 20px 1.5em;
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+#comments-block dd p {
+  margin:0 0 .75em;
+  }
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+
+/* Sidebar Content
+----------------------------------------------- */
+#sidebar ul {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 15px;
+  padding:0 0 15px;
+  list-style:none;
+  }
+#sidebar li {
+  margin:0;
+  padding:0 0 .25em 15px;
+  text-indent:-15px;
+  line-height:1.5em;
+  }
+#sidebar p {
+  color:#666;
+  line-height:1.5em;
+  }
+
+
+/* Profile
+----------------------------------------------- */
+#profile-container {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center bottom;
+  margin:0 0 2em;
+  padding:0 0 15px;
+  }
+.profile-datablock {
+  margin:.5em 0 .5em;
+  }
+.profile-img {
+  display:inline;
+  }
+.profile-img img {
+  float:left;
+  padding:4px;
+  border:1px solid #cde;
+  margin:0 8px 3px 0;
+  }
+.profile-data {
+  margin:0;
+  font:bold 78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.profile-data strong {
+  display:none;
+  }
+.profile-textblock {
+  margin:0 0 .5em;
+  }
+.profile-link {
+  font:78%/1.4em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Footer
+----------------------------------------------- */
+#footer {
+  clear:both;
+  padding:15px 30px 0 50px;
+  }
+#footer hr {
+  display:none;
+  }
+#footer p {
+  background:url("http://www.blogblog.com/harbor/divider.gif") no-repeat center top;
+  margin:0;
+  padding-top:15px;
+  font:78%/1.6em Georgia,Serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+
+
+/* Feeds
+----------------------------------------------- */
+#blogfeeds {
+  }
+#postfeeds {
+  }
+  </style>
+<!-- --><style type="text/css">@import url(https://www.blogger.com/static/v1/v-css/navbar/3334278262-classic.css);
+div.b-mobile {display:none;}
+</style>
+
+</head>
+
+<body><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d35897879\x26blogName\x3dJava-Success+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dBLUE\x26layoutType\x3dCLASSIC\x26searchRoot\x3dhttp://java-success.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://java-success.blogspot.com/\x26vt\x3d2978101103701820782',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script>
+
+<!-- Begin wraps -->
+
+<div id="wrap"><div id="wrap2"><div id="wrap3"><div id="wrap4">
+
+
+<!-- Begin #content -->
+<div id="content">
+
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://java-success.blogspot.in/">
+	Java-Success Blog
+	</a>
+  </h1>
+
+  <p id="description">Java/JEE blog containing interview questions and answers and tutorials</p>
+
+</div>
+
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+<div class='adsense' style='text-align:center; padding: 0px 3px 0.5em 3px;'>
+<script type="text/javascript"><!--
+google_ad_client="pub-3764234023451771";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="333333";
+google_color_url="009900";
+google_color_text="993333";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+</div>
+
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-3764234023451771"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+  <h2 class="date-header">Dec 5, 2011</h2>
+
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="8808340962300309707"></a>
+    
+         
+    
+
+
+    <h3 class="post-title">
+	 
+	 Hibernate Interview questions and answers:  cacheing
+	 
+    </h3>
+
+    
+     
+    <div class="post-body">
+    <p>
+      <div style="clear:both;"></div><b>Q.</b> What is a second-level cache in Hibernate?<br />
+<b>A.</b> Hibernate uses two different caches for objects: first-level cache and second-level cache. First-level cache is associated with the Session object, while second-level cache is associated with the <i>SessionFactory </i>object. By default, Hibernate uses first-level cache on a per-transaction basis. Hibernate uses this cache mainly to reduce the number of SQL queries it needs to generate within a given transaction. For example, if an object is modified several times within the same transaction, Hibernate will generate only one SQL UPDATE statement at the end of the transaction, containing all the modifications. The second-level cache needs to be explicitly configured. Hibernate provides a flexible concept to exchange cache providers for the second-level cache. By default Ehcache is used as caching provider. However more sophisticated caching implementation can be used like the distributed JBoss Cache or Oracle Coherence.<br />
+<br />
+The Hibernate configuration looks like:<br />
+<br />
+<pre class="brush: csharp">&lt;property name="hibernate.cache.use_second_level_cache"&gt;true&lt;/property&gt;
+&lt;property name="hibernate.cache.provider_class"&gt;org.hibernate.cache.EhCacheProvider&lt;/property&gt;
+</pre>
+<br />
+The ehcache.xml can be configured to cache objects of type com.myapp.Order as shown below<br />
+<br />
+<pre class="brush: csharp">&lt;cache name="com.myapp.Order"
+   maxElementsInMemory="300"
+   eternal="true"
+   overflowToDisk="false"
+   timeToIdleSeconds="300"
+   timeToLiveSeconds="300"
+   diskPersistent="false"
+   diskExpiryThreadIntervalSeconds="120"
+   memoryStoreEvictionPolicy="LRU"       
+/&gt;
+</pre>
+<br />
+second-level cache reduces the database traffic by caching loaded objects at the SessionFactory level between transactions. These objects are available to the whole application, not just to the user running the query. The 'second-level' cache exists as long as the session factory is alive. The second-level cache holds on to the 'data' for all properties and associations (and collections if requested) for individual entities that are marked to be cached. It is imperative to implement proper cache expiring strategies as caches are never aware of changes made to the persistent store by another application. he following are the list of possible cache strategies. <br />
+<br />
+<ul>
+<li><b>Read-only</b>: This is useful for data that is read frequently, but never updated. This is the most simplest and best-performing cache strategy.</li>
+</ul>
+<ul>
+<li><b>Read/write</b>: Read/write caches may be appropriate if your data needs to be updated. This carry more overhead than read-only caches. In non-JTA environments, each transaction should be completed when session.close() or session.disconnect() is called.<br />
+&nbsp;</li>
+<li><b>Nonstrict read/write</b>: This is most appropriate for data that is read often but only occasionally modified.This strategy does not guarantee that two transactions won't simultaneously modify the same data. <br />
+&nbsp;</li>
+<li><b>Transactional</b>: This is a fully transactional cache that may be used only in a JTA environment.</li>
+</ul>
+<br />
+<br />
+It can be enabled via the Hibernate  mapping files as shown below:<br />
+<br />
+<pre class="brush: csharp">&lt;class name="com.myapp.Order"&gt;
+
+    &lt;cache usage="read-write"/&gt;
+    ....
+&lt;/class&gt;
+</pre>
+<br />
+Note: The usage options are: transactional|read-write|nonstrict-read-write|read-only. The cache can also be enabled at different granular level (e.g. parent, children, etc). The active orders will be cached  for 300 seconds. <br />
+<br />
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3764234023451771";
+/* Leader board image and text */
+google_ad_slot = "4890304945";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_channel ="4262872872";
+google_page_url = "http://java-success.blogspot.com.au/p/jee-q.html";
+//--&gt;</script>
+<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript">
+</script>
+<br />
+<br />
+<b>Q.</b> How does the hibernate second-level cache work?<br />
+<b>A.</b> Hibernate always tries to first retrieve objects from the session and if this fails it tries to retrieve them from the second-level cache. If this fails again, the objects are directly loaded from the database.  Hibernate's static initialize() method, which populates a proxy object, will attempt to hit the second-level cache before going to the database. The Hibernate class provides static methods for manipulation of proxies. <br />
+<br />
+<br />
+<pre class="brush: csharp">public final class Hibernate extends Object {
+    ....
+ public static void initialize(Object proxy)  throws HibernateException 
+    .... 
+}
+</pre>
+<br />
+<br />
+As a consequence of using the Hibernate second-level cache, you have to be aware of the fact that each call of a data access method can either result in a cache hit or miss. So, configure your log4j.xml to log your hits and misses.<br />
+<br />
+<pre class="brush: csharp">&lt;logger name="org.hibernate.cache"&gt;
+   &lt;level value="DEBUG" /&gt;
+&lt;/logger&gt;
+</pre>
+<br />
+Alternatively, you can use Spring AOP to log the cache access on your DAO methods. <br />
+<br />
+<br />
+The second level cache is a powerful mechanism for improving performance and scalability of your database driven application. Read-only caches are easy to handle, while read-write caches are more subtle in their behavior. Especially, the interaction with the Hibernate session can lead to unwanted behavior.<br />
+<br />
+<br />
+<br />
+<b>Q. </b>What is a query cache in Hibernate?<br />
+<b>A.</b> The query cache is responsible for caching the results and to be more precise the keys of the objects returned by queries.  Let us have a look how Hibernate uses the query cache to retrieve objects. In order to make use of the query cache we have to modify the person loading example as follows.<br />
+<br />
+<pre class="brush: csharp">Query query = session.createQuery("from Order as o where o.status=?");
+query.setInt(0, "Active");
+query.setCacheable(true); // the query is cacheable
+List l = query.list();
+</pre>
+<br />
+You also have to change the hibernate configuration to enable the query cache. This is done by adding the following line to the Hibernate configuration.<br />
+<br />
+&lt;property name="hibernate.cache.use_query_cache"&gt;true&lt;/property&gt;<br />
+<br />
+<br />
+<b>Q.</b> What are the pitfalls of second level and query caches?<br />
+<b>A.</b> Memeory is a finite resource, and over use or incorrect useage like cacheing the Order object and all its referenced objects can cause OutOfMemoryError. Here are some tips to overcome the pitfalls relating to cacheing.<br />
+<br />
+<b>1.</b> Set entity’s keys as query parameters, rather than setting the entire entity object. Critreia representations should also use identifiers as parameters. Write HQL queries to use identifiers in any substitutable parameters such as WHERE clause, IN clause etc.<br />
+<br />
+In the example below, the entire customer and everything he/she references would be held in cache until either the query cache exceeds its configured limits and it is evicted, or the table is modified and the results become dirty.<br />
+<br />
+<pre class="brush: csharp">final Customer customer = ... ;
+final String hql = "FROM Order as order WHERE order.custOrder = ?"
+final Query q = session.createQuery(hql);
+q.setParameter(0, customer);
+q.setCacheable(true);
+</pre>
+<br />
+Instead of setting the whole customer object as shown above, just set the id. <br />
+<br />
+<pre class="brush: csharp">final Order customer = ... ;
+final String hql = "from Order as order where order.cusomer.id = ?"
+final Query q = session.createQuery(hql);
+q.setParameter(0, customer.getId());
+q.setCacheable(true);
+</pre>
+<br />
+<b>2. </b>Hibernate's query cache implementation is pluggable by decorating Hibernate's query cache implementation. This involves overriding the put( ) method to check if a canonical equivalent of a query results object already exist in the Object[][], and assign the same QueryKey if it exists. <br />
+<br />
+<br />
+<b>3</b>. If you are in a single JVM using in memory cache only, use hibernate.cache.use_structured_entries=false in your hibernate configuration. <br />
+<br />
+<br />
+Here are some general performance tips:<br />
+<br />
+<b>1. </b>Session.<i>load </i>will always try to use the cache. Session.<i>find </i>does not use the cache for the primary object, but cause the cache to be populated. Session.<i>iterate </i>always uses the cache for the primary object and any associated objects.<br />
+<br />
+<b>2. </b>While developing, enable the show SQL and monitor the generated SQL. <br />
+<br />
+&lt;property name="show_sql"&gt;true&lt;/property&gt;<br />
+<br />
+Also enable the "<b>org.hibernate.cache</b>" logger in your log4j.xml to monitor cache hits and misses.<br />
+<br />
+<br />
+<br />
+<br />
+<span style="color: #a64d79; font-size: medium;">More Hibernate Related Interview Questions and Answers</span><br />
+<ul>
+<li><a href="http://java-success.blogspot.com/2010/12/hibernate-interview-questions-q.html">Hibernate Interview Questions and Answers:overview</a></li>
+<li><a href="http://java-success.blogspot.com/2011/11/spring-interview-questions-and-answers_30.html">Hibernate Interview Questions and Answers:Spring integration</a></li>
+</ul><div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Labels: <a rel='tag' href="http://java-success.blogspot.com/search/label/Hibernate">Hibernate</a></p>
+    </p>
+    </div>
+    
+    <p class="post-footer">
+      <em>posted by Arulkumaran Kumaraswamipillai at 
+    <a class="post-footer-link" href="http://java-success.blogspot.in/2011/12/hibernate-interview-questions-and.html" title="permanent link"> 12/05/2011 04:40:00 PM </a></em>
+
+        <span class="item-action"><a href="https://www.blogger.com/email-post.g?blogID=35897879&postID=8808340962300309707" title="Email Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_email.gif" height="13" width="18"/></a></span><span class="item-control blog-admin pid-341905326"><a style="border:none;" href="https://www.blogger.com/post-edit.g?blogID=35897879&postID=8808340962300309707&from=pencil" title="Edit Post"><img class="icon-action" alt="" src="https://img2.blogblog.com/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>4 Comments:</h4>
+    
+    <dl id="comments-block">
+      
+      <dt class="comment-poster" id="c85100147641224993"><a name="c85100147641224993"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/16981215600210306805" rel="nofollow">thayeef</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>NIce Artical, but still I am expecting some more example explanation</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/12/hibernate-interview-questions-and.html?showComment=1359632987915#c85100147641224993" title="comment permalink">10:49 PM, January 31, 2013</a>
+	  <span class="item-control blog-admin pid-759910507"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=85100147641224993" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c1962325732370170216"><a name="c1962325732370170216"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/02486918224688087561" rel="nofollow">Balaji</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Great Article. Really helpful...</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/12/hibernate-interview-questions-and.html?showComment=1368691294410#c1962325732370170216" title="comment permalink">6:01 PM, May 16, 2013</a>
+	  <span class="item-control blog-admin pid-1848989105"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=1962325732370170216" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c1827337597856310938"><a name="c1827337597856310938"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/10703436088448643804" rel="nofollow">Deepak Jain</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>really great :)</p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/12/hibernate-interview-questions-and.html?showComment=1369465142588#c1827337597856310938" title="comment permalink">4:59 PM, May 25, 2013</a>
+	  <span class="item-control blog-admin pid-1841039393"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=1827337597856310938" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+      <dt class="comment-poster" id="c8369166980840959012"><a name="c8369166980840959012"></a>
+        <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="https://img2.blogblog.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="https://www.blogger.com/profile/09216294915760252680" rel="nofollow">Manish Mankar</a> said...
+      </dt>
+
+      <dd class="comment-body">
+        <p>Very Nicely explained !!!!<br /><br />GoooD!<br /><br />Thanks &amp; Keep Updating!!<br /></p>
+      </dd>
+      <dd class="comment-timestamp"><a href="http://java-success.blogspot.com/2011/12/hibernate-interview-questions-and.html?showComment=1372077580537#c8369166980840959012" title="comment permalink">10:39 PM, June 24, 2013</a>
+	  <span class="item-control blog-admin pid-1781599083"><a style="border:none;" href="https://www.blogger.com/delete-comment.g?blogID=35897879&postID=8369166980840959012" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span>
+	  </dd>
+      
+    </dl>
+
+    
+   <p class="comment-timestamp">
+    <div class='comment-form'>
+<a name='comment-form'></a>
+<h4>Post a Comment</h4><p></p>
+<a id='comment-editor-src' href='https://www.blogger.com/comment-iframe.g?blogID=35897879&postID=8808340962300309707'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/2702546152-iframe_colorizer.js"></script>
+</div>
+    </p>
+    <p id="postfeeds">Subscribe to Post Comments [<a target="_blank" href="http://java-success.blogspot.com/feeds/8808340962300309707/comments/default" type="application/atom+xml">Atom</a>]</p>
+    	    
+    
+
+
+		<p class="comment-timestamp">
+	<a href="http://java-success.blogspot.in/">&lt;&lt; Home</a>
+    </p>
+    </div>
+
+
+  <!-- End #comments -->
+   
+
+</div></div>
+<!-- End #main -->
+
+
+
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+
+  
+  
+  <h2 class="sidebar-title">Previous Posts</h2>
+    <ul id="recently">
+    
+        <li><a href="http://java-success.blogspot.in/2011/11/spring-interview-questions-and-answers_30.html">Spring Interview Questions and Answers: Hibernate ...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/11/are-you-feeling-stagnated.html">Are you feeling stagnated?</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/11/spring-interview-questions-and-answers_29.html">Spring Interview Questions and Answers: read prope...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/11/java-interview-questions-and-answers.html">Java Interview Questions and Answers: working with...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/11/spring-interview-questions-and-answers.html">Spring Interview Questions and Answers : Spring Be...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/11/java-interview-q-on-trustore-vs.html">Java Interview Q&amp;A on SSL and truststore vs keysto...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/unit-testing-with-mock-objects.html">Unit testing with mock objects interview questions...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/selenium-web-driver-interview-questions.html">Selenium and Web Driver Interview Questions and An...</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/jmeter-interview-questions-and-answers.html">JMeter Interview Questions and Answers</a></li>
+     
+        <li><a href="http://java-success.blogspot.in/2011/10/java-interview-questions-and-answers-on_18.html">Java Interview Questions and Answers on tools</a></li>
+     
+  </ul>
+  
+  
+  
+  
+  
+  <!-- Begin #profile-container -->
+  
+    <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="https://plus.google.com/109240621969095737337"><img src="//lh3.googleusercontent.com/-XMLxx0v_R7A/AAAAAAAAAAI/AAAAAAAACxk/8BeHFmsEuy8/s80-c/photo.jpg" width="80" height="80" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong> <a rel="author" href="https://plus.google.com/109240621969095737337"> Arulkumaran Kumaraswamipillai </a></dd>
+</dl>
+<p class="profile-textblock">Java freelancer from Australia. As a contractor, attended 100+ job interviews and received multiple job offers. Authored Java career books that sold over 30,000 copies.<br><br><a href="http://www.java-success.com" rel="nofollow" target="_blank">www.java-success.com</a> for 500+ Java/JEE job interview questions and answers and tutorials.<br></p>
+<p class="profile-link"><a rel="author" href="https://plus.google.com/109240621969095737337">View my complete profile</a></p></div>
+  
+  <!-- End #profile -->
+
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  <p id="blogfeeds">Subscribe to<br />Posts [<a target="_blank" href="http://java-success.blogspot.com/feeds/posts/default" type="application/atom+xml">Atom</a>]</p>
+
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+   
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+  <script type="text/javascript"><!--
+google_ad_client = "pub-3764234023451771";
+google_ad_host = "pub-1556223355139109";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>  
+
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+
+  <p><!-- This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+  </div>
+<!-- End #footer -->
+
+
+
+
+</div>
+<!-- End #content -->
+
+
+
+
+
+
+</div></div></div></div>
+<!-- End wraps -->
+
+</body>
+</html>
